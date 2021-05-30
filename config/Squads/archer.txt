@@ -1,0 +1,8 @@
+Img: archer.bmp archer.bmp
+Width_Height: 60 50
+
+Health: 100
+AttackDmg: 20
+Speed: 10
+Range: 300
+Faith: 50

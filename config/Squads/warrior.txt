@@ -1,0 +1,8 @@
+Img: warrior.bmp warrior.bmp
+Width_Height: 70 70
+
+Health: 100
+AttackDmg: 5
+Speed: 10
+Range: 120
+Faith: 50

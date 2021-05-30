@@ -1,0 +1,5 @@
+walkingDiff: 1000
+
+img: Volcano.bmp
+
+Can_Build:

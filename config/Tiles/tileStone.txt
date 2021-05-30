@@ -1,0 +1,5 @@
+walkingDiff: 1000
+
+img: Stone.bmp
+
+Can_Build:

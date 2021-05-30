@@ -1,0 +1,2 @@
+walkingDiff: 1
+img: Hexagon.bmp

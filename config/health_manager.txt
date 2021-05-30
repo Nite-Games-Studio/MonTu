@@ -1,0 +1,7 @@
+FullHpBar_img: HealthBarFill.bmp
+
+EmptyHpBar_img: HealthBarEmpty.bmp
+
+HealthBar_w_h: 165 27
+
+DrawRect: 65 17

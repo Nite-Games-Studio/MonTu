@@ -1,0 +1,20 @@
+walkingDif: 5
+
+img: Bridge.bmp
+Height: 47
+Width: 476
+imgRowsAndCols: 1 7
+RotationAngle: 0
+Health: 420
+
+States: 6
+MaxState: 4
+
+DurationPerState(in_ms): 4000
+
+StartingPositionStatus: 0
+StartingState: 0
+
+StartingHealth: 1
+
+ConstructingStatus: 1

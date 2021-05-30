@@ -1,0 +1,4 @@
+vertical_and_horizontal_spacing: 10 10
+
+buildingListTxtr: popup.bmp
+buildingListRect: 125 55 

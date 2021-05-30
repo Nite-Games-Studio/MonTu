@@ -1,0 +1,3 @@
+Img: UI.bmp
+Size: 1920 1080
+Position: 0 0

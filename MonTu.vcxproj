@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{7fda3596-30a4-4795-8b6f-5bd50087f2b1}</ProjectGuid>
+    <RootNamespace>MonTu</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include\CityView;SDL2\include;include\Menu;include\Map;include\Main;include\Battle;include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>SDL2\lib\x86;SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>include\CityView;SDL2\include;include\Menu;include\Map;include\Main;include\Battle;include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>SDL2\lib\x86;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Battle\ArmyManager.cpp" />
+    <ClCompile Include="src\Battle\Battle.cpp" />
+    <ClCompile Include="src\Battle\EnemyAI.cpp" />
+    <ClCompile Include="src\Battle\Healer.cpp" />
+    <ClCompile Include="src\Battle\HealthManager.cpp" />
+    <ClCompile Include="src\Battle\HookSquad.cpp" />
+    <ClCompile Include="src\Battle\SpearSquad.cpp" />
+    <ClCompile Include="src\Battle\Squad.cpp" />
+    <ClCompile Include="src\Battle\squad_manager.cpp" />
+    <ClCompile Include="src\City View\Archery.cpp" />
+    <ClCompile Include="src\City View\ArmyCamp.cpp" />
+    <ClCompile Include="src\City View\Bridge.cpp" />
+    <ClCompile Include="src\City View\Building.cpp" />
+    <ClCompile Include="src\City View\BuildingUI.cpp" />
+    <ClCompile Include="src\City View\Buttons.cpp" />
+    <ClCompile Include="src\City View\Castle.cpp" />
+    <ClCompile Include="src\City View\castleUI.cpp" />
+    <ClCompile Include="src\City View\Shop.cpp" />
+    <ClCompile Include="src\City View\Street.cpp" />
+    <ClCompile Include="src\City View\Tile.cpp" />
+    <ClCompile Include="src\City View\Ui.cpp" />
+    <ClCompile Include="src\City View\UISelectable.cpp" />
+    <ClCompile Include="src\City View\WorldBuilding.cpp" />
+    <ClCompile Include="src\Main\ConfigManager.cpp" />
+    <ClCompile Include="src\Main\Engine.cpp" />
+    <ClCompile Include="src\Main\FPSManager.cpp" />
+    <ClCompile Include="src\Main\SoundManager.cpp" />
+    <ClCompile Include="src\Main\World.cpp" />
+    <ClCompile Include="src\Map\WorldMap.cpp" />
+    <ClCompile Include="src\Menu\Menu.cpp" />
+    <ClCompile Include="src\PickAndBan.cpp" />
+    <ClCompile Include="src\PlayerStatsManager.cpp" />
+    <ClCompile Include="src\PopUpWriter.cpp" />
+    <ClCompile Include="src\TitleScreen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Battle\ArmyManager.h" />
+    <ClInclude Include="include\Battle\Battle.h" />
+    <ClInclude Include="include\Battle\EnemyAI.h" />
+    <ClInclude Include="include\Battle\Healer.h" />
+    <ClInclude Include="include\Battle\HealthManager.h" />
+    <ClInclude Include="include\Battle\HookSquad.h" />
+    <ClInclude Include="include\Battle\SpearSquad.h" />
+    <ClInclude Include="include\Battle\Squad.h" />
+    <ClInclude Include="include\Battle\squad_data.h" />
+    <ClInclude Include="include\Battle\squad_manager.h" />
+    <ClInclude Include="include\City View\Archery.h" />
+    <ClInclude Include="include\City View\ArmyCamp.h" />
+    <ClInclude Include="include\City View\Bridge.h" />
+    <ClInclude Include="include\City View\Building.h" />
+    <ClInclude Include="include\City View\BuildingUI.h" />
+    <ClInclude Include="include\City View\Buttons.h" />
+    <ClInclude Include="include\City View\Castle.h" />
+    <ClInclude Include="include\City View\castleUI.h" />
+    <ClInclude Include="include\City View\Shop.h" />
+    <ClInclude Include="include\City View\Street.h" />
+    <ClInclude Include="include\City View\Tile.h" />
+    <ClInclude Include="include\City View\Ui.h" />
+    <ClInclude Include="include\City View\UISelectable.h" />
+    <ClInclude Include="include\City View\WorldBuilding.h" />
+    <ClInclude Include="include\Main\ConfigManager.h" />
+    <ClInclude Include="include\Main\defines.h" />
+    <ClInclude Include="include\Main\Engine.h" />
+    <ClInclude Include="include\Main\FPSManager.h" />
+    <ClInclude Include="include\Main\SoundManager.h" />
+    <ClInclude Include="include\Main\World.h" />
+    <ClInclude Include="include\Map\WorldMap.h" />
+    <ClInclude Include="include\Menu\Menu.h" />
+    <ClInclude Include="include\PickAndBan.h" />
+    <ClInclude Include="include\PlayerStatsManager.h" />
+    <ClInclude Include="include\PopUpWriter.h" />
+    <ClInclude Include="include\TitleScreen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\archer.bmp" />
+    <Image Include="img\Archery.bmp" />
+    <Image Include="img\Archery_Selectable.bmp" />
+    <Image Include="img\Archery_selected.bmp" />
+    <Image Include="img\ArmyCamp.bmp" />
+    <Image Include="img\arrow.bmp" />
+    <Image Include="img\attackTile.bmp" />
+    <Image Include="img\BackgroundMap.bmp" />
+    <Image Include="img\Back_Button.bmp" />
+    <Image Include="img\Battle_Button.bmp" />
+    <Image Include="img\BuildIndicator_Castle.bmp" />
+    <Image Include="img\Castle.bmp" />
+    <Image Include="img\Castle_3.bmp" />
+    <Image Include="img\Castle_Selectable.bmp" />
+    <Image Include="img\cityBackground.bmp" />
+    <Image Include="img\city_city-army.bmp" />
+    <Image Include="img\city_city-stats.bmp" />
+    <Image Include="img\city_create-army.bmp" />
+    <Image Include="img\CreateSquadButton.bmp" />
+    <Image Include="img\createSquadWindow.bmp" />
+    <Image Include="img\crossbowmen.bmp" />
+    <Image Include="img\cursor.bmp" />
+    <Image Include="img\DamageIndicator_Castle.bmp" />
+    <Image Include="img\Desert.bmp" />
+    <Image Include="img\Exit_Button.bmp" />
+    <Image Include="img\Forest.bmp" />
+    <Image Include="img\Grass.bmp" />
+    <Image Include="img\HealthBarEmpty.bmp" />
+    <Image Include="img\HealthBarFill.bmp" />
+    <Image Include="img\Hexagon.bmp" />
+    <Image Include="img\horseman.bmp" />
+    <Image Include="img\Inventory.bmp" />
+    <Image Include="img\knights.bmp" />
+    <Image Include="img\Lava.bmp" />
+    <Image Include="img\Map1.bmp" />
+    <Image Include="img\Map1Pick.bmp" />
+    <Image Include="img\Map2.bmp" />
+    <Image Include="img\Map2Pick.bmp" />
+    <Image Include="img\Map3.bmp" />
+    <Image Include="img\Map3Pick.bmp" />
+    <Image Include="img\Map4.bmp" />
+    <Image Include="img\Map4Pick.bmp" />
+    <Image Include="img\Menu_Button.bmp" />
+    <Image Include="img\Mountain.bmp" />
+    <Image Include="img\NiTe_logo.bmp" />
+    <Image Include="img\NiTe_logo_backup.bmp" />
+    <Image Include="img\Options_Button.bmp" />
+    <Image Include="img\pickAndBanBackground.bmp" />
+    <Image Include="img\Play_Button.bmp" />
+    <Image Include="img\popup.bmp" />
+    <Image Include="img\selected.bmp" />
+    <Image Include="img\selected1.bmp" />
+    <Image Include="img\selected2.bmp" />
+    <Image Include="img\selectedCastle.bmp" />
+    <Image Include="img\Shop.bmp" />
+    <Image Include="img\Shop_Selectable.bmp" />
+    <Image Include="img\Shop_selected.bmp" />
+    <Image Include="img\skip_btn_fill.bmp" />
+    <Image Include="img\skip_btn_trans.bmp" />
+    <Image Include="img\slot.bmp" />
+    <Image Include="img\spearmen.bmp" />
+    <Image Include="img\Stone.bmp" />
+    <Image Include="img\Street.bmp" />
+    <Image Include="img\Street_Selectable.bmp" />
+    <Image Include="img\Street_Selectable2.bmp" />
+    <Image Include="img\Street_selected.bmp" />
+    <Image Include="img\UI-1.bmp" />
+    <Image Include="img\UI.bmp" />
+    <Image Include="img\UISelectable.bmp" />
+    <Image Include="img\UISelectable_selected.bmp" />
+    <Image Include="img\UI_2.bmp" />
+    <Image Include="img\UI_Menu.bmp" />
+    <Image Include="img\UI_tryout.bmp" />
+    <Image Include="img\Volcano.bmp" />
+    <Image Include="img\warrior.bmp" />
+    <Image Include="img\Water.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\NiTe_logo_0" />
+    <None Include="img\Untitled-1.ai" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config\battle_manager.txt" />
+    <Text Include="config\buildings.txt" />
+    <Text Include="config\Buildings\archery.txt" />
+    <Text Include="config\Buildings\army_camp.txt" />
+    <Text Include="config\Buildings\bridge.txt" />
+    <Text Include="config\Buildings\castle.txt" />
+    <Text Include="config\Buildings\shop.txt" />
+    <Text Include="config\Buildings\street.txt" />
+    <Text Include="config\Buttons\buttons_building.txt" />
+    <Text Include="config\castle.txt" />
+    <Text Include="config\castleUI.txt" />
+    <Text Include="config\cityBackground.txt" />
+    <Text Include="config\cityMap.txt" />
+    <Text Include="config\cityView.txt" />
+    <Text Include="config\config_manager.txt" />
+    <Text Include="config\directions.txt" />
+    <Text Include="config\health_manager.txt" />
+    <Text Include="config\Maps\buildingSave.txt" />
+    <Text Include="config\Maps\Castle_map.txt" />
+    <Text Include="config\Maps\CityView.txt" />
+    <Text Include="config\Maps\Map1.txt" />
+    <Text Include="config\Maps\Map2.txt" />
+    <Text Include="config\Maps\Map3.txt" />
+    <Text Include="config\Maps\Map4.txt" />
+    <Text Include="config\menu.txt" />
+    <Text Include="config\pick_and_ban.txt" />
+    <Text Include="config\PlayerStats\mainStats.txt" />
+    <Text Include="config\PopUpWriter.txt" />
+    <Text Include="config\SoundManager.txt" />
+    <Text Include="config\squads.txt" />
+    <Text Include="config\Squads\archer.txt" />
+    <Text Include="config\Squads\crossbowmen.txt" />
+    <Text Include="config\Squads\knights.txt" />
+    <Text Include="config\Squads\spearmen.txt" />
+    <Text Include="config\Squads\warrior.txt" />
+    <Text Include="config\tile.txt" />
+    <Text Include="config\tileMap.txt" />
+    <Text Include="config\tileMapBuilding.txt" />
+    <Text Include="config\Tiles\tileDesert.txt" />
+    <Text Include="config\Tiles\tileForest.txt" />
+    <Text Include="config\Tiles\tileGrass.txt" />
+    <Text Include="config\Tiles\tileLava.txt" />
+    <Text Include="config\Tiles\tileMountain.txt" />
+    <Text Include="config\Tiles\tileStone.txt" />
+    <Text Include="config\Tiles\tileVolcano.txt" />
+    <Text Include="config\Tiles\tileWater.txt" />
+    <Text Include="config\TitleScreens\NiTe_logo.txt" />
+    <Text Include="config\UI\UI.txt" />
+    <Text Include="config\UI\UISelectable.txt" />
+    <Text Include="config\UI\UISelectable_selected.txt" />
+    <Text Include="config\world.txt" />
+    <Text Include="config\worldMap.txt" />
+    <Text Include="config\worldMapPieces.txt" />
+    <Text Include="data\all_squads.txt" />
+    <Text Include="data\armyManager.txt" />
+    <Text Include="data\buildingsSave.txt" />
+    <Text Include="data\city\0-castle.txt" />
+    <Text Include="data\city\0-street.txt" />
+    <Text Include="data\city\1-street.txt" />
+    <Text Include="data\city\10-archery.txt" />
+    <Text Include="data\city\10-shop.txt" />
+    <Text Include="data\city\11-shop.txt" />
+    <Text Include="data\city\12-shop.txt" />
+    <Text Include="data\city\13-street.txt" />
+    <Text Include="data\city\14-street.txt" />
+    <Text Include="data\city\15-street.txt" />
+    <Text Include="data\city\16-street.txt" />
+    <Text Include="data\city\17-street.txt" />
+    <Text Include="data\city\18-street.txt" />
+    <Text Include="data\city\19-shop.txt" />
+    <Text Include="data\city\2-street.txt" />
+    <Text Include="data\city\20-shop.txt" />
+    <Text Include="data\city\21-street.txt" />
+    <Text Include="data\city\22-shop.txt" />
+    <Text Include="data\city\23-archery.txt" />
+    <Text Include="data\city\24-street.txt" />
+    <Text Include="data\city\25-street.txt" />
+    <Text Include="data\city\26-archery.txt" />
+    <Text Include="data\city\27-shop.txt" />
+    <Text Include="data\city\3-street.txt" />
+    <Text Include="data\city\4-street.txt" />
+    <Text Include="data\city\5-street.txt" />
+    <Text Include="data\city\6-archery.txt" />
+    <Text Include="data\city\6-street.txt" />
+    <Text Include="data\city\7-archery.txt" />
+    <Text Include="data\city\8-archery.txt" />
+    <Text Include="data\city\9-archery.txt" />
+    <Text Include="data\formation.txt" />
+    <Text Include="data\squadCount.txt" />
+    <Text Include="data\squads\soldier data\soldier_data_0.txt" />
+    <Text Include="data\squads\soldier data\soldier_data_1.txt" />
+    <Text Include="data\squads\soldier data\soldier_data_2.txt" />
+    <Text Include="data\squads\soldier data\soldier_data_3.txt" />
+    <Text Include="data\squads\squad0.txt" />
+    <Text Include="data\squads\squad1.txt" />
+    <Text Include="data\squads\squad2.txt" />
+    <Text Include="data\squads\squad3.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ttf\Perpetua-Titling-MT.ttf" />
+    <Font Include="ttf\Roboto-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\General.mp3" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

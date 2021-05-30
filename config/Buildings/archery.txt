@@ -1,0 +1,38 @@
+walkingDif: 5
+
+img: Archery.bmp
+
+OwnerIndicatorP1_WhenGettingStateRegular: OwnerIndicatorP1_Castle.bmp
+
+OwnerIndicatorP2_WhenGettingStateRegular: OwnerIndicatorP2_Castle.bmp
+
+BuildIndicator_WhenGettingStateRegular: BuildIndicator_Castle.bmp
+
+DamageIndicator_WhenGettingStateRegular: DamageIndicator_Castle.bmp
+
+Height: 512
+
+Width: 512
+
+PositionAdjustment: 0
+
+Health: 420
+
+Capacity: 22
+
+States: 7
+
+MaxState: 3
+
+DurationPerState(in_ms): 6000
+
+StartingPositionStatus: 0
+StartingState: 0
+
+StartingHealth: 1
+
+StartingUsedCapacity: 0
+
+ConstructingStatus: 1
+Archer: 1 2000
+Warrior: 1 6000

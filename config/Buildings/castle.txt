@@ -1,0 +1,33 @@
+walkingDif: 5
+
+img: Castle.bmp
+
+OwnerIndicatorP1: OwnerIndicatorP1_Castle.bmp
+
+OwnerIndicatorP2: OwnerIndicatorP2_Castle.bmp
+
+BuildIndicator: BuildIndicator_Castle.bmp
+
+DamageIndicator: DamageIndicator_Castle.bmp
+
+Height: 1552
+
+Width: 1701
+
+PositionAdjustment: 0
+
+Health: 420
+
+States: 7
+
+MaxState: 3
+
+DurationPerState(in_ms): 4000
+
+StartingPositionStatus: 0
+
+StartingState: 0
+
+StartingHealth: 1
+
+ConstructingStatus: 1

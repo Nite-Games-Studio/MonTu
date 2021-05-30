@@ -1,0 +1,1 @@
+Map: WorldMap1.bmp WorldMap2.bmp WorldMap3.bmp WorldMap4.bmp WorldMap5.bmp WorldMap6.bmp WorldMap7.bmp WorldMap8.bmp WorldMap9.bmp WorldMap10.bmp WorldMap11.bmp WorldMap12.bmp WorldMap13.bmp WorldMap14.bmp WorldMap15.bmp WorldMap16.bmp

@@ -1,0 +1,856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{e9586ba2-b3cb-4819-9132-45f0be3815ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Map">
+      <UniqueIdentifier>{cb8fef60-4413-4b5d-a023-669457862e93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Main">
+      <UniqueIdentifier>{3372c33b-5bc4-4517-b8d7-2f9a8cc3de56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Battle">
+      <UniqueIdentifier>{97700ef5-38cb-4e26-8602-b29f85b69e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{a7fcf033-2381-4a24-8cbd-59bfda721863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Map">
+      <UniqueIdentifier>{f6d2e8cb-7dd8-49e9-82e5-06aa5842b76a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main">
+      <UniqueIdentifier>{f72d5708-8900-4a48-b9c0-2539f68f15f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\City View">
+      <UniqueIdentifier>{9d3ce9ef-3efc-444e-a4e8-8b599c6d1419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Battle">
+      <UniqueIdentifier>{bc117093-6338-4728-8abe-3e00198190d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="img">
+      <UniqueIdentifier>{07ac3b79-1a51-4910-bd54-bf38e1253400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config">
+      <UniqueIdentifier>{de8ecd87-326d-4c49-99b8-60810d15c901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\Buildings">
+      <UniqueIdentifier>{8a780610-cf34-49ea-8908-13ce66313137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\Buttons">
+      <UniqueIdentifier>{cae311e1-f672-43df-a201-6e3e347d434b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\Maps">
+      <UniqueIdentifier>{1bba20dd-dd6a-45af-88c1-6e0ac7f1f265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\PlayerStats">
+      <UniqueIdentifier>{8e4fd0c7-dbb4-4820-a5ff-0e2aa6b89d6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\Squads">
+      <UniqueIdentifier>{a698353f-99cc-42d1-947a-4cfdfd790bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\Tiles">
+      <UniqueIdentifier>{421d3adf-1ed2-405e-9478-de0b627687df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\TitleScreens">
+      <UniqueIdentifier>{166dd870-aeb8-4c47-ae46-47112d10444d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="config\UI">
+      <UniqueIdentifier>{df60ab65-2202-4602-bffb-4f5b2c4d46d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{89957ac7-ae48-4eb5-9203-e86d351cea1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\city">
+      <UniqueIdentifier>{af9e3a41-40c2-4bd3-b872-f92667e470a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\squads">
+      <UniqueIdentifier>{3a8c1a3c-352d-4ab9-96c1-cfac6aa3cd63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data\squads\soldier data">
+      <UniqueIdentifier>{23e580e5-92ed-4a2a-825e-046837ff88e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ttf">
+      <UniqueIdentifier>{bd00f1bc-b9dd-4454-8d7d-6d21761bf89a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="music">
+      <UniqueIdentifier>{5d0825e8-d867-4104-9a4a-34d663d4b366}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CityView">
+      <UniqueIdentifier>{d51b6618-aad7-49c4-9993-fe9301df238a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PickAndBan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlayerStatsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PopUpWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TitleScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\ArmyManager.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\Battle.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\EnemyAI.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\Healer.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\HealthManager.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\HookSquad.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\SpearSquad.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\Squad.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\squad_manager.cpp">
+      <Filter>Source Files\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Archery.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\ArmyCamp.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Bridge.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Building.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\BuildingUI.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Buttons.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Castle.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\castleUI.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Shop.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Street.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Tile.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Ui.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\UISelectable.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\WorldBuilding.cpp">
+      <Filter>Source Files\City View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\ConfigManager.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\Engine.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\FPSManager.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\SoundManager.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\World.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\WorldMap.cpp">
+      <Filter>Source Files\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Menu\Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Menu\Menu.h">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\ArmyManager.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\Battle.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\EnemyAI.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\Healer.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\HealthManager.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\HookSquad.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\SpearSquad.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\Squad.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\squad_data.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\squad_manager.h">
+      <Filter>Header Files\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Archery.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\ArmyCamp.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Bridge.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Building.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\BuildingUI.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Buttons.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Castle.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\castleUI.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Shop.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Street.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Tile.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\Ui.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\UISelectable.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\City View\WorldBuilding.h">
+      <Filter>Header Files\CityView</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\ConfigManager.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\defines.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\Engine.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\FPSManager.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\SoundManager.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\World.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Map\WorldMap.h">
+      <Filter>Header Files\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PickAndBan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PlayerStatsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PopUpWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TitleScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\archer.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Archery.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Archery_Selectable.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Archery_selected.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\ArmyCamp.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\arrow.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\attackTile.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Back_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\BackgroundMap.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Battle_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\BuildIndicator_Castle.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Castle.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Castle_3.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Castle_Selectable.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\city_city-army.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\city_city-stats.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\city_create-army.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\cityBackground.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\CreateSquadButton.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\createSquadWindow.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\crossbowmen.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\cursor.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\DamageIndicator_Castle.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Desert.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Exit_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Forest.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Grass.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\HealthBarEmpty.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\HealthBarFill.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Hexagon.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\horseman.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Inventory.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\knights.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Lava.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map1Pick.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map2.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map2Pick.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map3.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map3Pick.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map4.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Map4Pick.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Menu_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Mountain.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\NiTe_logo.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\NiTe_logo_backup.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Options_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\pickAndBanBackground.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Play_Button.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\popup.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\selected.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\selected1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\selected2.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\selectedCastle.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Shop.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Shop_Selectable.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Shop_selected.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\skip_btn_fill.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\skip_btn_trans.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\slot.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\spearmen.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Stone.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Street.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Street_Selectable.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Street_Selectable2.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Street_selected.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UI.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UI_2.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UI_Menu.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UI_tryout.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UI-1.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UISelectable.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\UISelectable_selected.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Volcano.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\warrior.bmp">
+      <Filter>img</Filter>
+    </Image>
+    <Image Include="img\Water.bmp">
+      <Filter>img</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\NiTe_logo_0">
+      <Filter>img</Filter>
+    </None>
+    <None Include="img\Untitled-1.ai">
+      <Filter>img</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config\battle_manager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\buildings.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\castle.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\castleUI.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\cityBackground.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\cityMap.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\cityView.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\config_manager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\directions.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\health_manager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\menu.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\pick_and_ban.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\PopUpWriter.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\SoundManager.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\squads.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\tile.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\tileMap.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\tileMapBuilding.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\world.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\worldMap.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\worldMapPieces.txt">
+      <Filter>config</Filter>
+    </Text>
+    <Text Include="config\Buildings\archery.txt">
+      <Filter>config\Buildings</Filter>
+    </Text>
+    <Text Include="config\Buildings\army_camp.txt">
+      <Filter>config\Buildings</Filter>
+    </Text>
+    <Text Include="config\Buildings\bridge.txt">
+      <Filter>config\Buildings</Filter>
+    </Text>
+    <Text Include="config\Buildings\castle.txt">
+      <Filter>config\Buildings</Filter>
+    </Text>
+    <Text Include="config\Buildings\shop.txt">
+      <Filter>config\Buildings</Filter>
+    </Text>
+    <Text Include="config\Buildings\street.txt">
+      <Filter>config\Buildings</Filter>
+    </Text>
+    <Text Include="config\Buttons\buttons_building.txt">
+      <Filter>config\Buttons</Filter>
+    </Text>
+    <Text Include="config\Maps\buildingSave.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\Maps\Castle_map.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\Maps\CityView.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\Maps\Map1.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\Maps\Map2.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\Maps\Map3.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\Maps\Map4.txt">
+      <Filter>config\Maps</Filter>
+    </Text>
+    <Text Include="config\PlayerStats\mainStats.txt">
+      <Filter>config\PlayerStats</Filter>
+    </Text>
+    <Text Include="config\Squads\archer.txt">
+      <Filter>config\Squads</Filter>
+    </Text>
+    <Text Include="config\Squads\crossbowmen.txt">
+      <Filter>config\Squads</Filter>
+    </Text>
+    <Text Include="config\Squads\knights.txt">
+      <Filter>config\Squads</Filter>
+    </Text>
+    <Text Include="config\Squads\spearmen.txt">
+      <Filter>config\Squads</Filter>
+    </Text>
+    <Text Include="config\Squads\warrior.txt">
+      <Filter>config\Squads</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileDesert.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileForest.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileGrass.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileLava.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileMountain.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileStone.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileVolcano.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\Tiles\tileWater.txt">
+      <Filter>config\Tiles</Filter>
+    </Text>
+    <Text Include="config\TitleScreens\NiTe_logo.txt">
+      <Filter>config\TitleScreens</Filter>
+    </Text>
+    <Text Include="config\UI\UI.txt">
+      <Filter>config\UI</Filter>
+    </Text>
+    <Text Include="config\UI\UISelectable.txt">
+      <Filter>config\UI</Filter>
+    </Text>
+    <Text Include="config\UI\UISelectable_selected.txt">
+      <Filter>config\UI</Filter>
+    </Text>
+    <Text Include="data\all_squads.txt">
+      <Filter>data</Filter>
+    </Text>
+    <Text Include="data\armyManager.txt">
+      <Filter>data</Filter>
+    </Text>
+    <Text Include="data\buildingsSave.txt">
+      <Filter>data</Filter>
+    </Text>
+    <Text Include="data\formation.txt">
+      <Filter>data</Filter>
+    </Text>
+    <Text Include="data\squadCount.txt">
+      <Filter>data</Filter>
+    </Text>
+    <Text Include="data\squads\squad0.txt">
+      <Filter>data\squads</Filter>
+    </Text>
+    <Text Include="data\squads\squad1.txt">
+      <Filter>data\squads</Filter>
+    </Text>
+    <Text Include="data\squads\squad2.txt">
+      <Filter>data\squads</Filter>
+    </Text>
+    <Text Include="data\squads\squad3.txt">
+      <Filter>data\squads</Filter>
+    </Text>
+    <Text Include="data\squads\soldier data\soldier_data_0.txt">
+      <Filter>data\squads\soldier data</Filter>
+    </Text>
+    <Text Include="data\squads\soldier data\soldier_data_1.txt">
+      <Filter>data\squads\soldier data</Filter>
+    </Text>
+    <Text Include="data\squads\soldier data\soldier_data_2.txt">
+      <Filter>data\squads\soldier data</Filter>
+    </Text>
+    <Text Include="data\squads\soldier data\soldier_data_3.txt">
+      <Filter>data\squads\soldier data</Filter>
+    </Text>
+    <Text Include="data\city\0-castle.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\0-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\1-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\2-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\3-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\4-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\5-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\6-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\6-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\7-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\8-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\9-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\10-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\10-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\11-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\12-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\13-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\14-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\15-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\16-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\17-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\18-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\19-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\20-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\21-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\22-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\23-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\24-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\25-street.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\26-archery.txt">
+      <Filter>data\city</Filter>
+    </Text>
+    <Text Include="data\city\27-shop.txt">
+      <Filter>data\city</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ttf\Perpetua-Titling-MT.ttf">
+      <Filter>ttf</Filter>
+    </Font>
+    <Font Include="ttf\Roboto-Regular.ttf">
+      <Filter>ttf</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\General.mp3">
+      <Filter>music</Filter>
+    </Media>
+  </ItemGroup>
+</Project>

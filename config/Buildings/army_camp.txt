@@ -1,0 +1,38 @@
+walkingDif: 5
+
+img: ArmyCamp.bmp
+
+OwnerIndicatorP1: OwnerIndicatorP1_ArmyCamp.bmp
+
+OwnerIndicatorP2: OwnerIndicatorP2_ArmyCamp.bmp
+
+BuildIndicator: BuildIndicator_Castle.bmp
+
+DamageIndicator: DamageIndicator_Castle.bmp
+
+Height: 512
+
+Width: 512
+
+PositionAdjustment: 0
+
+Health: 400
+
+Capacity: 18
+
+States: 8
+
+MaxState: 3
+
+DurationPerState(in_ms): 6000
+
+StartingPositionStatus: 0
+StartingState: 0
+
+StartingHealth: 1
+
+StartingUsedCapacity: 0
+
+ConstructingStatus: 1
+Archer: 1 2000
+Warrior: 1 6000

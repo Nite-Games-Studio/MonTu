@@ -1,0 +1,21 @@
+Next_Button: NextButton.bmp
+
+Next_Button_Rect: 683 384 40 40
+
+zoom: 5
+
+Max_Zoom: 3840 2160
+
+Min_Zoom: 1024 768
+
+all_Image_Count: 16
+
+Images_per_chunk: 4
+
+Army_Img: Army.bmp
+
+Amry_Rect: 700 500 64 64
+
+Border_Img: Border.bmp
+
+Speed: 1

@@ -1,0 +1,5 @@
+walkingDiff: 3
+
+img: Forest.bmp
+
+Can_Build:

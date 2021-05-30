@@ -1,0 +1,7 @@
+Size: 80
+Start: 800
+Margins: 5
+MenuImg: Menu_Button.bmp
+BattleImg: Battle_Button.bmp
+MapImg: Exit_Button.bmp
+ExitImg: Exit_Button.bmp

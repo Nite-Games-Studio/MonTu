@@ -1,0 +1,5 @@
+walkingDiff: 1000
+
+img: Water.bmp
+
+Can_Build:

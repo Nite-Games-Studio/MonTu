@@ -1,0 +1,3 @@
+state: 0
+city: TSAREVO
+soldier_data_0.txt

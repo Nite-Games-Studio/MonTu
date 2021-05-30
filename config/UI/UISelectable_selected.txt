@@ -1,0 +1,5 @@
+Img: UISelectable_selected.bmp
+Size: 60 60
+Margins: 0
+NumberOfSelectables: 11
+DrawBegin: 322

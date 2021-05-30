@@ -1,0 +1,45 @@
+Menu_Image: UI_Menu.bmp
+
+Play_Button_Rect: 679 625 562 112
+
+Map_Background: BackgroundMap.bmp
+
+Exit_Button_Rect: 1803 56 66 66
+
+Play_Button_Img: Play_Button.bmp
+
+Exit_Button_Img: Exit_Button.bmp
+
+Options_Button_Img: Options_Button.bmp
+
+Back_Button_Img: Back_Button.bmp
+
+Back_Button_Rect: 55 66 43 56
+
+Options_Button_Rect: 679 834 562 112
+
+Map1: Map1.bmp	
+
+Map2: Map2.bmp
+
+Map3: Map3.bmp
+
+Map4: Map4.bmp
+
+Map1_Pick: Map1Pick.bmp
+
+Map2_Pick: Map2Pick.bmp
+
+Map3_Pick: Map3Pick.bmp
+
+Map4_Pick: Map4Pick.bmp
+
+Map1_Rect: 264 234 507 272
+
+Map2_Rect: 1145 234 507 272
+
+Map3_Rect: 264 657 507 272
+
+Map4_Rect: 1145 657 507 272
+
+Width_Height_Change: 32 18

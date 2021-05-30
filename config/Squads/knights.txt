@@ -1,0 +1,8 @@
+Img: knights.bmp knights.bmp
+Width_Height: 50 50
+
+Health: 100
+AttackDmg: 5
+Speed: 10
+Range: 60
+Faith: 50

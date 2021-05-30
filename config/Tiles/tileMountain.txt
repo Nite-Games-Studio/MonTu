@@ -1,0 +1,5 @@
+walkingDiff: 4
+
+img: Mountain.bmp
+
+Can_Build:
