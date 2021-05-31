@@ -5,6 +5,8 @@
 #include "WorldBuilding.h"
 #include "TitleScreen.h"
 
+#undef main
+
 World world;
 FPSManager frameManager;
 
@@ -135,5 +137,5 @@ int main(int argc, char* argv[])
         frameManager.start();
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }

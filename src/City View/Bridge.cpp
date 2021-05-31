@@ -96,7 +96,7 @@ void Bridge::select()
     {
         if (!m_getPosition)
         {
-            if (GetAsyncKeyState(VK_LEFT))
+            /*if (GetAsyncKeyState(VK_LEFT))
             {
                 m_rotationAngle -= MOVEMENT;
             }
@@ -114,7 +114,7 @@ void Bridge::select()
                 m_useObject = false;
                 m_getPosition = true;
             }
-            Sleep(100);
+            Sleep(100);*/
             m_currTimePoint = steady_clock::now();
             m_currState = 0;
         }

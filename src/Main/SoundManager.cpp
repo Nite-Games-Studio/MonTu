@@ -37,7 +37,7 @@ void SoundManager::play_sound(string sound)
 
     if (sound == General_Music_str)
     {
-        Mix_PlayChannel(7, General, 1000);
+        Mix_PlayChannel(7, General, INT_MAX);
         Mix_Volume(7, 10);
     }
 }

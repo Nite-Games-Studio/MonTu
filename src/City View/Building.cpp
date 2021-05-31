@@ -236,7 +236,7 @@ void Building::select()
 {
     if (cityView.m_selected.x == m_objectRect.x && cityView.m_selected.y == m_objectRect.y)
     {
-        if (!m_getPosition)
+        /*if (!m_getPosition)
         {
             if (GetAsyncKeyState(VK_RETURN))
             {
@@ -249,7 +249,7 @@ void Building::select()
                 m_getPosition = true;
             }
             Sleep(100);
-        }
+        }*/
     }
     else
     {

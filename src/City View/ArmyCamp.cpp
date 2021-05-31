@@ -138,7 +138,7 @@ void ArmyCamp::select()
     {
         if (!m_getPosition)
         {
-            if (GetAsyncKeyState(VK_RETURN))
+            /*if (GetAsyncKeyState(VK_RETURN))
             {
                 m_getPosition = true;
             }
@@ -148,7 +148,7 @@ void ArmyCamp::select()
                 m_useObject = false;
                 m_getPosition = true;
             }
-            Sleep(100);
+            Sleep(100);*/
         }
     }
     else
