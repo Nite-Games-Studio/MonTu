@@ -1,8 +1,8 @@
-ObjX: 1296
+ObjX: 912
 ObjY: 756
-MapX: 13
+MapX: 9
 MapY: 9
-Walking_Difficulty: 0
+Walking_Difficulty: -19633
 Image: Street.bmp
 Owner1: a
 Owner2: a

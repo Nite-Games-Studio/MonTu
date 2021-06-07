@@ -1,6 +1,6 @@
-ObjX: 1296
+ObjX: 528
 ObjY: 756
-MapX: 13
+MapX: 5
 MapY: 9
 Walking_Difficulty: 0
 Image: Street.bmp

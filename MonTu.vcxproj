@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>SDL2_mixer-2.0.4\include;SDL2_ttf-2.0.15\include;SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>SDL2_ttf-2.0.15\lib\x86;SDL2_mixer-2.0.4\lib\x86;SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -105,14 +105,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>SDL2_mixer-2.0.4\include;SDL2_ttf-2.0.15\include;SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>SDL2_ttf-2.0.15\lib\x86;SDL2_mixer-2.0.4\lib\x86;SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -122,12 +122,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>SDL2_mixer-2.0.4\include;SDL2_ttf-2.0.15\include;SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>SDL2_ttf-2.0.15\lib\x86;SDL2_mixer-2.0.4\lib\x86;SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -139,54 +139,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>SDL2_mixer-2.0.4\include;SDL2_ttf-2.0.15\include;SDL2\include;include;include\Menu;include\Map;include\Main;include\CityView;include\Battle;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>SDL2_ttf-2.0.15\lib\x86;SDL2_mixer-2.0.4\lib\x86;SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\Battle\ArmyManager.cpp" />
-    <ClCompile Include="src\Battle\Battle.cpp" />
-    <ClCompile Include="src\Battle\EnemyAI.cpp" />
-    <ClCompile Include="src\Battle\Healer.cpp" />
-    <ClCompile Include="src\Battle\HealthManager.cpp" />
-    <ClCompile Include="src\Battle\HookSquad.cpp" />
-    <ClCompile Include="src\Battle\SpearSquad.cpp" />
-    <ClCompile Include="src\Battle\Squad.cpp" />
-    <ClCompile Include="src\Battle\squad_manager.cpp" />
-    <ClCompile Include="src\City View\Archery.cpp" />
-    <ClCompile Include="src\City View\ArmyCamp.cpp" />
-    <ClCompile Include="src\City View\Bridge.cpp" />
-    <ClCompile Include="src\City View\Building.cpp" />
-    <ClCompile Include="src\City View\BuildingUI.cpp" />
-    <ClCompile Include="src\City View\Buttons.cpp" />
-    <ClCompile Include="src\City View\Castle.cpp" />
-    <ClCompile Include="src\City View\castleUI.cpp" />
-    <ClCompile Include="src\City View\Shop.cpp" />
-    <ClCompile Include="src\City View\Street.cpp" />
-    <ClCompile Include="src\City View\Tile.cpp" />
-    <ClCompile Include="src\City View\Ui.cpp" />
-    <ClCompile Include="src\City View\UISelectable.cpp" />
-    <ClCompile Include="src\City View\WorldBuilding.cpp" />
-    <ClCompile Include="src\Main\ConfigManager.cpp" />
-    <ClCompile Include="src\Main\Engine.cpp" />
-    <ClCompile Include="src\Main\FPSManager.cpp" />
-    <ClCompile Include="src\Main\SoundManager.cpp" />
-    <ClCompile Include="src\Main\World.cpp" />
-    <ClCompile Include="src\Map\WorldMap.cpp" />
-    <ClCompile Include="src\Menu\Menu.cpp" />
-    <ClCompile Include="src\PickAndBan.cpp" />
-    <ClCompile Include="src\PlayerStatsManager.cpp" />
-    <ClCompile Include="src\PopUpWriter.cpp" />
-    <ClCompile Include="src\TitleScreen.cpp" />
-  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Battle\ArmyManager.h" />
     <ClInclude Include="include\Battle\Battle.h" />
@@ -198,20 +161,25 @@
     <ClInclude Include="include\Battle\Squad.h" />
     <ClInclude Include="include\Battle\squad_data.h" />
     <ClInclude Include="include\Battle\squad_manager.h" />
-    <ClInclude Include="include\City View\Archery.h" />
-    <ClInclude Include="include\City View\ArmyCamp.h" />
-    <ClInclude Include="include\City View\Bridge.h" />
     <ClInclude Include="include\City View\BuildingUI.h" />
     <ClInclude Include="include\City View\Buttons.h" />
-    <ClInclude Include="include\City View\Castle.h" />
     <ClInclude Include="include\City View\castleUI.h" />
-    <ClInclude Include="include\City View\Shop.h" />
-    <ClInclude Include="include\City View\Street.h" />
-    <ClInclude Include="include\City View\Tile.h" />
     <ClInclude Include="include\City View\Ui.h" />
     <ClInclude Include="include\City View\UISelectable.h" />
-    <ClInclude Include="include\City View\WorldBuilding.h" />
+    <ClInclude Include="include\CityView\Archery.h" />
+    <ClInclude Include="include\CityView\ArmyCamp.h" />
+    <ClInclude Include="include\CityView\Bridge.h" />
     <ClInclude Include="include\CityView\Building.h" />
+    <ClInclude Include="include\CityView\BuildingUI.h" />
+    <ClInclude Include="include\CityView\Buttons.h" />
+    <ClInclude Include="include\CityView\Castle.h" />
+    <ClInclude Include="include\CityView\castleUI.h" />
+    <ClInclude Include="include\CityView\Shop.h" />
+    <ClInclude Include="include\CityView\Street.h" />
+    <ClInclude Include="include\CityView\Tile.h" />
+    <ClInclude Include="include\CityView\Ui.h" />
+    <ClInclude Include="include\CityView\UISelectable.h" />
+    <ClInclude Include="include\CityView\WorldBuilding.h" />
     <ClInclude Include="include\Main\ConfigManager.h" />
     <ClInclude Include="include\Main\defines.h" />
     <ClInclude Include="include\Main\Engine.h" />
@@ -304,10 +272,6 @@
     <Image Include="img\Water.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="img\NiTe_logo_0" />
-    <None Include="img\Untitled-1.ai" />
-  </ItemGroup>
-  <ItemGroup>
     <Text Include="config\battle_manager.txt" />
     <Text Include="config\buildings.txt" />
     <Text Include="config\Buildings\archery.txt" />
@@ -333,9 +297,7 @@
     <Text Include="config\Maps\Map3.txt" />
     <Text Include="config\Maps\Map4.txt" />
     <Text Include="config\menu.txt" />
-    <Text Include="config\pick_and_ban.txt" />
     <Text Include="config\PlayerStats\mainStats.txt" />
-    <Text Include="config\PopUpWriter.txt" />
     <Text Include="config\SoundManager.txt" />
     <Text Include="config\squads.txt" />
     <Text Include="config\Squads\archer.txt" />
@@ -364,37 +326,6 @@
     <Text Include="data\all_squads.txt" />
     <Text Include="data\armyManager.txt" />
     <Text Include="data\buildingsSave.txt" />
-    <Text Include="data\city\0-castle.txt" />
-    <Text Include="data\city\0-street.txt" />
-    <Text Include="data\city\1-street.txt" />
-    <Text Include="data\city\10-archery.txt" />
-    <Text Include="data\city\10-shop.txt" />
-    <Text Include="data\city\11-shop.txt" />
-    <Text Include="data\city\12-shop.txt" />
-    <Text Include="data\city\13-street.txt" />
-    <Text Include="data\city\14-street.txt" />
-    <Text Include="data\city\15-street.txt" />
-    <Text Include="data\city\16-street.txt" />
-    <Text Include="data\city\17-street.txt" />
-    <Text Include="data\city\18-street.txt" />
-    <Text Include="data\city\19-shop.txt" />
-    <Text Include="data\city\2-street.txt" />
-    <Text Include="data\city\20-shop.txt" />
-    <Text Include="data\city\21-street.txt" />
-    <Text Include="data\city\22-shop.txt" />
-    <Text Include="data\city\23-archery.txt" />
-    <Text Include="data\city\24-street.txt" />
-    <Text Include="data\city\25-street.txt" />
-    <Text Include="data\city\26-archery.txt" />
-    <Text Include="data\city\27-shop.txt" />
-    <Text Include="data\city\3-street.txt" />
-    <Text Include="data\city\4-street.txt" />
-    <Text Include="data\city\5-street.txt" />
-    <Text Include="data\city\6-archery.txt" />
-    <Text Include="data\city\6-street.txt" />
-    <Text Include="data\city\7-archery.txt" />
-    <Text Include="data\city\8-archery.txt" />
-    <Text Include="data\city\9-archery.txt" />
     <Text Include="data\formation.txt" />
     <Text Include="data\squadCount.txt" />
     <Text Include="data\squads\soldier data\soldier_data_0.txt" />
@@ -407,11 +338,41 @@
     <Text Include="data\squads\squad3.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="ttf\Perpetua-Titling-MT.ttf" />
-    <Font Include="ttf\Roboto-Regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="music\General.mp3" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Battle\ArmyManager.cpp" />
+    <ClCompile Include="src\Battle\Battle.cpp" />
+    <ClCompile Include="src\Battle\EnemyAI.cpp" />
+    <ClCompile Include="src\Battle\Healer.cpp" />
+    <ClCompile Include="src\Battle\HealthManager.cpp" />
+    <ClCompile Include="src\Battle\HookSquad.cpp" />
+    <ClCompile Include="src\Battle\SpearSquad.cpp" />
+    <ClCompile Include="src\Battle\Squad.cpp" />
+    <ClCompile Include="src\Battle\squad_manager.cpp" />
+    <ClCompile Include="src\City View\Archery.cpp" />
+    <ClCompile Include="src\City View\ArmyCamp.cpp" />
+    <ClCompile Include="src\City View\Bridge.cpp" />
+    <ClCompile Include="src\City View\Building.cpp" />
+    <ClCompile Include="src\City View\BuildingUI.cpp" />
+    <ClCompile Include="src\City View\Buttons.cpp" />
+    <ClCompile Include="src\City View\Castle.cpp" />
+    <ClCompile Include="src\City View\castleUI.cpp" />
+    <ClCompile Include="src\City View\Shop.cpp" />
+    <ClCompile Include="src\City View\Street.cpp" />
+    <ClCompile Include="src\City View\Tile.cpp" />
+    <ClCompile Include="src\City View\Ui.cpp" />
+    <ClCompile Include="src\City View\UISelectable.cpp" />
+    <ClCompile Include="src\City View\WorldBuilding.cpp" />
+    <ClCompile Include="src\Main\ConfigManager.cpp" />
+    <ClCompile Include="src\Main\Engine.cpp" />
+    <ClCompile Include="src\Main\FPSManager.cpp" />
+    <ClCompile Include="src\Main\SoundManager.cpp" />
+    <ClCompile Include="src\Main\World.cpp" />
+    <ClCompile Include="src\Map\WorldMap.cpp" />
+    <ClCompile Include="src\Menu\Menu.cpp" />
+    <ClCompile Include="src\PickAndBan.cpp" />
+    <ClCompile Include="src\PlayerStatsManager.cpp" />
+    <ClCompile Include="src\PopUpWriter.cpp" />
+    <ClCompile Include="src\TitleScreen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

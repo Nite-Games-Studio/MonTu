@@ -472,16 +472,10 @@ void WorldBuilding::build(int c,int r,UI_ICON_TYPE type)
 
     m_buildings.push_back(building);
 
-    SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
-                         "Built",
-                         "You've just constructed a building",
-                         world.m_main_window);
-/*
-    cout << "#=====-=====#" << endl;
-    D(m_buildings.size());
-    cout << "#=====-=====#" << endl;*/
-
-    //saveBuildings("buildingsSave.txt");
+    //SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
+    //                     "Built",
+    //                     "You've just constructed a building",
+    //                     world.m_main_window);
 }
 
 void WorldBuilding::updateBuilding()
@@ -490,7 +484,7 @@ void WorldBuilding::updateBuilding()
 
     selectTile();
 
-    if(state[SDL_SCANCODE_ESCAPE] & world.m_buttonDown)
+    if(state[SDL_SCANCODE_ESCAPE] && world.m_buttonDown)
     {
 
         if(m_userInterfaces.size()!=0)

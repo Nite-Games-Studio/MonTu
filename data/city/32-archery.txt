@@ -1,9 +1,9 @@
-ObjX: 1296
-ObjY: 756
-MapX: 13
-MapY: 9
+ObjX: 1248
+ObjY: 504
+MapX: 32
+MapY: 6
 Walking_Difficulty: 0
-Image: Street.bmp
+Image: Archery.bmp
 Owner1: a
 Owner2: a
 Build_Img: a
@@ -16,6 +16,6 @@ States: 22
 Max_State: 7
 Duration: 3
 Get_Position: 1
-Curr_State: 12597
-Health: 26473
-Constructing: 1
+Curr_State: 0
+Health: 0
+Constructing: 0

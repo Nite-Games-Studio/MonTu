@@ -1,7 +1,7 @@
 #ifndef SQUAD_MANAGER_H
 #define SQUAD_MANAGER_H
 #include "defines.h"
-#include<cstring>
+#include <cstring>
 #include <cstdio>
 using namespace std;
 

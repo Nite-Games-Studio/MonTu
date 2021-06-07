@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     TITLESCREEN,
     EXIT*/
 
-    world.m_gameState = CITYBUILDING;
+    world.m_gameState = MENU;
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
 
@@ -95,8 +95,6 @@ int main(int argc, char* argv[])
                 world.input();
                 world.m_battle.update();
                 world.m_battle.draw();
-                world.m_castleUI.update();
-                world.m_castleUI.draw();
             }
             world.m_quitScene = false;
         }
