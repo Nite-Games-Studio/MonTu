@@ -27,3 +27,8 @@ Buildings:
 25-street.txt
 26-archery.txt
 27-shop.txt
+28-archery.txt
+29-archery.txt
+30-archery.txt
+31-archery.txt
+32-archery.txt

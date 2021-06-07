@@ -140,7 +140,7 @@ void Battle::draw()
         SDL_RenderCopy(m_renderer, m_skipTurnFillBtn.objTexture, NULL, &(m_skipTurnFillBtn.objRect));
     }
 
-    //SDL_RenderPresent(m_renderer);
+    SDL_RenderPresent(m_renderer);
 
 }
 
