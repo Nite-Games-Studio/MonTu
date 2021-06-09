@@ -74,6 +74,7 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
     stream >> tmp >> buff;
     modelArchery = new Building;
     modelArchery->load(buff, renderer);
+    D(buff);
 
     stream >> tmp >> buff;
     modelShop = new Building;
@@ -101,15 +102,19 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
 
     stream >> tmp >> buff;
     modelUISelectable = new UISelectable();
-    modelUISelectable->load(buff,renderer);
+    modelUISelectable->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelUISelectableSelected = new UISelectable();
-    modelUISelectableSelected->load(buff,renderer);
+    modelUISelectableSelected->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelButtons = new Buttons();
-    modelButtons->load(buff,renderer);
+    modelButtons->load(buff, renderer);
+
+    stream >> tmp >> buff;
+    modelCity = new City();
+    modelCity->load(buff);
 
     stream.close();
 }
