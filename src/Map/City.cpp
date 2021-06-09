@@ -38,5 +38,13 @@ void City::load(string configFile)
 
 void City::draw()
 {
-	SDL_RenderCopy(world.m_main_renderer, m_cityTexture, NULL, &(m_objRect));
+	SDL_Rect screen_space =
+	{
+		world.m_worldMap.zoom_lvl * (m_objRect.x - world.m_worldMap.cameraRect.x),
+		world.m_worldMap.zoom_lvl * (m_objRect.y - world.m_worldMap.cameraRect.y),
+		world.m_worldMap.zoom_lvl * m_objRect.w,
+		world.m_worldMap.zoom_lvl * m_objRect.h
+	};
+
+	SDL_RenderCopy(world.m_main_renderer, m_cityTexture, NULL, &(screen_space));
 }

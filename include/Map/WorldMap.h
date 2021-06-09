@@ -85,7 +85,6 @@ public:
     void save(mapObject* army, int pos);
     void loadArmy(string configFile);
     void load(ifstream& stream);
-    void armyEntering(mapObject* army);
     void loadCity(string configFile);
 
 protected:

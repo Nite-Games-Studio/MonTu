@@ -129,6 +129,7 @@ void WorldMap::loadCity(string configFile)
         stream >> tmp;
         tmp = "\\city\\" + tmp;
         City* city = new City;
+        city->load(tmp);
         m_cities.push_back(city);
     }
 
@@ -146,7 +147,7 @@ void WorldMap::update()
 
     moveWithMouse();
 
-    ///openCity(army.objRect);
+    openCity();
 
     updateArmy(&army);
 }
@@ -269,29 +270,25 @@ void WorldMap::moveWithMouse()
     }
 }
 
-//void WorldMap::armyEntering(mapObject* army)
-//{
-//    checkForCollisionBetweenRects(army -> objRect, city -> objRect);
-//}
-
 void WorldMap::openCity()
 {
     for (int i = 0; i < m_cities.size(); i++)
     {
-        SDL_Rect cityScreenRect;
-
-        cityScreenRect = m_cities[i]->m_objRect;
-
-        cityScreenRect.x = m_cities[i]->m_objRect.x - cameraRect.x;
-        cityScreenRect.y = m_cities[i]->m_objRect.y - cameraRect.y;
+        SDL_Rect screen_space =
+        {
+            zoom_lvl * (m_cities[i]->m_objRect.x - cameraRect.x),
+            zoom_lvl * (m_cities[i]->m_objRect.y - cameraRect.y),
+            zoom_lvl * m_cities[i]->m_objRect.w,
+            zoom_lvl * m_cities[i]->m_objRect.h
+        };
 
         if (world.m_mouseIsPressed)
         {
-            if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, cityScreenRect) && checkForCollisionBetweenRects(army.objRect, m_cities[i]->m_objRect))
+            if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, screen_space) && checkForCollisionBetweenRects(army.objRect, m_cities[i]->m_objRect))
             {
                 cout << "Clicked: " << world.m_mouse.x << " " << world.m_mouse.y << endl;
             }
-        }
+        }          
     }
 }
 

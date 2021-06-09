@@ -102,6 +102,7 @@ int main(int argc, char* argv[])
         {
             world.m_worldMap.init("worldMap.txt");
             world.m_worldMap.loadMap("worldMapPieces.txt");
+            world.m_worldMap.loadCity("city.txt");
 
             while(!world.m_quitScene)
             {

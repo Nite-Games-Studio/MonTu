@@ -16,7 +16,6 @@
 #include "Castle.h"
 #include "ArmyCamp.h"
 #include "Bridge.h"
-#include "City.h"
 
 using namespace std;
 
@@ -54,8 +53,6 @@ public:
     UISelectable* modelUISelectableSelected = NULL;
 
     Buttons* modelButtons = NULL;
-
-    City* modelCity = NULL;
 
     void init(string configFile, SDL_Renderer* renderer, HealthManager* hm);
 

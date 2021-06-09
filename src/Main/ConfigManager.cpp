@@ -112,9 +112,5 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
     modelButtons = new Buttons();
     modelButtons->load(buff, renderer);
 
-    stream >> tmp >> buff;
-    modelCity = new City();
-    modelCity->load(buff);
-
     stream.close();
 }
