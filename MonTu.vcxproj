@@ -186,6 +186,7 @@
     <ClInclude Include="include\Main\FPSManager.h" />
     <ClInclude Include="include\Main\SoundManager.h" />
     <ClInclude Include="include\Main\World.h" />
+    <ClInclude Include="include\Map\City.h" />
     <ClInclude Include="include\Map\WorldMap.h" />
     <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\PickAndBan.h" />
@@ -367,6 +368,7 @@
     <ClCompile Include="src\Main\FPSManager.cpp" />
     <ClCompile Include="src\Main\SoundManager.cpp" />
     <ClCompile Include="src\Main\World.cpp" />
+    <ClCompile Include="src\Map\City.cpp" />
     <ClCompile Include="src\Map\WorldMap.cpp" />
     <ClCompile Include="src\Menu\Menu.cpp" />
     <ClCompile Include="src\PickAndBan.cpp" />
