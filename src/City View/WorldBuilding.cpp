@@ -1,5 +1,6 @@
 #include "WorldBuilding.h"
 #include "World.h"
+
 extern World world;
 
 WorldBuilding::WorldBuilding()
@@ -504,6 +505,14 @@ void WorldBuilding::updateBuilding()
         }
     }
 
+    if (world.m_mouseIsPressed)
+    {
+        if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, world.m_menu.backButton.objectRect))
+        {
+            world.m_quitScene = true;
+            world.m_gameState = WORLD_MAP;
+        }
+    }
 
     for(vector <Building*> :: iterator it = m_buildings.begin(); it != m_buildings.end(); it++)
     {
@@ -540,6 +549,8 @@ void WorldBuilding::drawBuilding()
     SDL_RenderClear(m_renderer);
 
     SDL_RenderCopy(world.m_main_renderer, backgroundTexture, NULL, NULL);
+
+    SDL_RenderCopy(world.m_main_renderer, world.m_menu.backButton.objTexture, NULL, &(world.m_menu.backButton.objectRect));
 
     for(vector<vector <Tile*> > :: iterator vit = m_tiles.begin(); vit != m_tiles.end(); vit++)
     {

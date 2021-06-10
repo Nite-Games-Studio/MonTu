@@ -150,7 +150,7 @@ void World::input()
         m_mouse.y *= m_MOUSE_MULTIPLIER_Y;
     }
 
-    ///cout << m_mouse.x << " " << m_mouse.y << endl;
+    //cout << m_mouse.x << " " << m_mouse.y << endl;
 }
 
 void World::cameraShake()

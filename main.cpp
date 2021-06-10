@@ -24,6 +24,7 @@ int main(int argc, char* argv[])
 
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     SDL_PollEvent(&(world.m_event));
+
     /*
     NOSCENE,
     MENU,
@@ -40,10 +41,8 @@ int main(int argc, char* argv[])
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
 
-
     while(true)
     {
-
         if(world.m_gameState == TITLESCREEN)
         {
             while(!world.m_quitScene)

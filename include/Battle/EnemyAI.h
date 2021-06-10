@@ -12,7 +12,7 @@ class EnemyAI
         EnemyAI();
         virtual ~EnemyAI();
 
-        vector<vector<Tile*> > m_battlefield;
+        vector<vector<Tile*>> m_battlefield;
         vector<Squad*> m_aiSquads;
         vector<Squad*> m_playerSquads;
 

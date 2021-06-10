@@ -86,6 +86,8 @@ public:
     void loadArmy(string configFile);
     void load(ifstream& stream);
     void loadCity(string configFile);
+    void addArmy();
+    void openBattle();
 
 protected:
 

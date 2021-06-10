@@ -1,7 +1,9 @@
 #include "WorldMap.h"
 #include "World.h"
+#include "EnemyAI.h"
 
 extern World world;
+extern EnemyAI enemy;
 
 WorldMap::WorldMap()
 {
@@ -55,6 +57,8 @@ void WorldMap::init(string configFile)
     army.coor = army.objRect;
 
     add_Army = SDL_SCANCODE_F;
+
+    armyVec.push_back(&army);
 }
 
 void WorldMap::loadMap(string configFile)
@@ -146,10 +150,16 @@ void WorldMap::update()
     framer();
 
     moveWithMouse();
+  
+    for (int i = 0; i < armyVec.size(); i++)
+    {
+        updateArmy(armyVec[i]);
+    }
 
     openCity();
+    //openBattle();
 
-    updateArmy(&army);
+    addArmy();
 }
 
 void WorldMap::draw()
@@ -166,12 +176,10 @@ void WorldMap::draw()
 
     drawMap();
 
-    //    for(int i = 0; i < armyVec.size;i ++)
-    //    {
-    //        drawArmy(armyVec[i]);
-    //    }
-
-    drawArmy(&army);
+    for(int i = 0; i < armyVec.size();i ++)
+    {
+        drawArmy(armyVec[i]);
+    }
 
     for (int i = 0; i < m_cities.size(); i++)
     {
@@ -274,22 +282,45 @@ void WorldMap::openCity()
 {
     for (int i = 0; i < m_cities.size(); i++)
     {
-        SDL_Rect screen_space =
+        for (int j = 0; j < armyVec.size(); j++)
         {
-            zoom_lvl * (m_cities[i]->m_objRect.x - cameraRect.x),
-            zoom_lvl * (m_cities[i]->m_objRect.y - cameraRect.y),
-            zoom_lvl * m_cities[i]->m_objRect.w,
-            zoom_lvl * m_cities[i]->m_objRect.h
-        };
+            SDL_Rect screen_space =
+            {
+                zoom_lvl * (m_cities[i]->m_objRect.x - cameraRect.x),
+                zoom_lvl * (m_cities[i]->m_objRect.y - cameraRect.y),
+                zoom_lvl * m_cities[i]->m_objRect.w,
+                zoom_lvl * m_cities[i]->m_objRect.h
+            };
 
-        if (world.m_mouseIsPressed)
+            if (checkForCollisionBetweenRects(armyVec[j]->objRect, m_cities[i]->m_objRect))
+            {
+                world.m_quitScene = true;
+                world.m_gameState = CITYBUILDING;
+            }                      
+        }   
+    }
+}
+
+void WorldMap::openBattle()
+{
+    /*for (int i = 0; i < enemy.m_aiSquads.size(); i++)
+    {
+        for (int j = 0; j < armyVec.size(); j++)
         {
-            if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, screen_space) && checkForCollisionBetweenRects(army.objRect, m_cities[i]->m_objRect))
+            SDL_Rect screen_space =
+            {
+                zoom_lvl * (enemy.m_aiSquads[i]->m_objectRect.x - cameraRect.x),
+                zoom_lvl * (enemy.m_aiSquads[i]->m_objectRect.y - cameraRect.y),
+                zoom_lvl * enemy.m_aiSquads[i]->m_objectRect.w,
+                zoom_lvl * enemy.m_aiSquads[i]->m_objectRect.h
+            };
+
+            if (checkForCollisionBetweenRects(armyVec[j]->objRect, enemy.m_aiSquads[i]->m_objectRect))
             {
                 cout << "Clicked: " << world.m_mouse.x << " " << world.m_mouse.y << endl;
-            }
-        }          
-    }
+            }     
+        }
+    }*/
 }
 
 void WorldMap::drawArmy(mapObject* army)
@@ -331,10 +362,27 @@ void WorldMap::drawArmy(mapObject* army)
     }
 }
 
-void WorldMap::updateArmy(mapObject* army)
+void WorldMap::addArmy()
 {
     const Uint8* state = SDL_GetKeyboardState(NULL);
 
+    if (state[add_Army] && world.m_mouseIsPressed)
+    {
+        mapObject* newArmy = new mapObject();
+
+        newArmy->objRect.x = world.m_mouse.x;
+        newArmy->objRect.y = world.m_mouse.y;
+        newArmy->objRect.w = 64;
+        newArmy->objRect.h = 64;
+
+        newArmy->objTexture = army.objTexture;
+
+        armyVec.push_back(newArmy);
+    }
+}
+
+void WorldMap::updateArmy(mapObject* army)
+{
     zoom_lvl = world.m_SCREEN_WIDTH / (0.0 + cameraRect.w);
 
     SDL_Rect armyScreenRect;
@@ -391,24 +439,10 @@ void WorldMap::updateArmy(mapObject* army)
         }
     }
 
-    for (int i = 0; i < armyVec.size(); i++)
-    {
-        save(army, i);
-    }
-
-    if (state[add_Army] && world.m_mouseIsPressed)
-    {
-        mapObject* newArmy = new mapObject();
-
-        newArmy->objRect.x = world.m_mouse.x;
-        newArmy->objRect.y = world.m_mouse.y;
-        newArmy->objRect.w = 64;
-        newArmy->objRect.h = 64;
-
-        newArmy->objTexture = army->objTexture;
-
-        armyVec.push_back(newArmy);
-    }
+    //for (int i = 0; i < armyVec.size(); i++)
+    //{
+    //    save(army, i);
+    //}
 }
 
 void WorldMap::save(mapObject* army, int pos)
