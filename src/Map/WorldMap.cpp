@@ -50,7 +50,6 @@ void WorldMap::init(string configFile)
 
     cameraPosBeforeDrag = world.m_mouse;
 
-
     loadSquad("all_squads.txt");
 }
 
@@ -115,13 +114,10 @@ void WorldMap::loadCity(string configFile)
     fstream stream;
 
     string tmp;
-    int cities;
 
     stream.open(configFile.c_str());
 
-    stream >> tmp >> cities;
-
-    for (int i = 0; i < cities; i++)
+    while(!stream.eof())
     {
         stream >> tmp;
         tmp = "\\city\\" + tmp;
@@ -383,10 +379,11 @@ void WorldMap::addArmy(coordinates coor, int index)
     newArmy->objRect.y = coor.y;
     newArmy->objRect.w = 64;
     newArmy->objRect.h = 64;
-
     newArmy->objTexture = army.objTexture;
 
-    armyVec.push_back(newArmy);   
+    newArmy->dstRect = newArmy->objRect;
+
+    armyVec.push_back(newArmy);
 }
 
 void WorldMap::updateArmy(mapObject* army)

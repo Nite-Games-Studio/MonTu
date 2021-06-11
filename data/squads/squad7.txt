@@ -1,4 +1,4 @@
 state: 1
 index: 7
-coor: 2000 1200
+coor: 0 0
 squad_data_7.txt
