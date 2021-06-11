@@ -124,6 +124,7 @@
     <ClInclude Include="include\Main\World.h">
       <Filter>include\Main</Filter>
     </ClInclude>
+    <ClInclude Include="include\CityView\Barracks.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\arrow.bmp">
@@ -702,5 +703,6 @@
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\City View\Barracks.cpp" />
   </ItemGroup>
 </Project>

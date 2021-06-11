@@ -1,7 +1,7 @@
-ObjX: 768
-ObjY: 672
+ObjX: 816
+ObjY: 420
 MapX: 8
-MapY: 8
+MapY: 5
 Walking_Difficulty: 0
 Image: Street.bmp
 Owner1: a
@@ -16,6 +16,6 @@ States: 22
 Max_State: 7
 Duration: 3
 Get_Position: 1
-Curr_State: 12597
-Health: 26473
-Constructing: 1
+Curr_State: 0
+Health: 0
+Constructing: 0

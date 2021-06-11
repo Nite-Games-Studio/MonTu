@@ -35,11 +35,14 @@ void Menu::init(string configFile)
     string PlayButtonImg;
     string ExitButtonImg;
     string OptionsButtonImg;
+    string BattleButtonImg;
     string BackButtonImg;
 
     stream.open(configFile.c_str());
 
     stream >> tmp >> menuImg;
+    stream >> tmp >> BattleButtonImg;
+    stream >> tmp >> battleButton.objectRect.x >> battleButton.objectRect.y >> battleButton.objectRect.w >> battleButton.objectRect.h;
     stream >> tmp >> playButton.objectRect.x >> playButton.objectRect.y >> playButton.objectRect.w >> playButton.objectRect.h;
     stream >> tmp >> backgroundMap;
     stream >> tmp >> exitButton.objectRect.x >> exitButton.objectRect.y >> exitButton.objectRect.w >> exitButton.objectRect.h;
@@ -79,11 +82,13 @@ void Menu::init(string configFile)
     optionsButton.objTexture = LoadTexture(OptionsButtonImg, renderer);
     exitButton.objTexture = LoadTexture(ExitButtonImg, renderer);
     backButton.objTexture = LoadTexture(BackButtonImg, renderer);
+    battleButton.objTexture = LoadTexture(BattleButtonImg, renderer);
 
     playButton.startRect = playButton.objectRect;
     optionsButton.startRect = optionsButton.objectRect;
     exitButton.startRect = exitButton.objectRect;
     backButton.startRect = backButton.objectRect;
+    battleButton.startRect = battleButton.objectRect;
 
     playButton.bonusW = 1.6;
     playButton.bonusH = 0.9;
@@ -96,6 +101,10 @@ void Menu::init(string configFile)
 
     backButton.bonusW = 0.8;
     backButton.bonusH = 1.1;
+
+    battleButton.bonusW = 1.6;
+    battleButton.bonusH = 0.9;
+
 }
 
 void Menu::menu()
@@ -112,6 +121,8 @@ void Menu::draw()
     SDL_RenderCopy(renderer, playButton.objTexture, NULL, &(playButton.objectRect));
 
     SDL_RenderCopy(renderer, optionsButton.objTexture, NULL, &(optionsButton.objectRect));
+
+    SDL_RenderCopy(renderer, battleButton.objTexture, NULL, &(battleButton.objectRect));
 
     SDL_RenderCopy(renderer, exitButton.objTexture, NULL, &(exitButton.objectRect));
 
@@ -161,11 +172,18 @@ void Menu::update()
             world.m_quitScene = true;
             world.m_gameState = EXIT;
         }
+
+        if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, battleButton.objectRect))
+        {
+            world.m_quitScene = true;
+            world.m_gameState = GAME;
+        }
     }
 
     buttonHover(&playButton);
     buttonHover(&optionsButton);
     buttonHover(&exitButton);
+    buttonHover(&battleButton);
 }
 
 void Menu::Choose_Map()

@@ -1,7 +1,6 @@
 #ifndef ARCHERY_H
 #define ARCHERY_H
 
-
 class Archery
 {
     public:

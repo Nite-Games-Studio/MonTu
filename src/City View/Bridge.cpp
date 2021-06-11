@@ -71,7 +71,7 @@ void Bridge::load(string configFile, SDL_Renderer* renderer)
 
     m_objectTexture = LoadTexture(m_img, renderer);
 
-    m_healthPerState = m_maxHealth / m_maxState;
+    //m_healthPerState = m_maxHealth / m_maxState;
 
     m_useObject = true;
 

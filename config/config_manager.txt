@@ -32,14 +32,14 @@ StreetModel: Buildings\\street.txt
 
 CastleModel: Buildings\\castle.txt
 
-ArmyCampModel: Buildings\\army_camp.txt
+BarracksModel: Buildings\\barracks.txt
 
-Bridge: Buildings\\bridge.txt
+StableModel: Buildings\\stable.txt
+
+ArmyCampModel: Buildings\\army_camp.txt
 
 UIModel: UI\\UI.txt
 
 UISelectableModel: UI\\UISelectable.txt
-
-UISelectableSelectedModel: UI\\UISelectable_selected.txt
 
 Buttons: Buttons\\buttons_building.txt

@@ -31,6 +31,7 @@
 #include "Building.h"
 #include "Ui.h"
 #include "Buttons.h"
+#include "castleUI.h"
 
 class WorldBuilding
 {
@@ -63,6 +64,9 @@ class WorldBuilding
         short int castleMap_y = 0;
         time_t m_startShake;
         bool m_shake;
+        bool m_isSelected;
+        bool m_castleUIIsActive;
+        bool m_buildingTypeChange;
 
         string backgroundImg;
         SDL_Texture* backgroundTexture;
@@ -85,6 +89,8 @@ class WorldBuilding
         UI_ICON_TYPE type;
 
         Castle* castle = NULL;
+
+        castleUI* m_castleUI = NULL;
 
         vector<vector<Tile*> > m_tiles;
 
@@ -109,6 +115,7 @@ class WorldBuilding
 
         void building();
         void showUI();
+        void enlargeSelectable();
 
         void saveBuildings(string configFile);
         void loadBuildings(string configFile);
@@ -122,10 +129,6 @@ class WorldBuilding
         void cleaner();
 
         bool alreadyBuilt(int x, int y);
-
-
-        void initBuilding(BUILDING type, coordinates mapCoor, OWNER owner);
-        void initBuildings(string configFile);
 
         Tile* giveNeighbor(coordinates coor, int direction);
 

@@ -69,23 +69,23 @@ void Building::load(ifstream& stream)
     stream >> tmp >> m_constructing;
 
     //{
-    /*D(m_walkDifficulty);
-    D(m_img);
-    D(m_ownerImgP1);
-    D(m_ownerImgP2);
-    D(m_buildImg);
-    D(m_damageImg);
-    D(m_height);
-    D(m_width);
-    D(m_adjustment);
-    D(m_maxHealth);
-    D(m_states);
-    D(m_maxState);
-    D(m_duration);
-    D(m_getPosition);
-    D(m_currState);
-    D(m_health);
-    D(m_constructing);*/
+    //D(m_walkDifficulty);
+    //D(m_img);
+    //D(m_ownerImgP1);
+    //D(m_ownerImgP2);
+    //D(m_buildImg);
+    //D(m_damageImg);
+    //D(m_height);
+    //D(m_width);
+    //D(m_adjustment);
+    //D(m_maxHealth);
+    //D(m_states);
+    //D(m_maxState);
+    //D(m_duration);
+    //D(m_getPosition);
+    //D(m_currState);
+    //D(m_health);
+    //D(m_constructing);
     //}
 }
 
@@ -101,7 +101,7 @@ void Building::load(string configFile, SDL_Renderer* renderer)
     if( identifier != "data" )
     {
         configFile = "config\\" + configFile;
-    }
+    }   
 
     ifstream stream;
     string tmp;

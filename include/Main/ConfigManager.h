@@ -44,6 +44,8 @@ public:
     Building* modelArchery = NULL;
     Building* modelShop = NULL;
     Building* modelStreet = NULL;
+    Building* modelBarracks = NULL;
+    Building* modelStable = NULL;
 
     ArmyCamp* modelArmyCamp = NULL;
     Bridge* modelBridge = NULL;

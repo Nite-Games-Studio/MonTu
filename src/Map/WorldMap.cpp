@@ -129,6 +129,11 @@ void WorldMap::update()
             world.m_gameState = MENU;
         }
     }
+    if (state[SDL_SCANCODE_ESCAPE] && world.m_buttonDown)
+    {
+        world.m_quitScene = true;
+        world.m_gameState = MENU;
+    }
 
     framer();
 

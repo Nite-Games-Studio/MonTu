@@ -168,6 +168,7 @@
     <ClInclude Include="include\City View\UISelectable.h" />
     <ClInclude Include="include\CityView\Archery.h" />
     <ClInclude Include="include\CityView\ArmyCamp.h" />
+    <ClInclude Include="include\CityView\Barracks.h" />
     <ClInclude Include="include\CityView\Bridge.h" />
     <ClInclude Include="include\CityView\Building.h" />
     <ClInclude Include="include\CityView\BuildingUI.h" />
@@ -350,6 +351,7 @@
     <ClCompile Include="src\Battle\squad_manager.cpp" />
     <ClCompile Include="src\City View\Archery.cpp" />
     <ClCompile Include="src\City View\ArmyCamp.cpp" />
+    <ClCompile Include="src\City View\Barracks.cpp" />
     <ClCompile Include="src\City View\Bridge.cpp" />
     <ClCompile Include="src\City View\Building.cpp" />
     <ClCompile Include="src\City View\BuildingUI.cpp" />
@@ -361,7 +363,10 @@
     <ClCompile Include="src\City View\Tile.cpp" />
     <ClCompile Include="src\City View\Ui.cpp" />
     <ClCompile Include="src\City View\UISelectable.cpp" />
-    <ClCompile Include="src\City View\WorldBuilding.cpp" />
+    <ClCompile Include="src\City View\WorldBuilding.cpp">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </ClCompile>
     <ClCompile Include="src\Main\ConfigManager.cpp" />
     <ClCompile Include="src\Main\Engine.cpp" />
     <ClCompile Include="src\Main\FPSManager.cpp" />

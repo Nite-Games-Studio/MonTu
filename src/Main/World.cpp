@@ -43,7 +43,7 @@ void World::initSDL(string configFile)
     m_squadManager.init();
     m_healthManager.init("health_manager.txt", m_main_renderer);
     m_configManager.init("config_manager.txt", m_main_renderer, &m_healthManager);
-    m_soundManager.init("SoundManager.txt");
+    //m_soundManager.init("SoundManager.txt");
     m_pickAndBan.init("pick_And_Ban.txt", m_main_renderer);
     m_playerStatsManager.init("mainStats.txt");
     m_battle.initBattle("battle_manager.txt");
@@ -55,7 +55,7 @@ void World::initSDL(string configFile)
     m_cursor = SDL_CreateColorCursor(loadSurface, 10, 5);
     SDL_SetCursor(m_cursor);
 
-    /// m_soundManager.play_sound("General.mp3");
+    ///m_soundManager.play_sound("General.mp3");
 
 
     /// ShowWindow(GetConsoleWindow(), SW_HIDE);
