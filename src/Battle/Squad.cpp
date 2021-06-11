@@ -219,6 +219,10 @@ void Squad::walk()
             }else{
                 world.m_battle.m_squadIsWalking = false;
                 m_goalTile = nullptr;
+                if (m_attackGoal != nullptr)
+                {
+                    attack(m_attackGoal);
+                }
             }
         }
     }

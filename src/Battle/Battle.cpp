@@ -87,6 +87,7 @@ void Battle::initDirection(string configFile)
 void Battle::initGameSession(unsigned short mapIndex, unsigned short playerArmyIndex, unsigned short enemyArmyIndex)
 {
     cout << "---------INIT SESSION--------- \n";
+    m_enemyAI.init("enemyAI.txt");
     m_armyManager.deployArmy(playerArmyIndex, PLAYER1);
     m_armyManager.deployArmy(enemyArmyIndex, PLAYER2);
     cout << "--------INITED SESSION-------- \n";
@@ -190,7 +191,6 @@ void Battle::initTiles(string configFile)
             tile->m_collisionPoints.push_back(buffPoint);
         }
     }
-    D(m_rows);
 }
 //}
 

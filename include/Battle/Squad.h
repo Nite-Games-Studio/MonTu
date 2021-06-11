@@ -67,6 +67,7 @@ class Squad
         // on which tile we want to step and perform a slow movement,
         // instead of teleporting
         Tile* m_goalTile;
+        Squad* m_attackGoal;
 
         stack<Tile*> m_path;
 

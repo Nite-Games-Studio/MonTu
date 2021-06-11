@@ -15,6 +15,7 @@ class EnemyAI
         vector<vector<Tile*>> m_battlefield;
         vector<Squad*> m_aiSquads;
         vector<Squad*> m_playerSquads;
+        int* m_unitMap;
 
         Tile* startPosition;
         vector<Tile*> availableToWalkTiles;

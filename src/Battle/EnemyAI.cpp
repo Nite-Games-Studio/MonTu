@@ -38,11 +38,16 @@ void EnemyAI::takeBattlefield()
 {
     clearAI();
     m_battlefield = world.m_battle.m_tiles;
+
+    m_unitMap = new int[world.m_battle.m_squads.size()];
+
     for (vector<Squad*> :: iterator it = world.m_battle.m_squads.begin(); it != world.m_battle.m_squads.end(); it++)
     {
+        m_unitMap[it - world.m_battle.m_squads.begin()] = (*it)->m_numberOfUnits;
         if ((*it)->m_owner == PLAYER1)
         {
             m_playerSquads.push_back((*it));
+            
         }
         else
         {
@@ -57,6 +62,7 @@ void EnemyAI::chooseBestActionForUnit(Squad* squad, unsigned short unitIndex)
     availableToWalkTiles = world.m_battle.showAvailableWalkTiles(squad);
     bestPosition = nullptr;
     bestVictim = nullptr;
+    int bestVictimIndex = -1;
     bestScore = 0;
     bool willAttack = false;
     bestDistanceScore = INT_MAX;
@@ -83,10 +89,12 @@ void EnemyAI::chooseBestActionForUnit(Squad* squad, unsigned short unitIndex)
         squad->m_mapCoor = (*it)->m_mapCoordinates;
         squad->m_tileTaken = (*it);
         score = 0;
+        int index;
         for(vector <Squad*> :: iterator squadIt = m_playerSquads.begin(); squadIt != m_playerSquads.end(); squadIt ++ )
         {
+            index = squadIt - m_playerSquads.begin();
             /// calculate the score for this move
-            if (world.m_battle.canShoot(squad, (*squadIt)->m_mapCoor))
+            if (m_unitMap[index] > 0 && world.m_battle.canShoot(squad, (*squadIt)->m_mapCoor))
             {
                 /// f( currentHealth / maxHealth * peaceValue / count )
 
@@ -96,7 +104,7 @@ void EnemyAI::chooseBestActionForUnit(Squad* squad, unsigned short unitIndex)
                     score += distance(squad->m_tileTaken->m_objectRect, m_aiSquads[i]->m_objectRect);
                 }
                 score *= m_teamwork;
-                score += ((double)(*squadIt) -> m_numberOfUnits) * valueSquadMap[(*squadIt) -> m_type] * m_aggression;
+                score += ((double)(m_unitMap[squadIt - m_playerSquads.begin()])) * valueSquadMap[(*squadIt) -> m_type] * m_aggression;
 
                 /// TODO: if the performance is good, check all possible player actions for attack on the ai
                 if (world.m_battle.canShoot((*squadIt), squad->m_mapCoor))
@@ -107,9 +115,13 @@ void EnemyAI::chooseBestActionForUnit(Squad* squad, unsigned short unitIndex)
                 if (score > bestScore)
                 {
                     cout << "Best pos cahnge!" << endl;
+                    if (bestVictimIndex != -1) m_unitMap[bestVictimIndex] += squad->m_attackDamage;
                     bestScore = score;
                     bestPosition = (*it);
                     bestVictim = (*squadIt);
+                    m_unitMap[index] -= squad->m_attackDamage;
+                    bestVictimIndex = index;
+                    D(index);
                 }
             }
         }
@@ -123,7 +135,7 @@ void EnemyAI::chooseBestActionForUnit(Squad* squad, unsigned short unitIndex)
         world.m_battle.canTravel(squad, bestPosition->m_mapCoordinates);
         if (bestVictim != NULL)
         {
-            squad->attack(bestVictim);
+            squad->m_attackGoal = bestVictim;
         }
     }else{
         /// NO ENEMIES FOR AN ATTACK
