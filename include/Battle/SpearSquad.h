@@ -7,7 +7,7 @@ class SpearSquad : public Squad
 {
     public:
         SpearSquad();
-        SpearSquad(const SpearSquad& model, coordinates* cameraOffset, Tile* tile, OWNER owner);
+        SpearSquad(const SpearSquad& model, coordinates* cameraOffset, Tile* tile, OWNER owner, HealthManager hm);
 
         virtual ~SpearSquad();
 

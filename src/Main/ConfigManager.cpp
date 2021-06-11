@@ -11,7 +11,7 @@ ConfigManager::~ConfigManager()
     //dtor
 }
 
-void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManager* hm)
+void ConfigManager::init(string configFile, SDL_Renderer* renderer)
 {
     configFile = "config\\" + configFile;
 
@@ -52,24 +52,28 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
     modelTileLava->load(buff, renderer);
 
     stream >> tmp >> buff;
+    modelHealthManager = new HealthManager;
+    modelHealthManager->init(buff, renderer);
+
+    stream >> tmp >> buff;
     modelSquadWarrior = new HookSquad;
-    modelSquadWarrior->load(buff, renderer, hm);
+    modelSquadWarrior->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelSquadArcher = new Squad;
-    modelSquadArcher->load(buff, renderer, hm);
+    modelSquadArcher->load(buff, renderer);
 
     stream >> tmp >> buff;
-    modelSquadSpearmen = new Squad;
-    modelSquadSpearmen->load(buff, renderer, hm);
+    modelSquadSpearmen = new SpearSquad;
+    modelSquadSpearmen->load(buff, renderer);
 
     stream >> tmp >> buff;
-    modelSquadCrossbowmen = new Squad;
-    modelSquadCrossbowmen->load(buff, renderer, hm);
+    modelSquadCrossbowmen = new HookSquad;
+    modelSquadCrossbowmen->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelSquadKnights = new Squad;
-    modelSquadKnights->load(buff, renderer, hm);
+    modelSquadKnights->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelArchery = new Building;
@@ -111,5 +115,13 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
     modelButtons = new Buttons();
     modelButtons->load(buff,renderer);
 
+    stream >> tmp >> buff;
+    modelMeleeHit = new Particle;
+    modelMeleeHit->initAnimation("warriorAttack.txt");
+
     stream.close();
+
+    cout << "****************\n";
+    cout << "LOADED ALL MODELS IN CONFIG MANAGER\n";
+    cout << "****************\n";
 }

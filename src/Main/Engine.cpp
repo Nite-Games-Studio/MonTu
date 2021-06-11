@@ -1,5 +1,7 @@
 #include "Engine.h"
+#include "World.h"
 
+extern World world;
 SDL_Texture* LoadTexture(string file, SDL_Renderer* renderer)
 {
     SDL_Texture* objectTexture;
@@ -172,4 +174,50 @@ bool checkForCollisionBetweenRects(SDL_Rect rect1, SDL_Rect rect2)
 unsigned short alignCenter(unsigned short fullSpace, unsigned short objWidth)
 {
     return (fullSpace - objWidth) / 2;
+}
+
+double distance(SDL_Rect first, SDL_Rect second)
+{
+    int a = abs(first.x - second.x);
+    int b = abs(first.y - second.y);
+    return sqrt(a * a + b * b);
+}
+
+bool equalCoordinates(SDL_Rect A, SDL_Rect B)
+{
+    if (A.x == B.x && A.y == B.y)
+    {
+        return true;
+    }
+    return false;
+}
+
+SDL_Texture* stringToTexture(string input, int FONT_SIZE)
+{
+    SDL_Texture* texture;
+    SDL_Surface* surface;
+    SDL_Rect rect;
+    SDL_Color fcolor;
+    TTF_Font* font;
+
+    string str = "ttf/Perpetua-Titling-MT.ttf";
+    // Basically translates to pixel size
+    font = TTF_OpenFont(str.c_str(), FONT_SIZE);
+
+    if (font == NULL)
+    {
+        fprintf(stderr, "error: font not found\n");
+        exit(EXIT_FAILURE);
+    }
+
+    fcolor.r = 255;
+    fcolor.g = 164;
+    fcolor.b = 92;
+    fcolor.a = 255;
+    const char* t = input.c_str();
+    surface = TTF_RenderText_Blended(font, t, fcolor);
+    texture = SDL_CreateTextureFromSurface(world.m_main_renderer, surface);
+    SDL_FreeSurface(surface);
+
+    return texture;
 }

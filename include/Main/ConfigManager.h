@@ -6,7 +6,6 @@
 
 #include "Tile.h"
 #include "Building.h"
-#include "HealthManager.h"
 
 #include "SpearSquad.h"
 #include "HookSquad.h"
@@ -16,6 +15,7 @@
 #include "Castle.h"
 #include "ArmyCamp.h"
 #include "Bridge.h"
+#include "Particle.h"
 
 using namespace std;
 
@@ -25,36 +25,41 @@ public:
     ConfigManager();
     virtual ~ConfigManager();
 
-    Tile* modelTileGrass = NULL;
-    Tile* modelTileWater = NULL;
-    Tile* modelTileMountain = NULL;
-    Tile* modelTileForest = NULL;
-    Tile* modelTileDesert = NULL;
-    Tile* modelTileStone = NULL;
-    Tile* modelTileVolcano = NULL;
-    Tile* modelTileLava = NULL;
 
-    HookSquad* modelSquadWarrior = NULL;
-    Squad* modelSquadArcher = NULL;
-    Squad* modelSquadSpearmen = NULL;
-    Squad* modelSquadCrossbowmen = NULL;
-    Squad* modelSquadKnights = NULL;
+    Tile* modelTileGrass = nullptr;
+    Tile* modelTileWater = nullptr;
+    Tile* modelTileMountain = nullptr;
+    Tile* modelTileForest = nullptr;
+    Tile* modelTileDesert = nullptr;
+    Tile* modelTileStone = nullptr;
+    Tile* modelTileVolcano = nullptr;
+    Tile* modelTileLava = nullptr;
 
-    Castle* modelCastle = NULL;
-    Building* modelArchery = NULL;
-    Building* modelShop = NULL;
-    Building* modelStreet = NULL;
 
-    ArmyCamp* modelArmyCamp = NULL;
-    Bridge* modelBridge = NULL;
+    Squad* modelSquadWarrior = nullptr;
+    Squad* modelSquadArcher = nullptr;
+    SpearSquad* modelSquadSpearmen = nullptr;
+    HookSquad* modelSquadCrossbowmen = nullptr;
+    Squad* modelSquadKnights = nullptr;
 
-    UI* modelUI = NULL;
-    UISelectable* modelUISelectable = NULL;
-    UISelectable* modelUISelectableSelected = NULL;
+    Castle* modelCastle = nullptr;
+    Building* modelArchery = nullptr;
+    Building* modelShop = nullptr;
+    Building* modelStreet = nullptr;
+    ArmyCamp* modelArmyCamp = nullptr;
+    Bridge* modelBridge = nullptr;
 
-    Buttons* modelButtons = NULL;
+    UI* modelUI = nullptr;
+    UISelectable* modelUISelectable = nullptr;
+    UISelectable* modelUISelectableSelected = nullptr;
 
-    void init(string configFile, SDL_Renderer* renderer, HealthManager* hm);
+    Buttons* modelButtons = nullptr;
+
+    Particle* modelMeleeHit = nullptr;
+
+    HealthManager* modelHealthManager = nullptr;
+
+    void init(string configFile, SDL_Renderer* renderer);
 
 protected:
 

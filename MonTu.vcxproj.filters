@@ -34,36 +34,6 @@
     <ClInclude Include="include\Map\WorldMap.h">
       <Filter>include\Map</Filter>
     </ClInclude>
-    <ClInclude Include="include\Battle\ArmyManager.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\Battle.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\EnemyAI.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\Healer.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\HealthManager.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\HookSquad.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\SpearSquad.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\Squad.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\squad_data.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Battle\squad_manager.h">
-      <Filter>include\Battle</Filter>
-    </ClInclude>
     <ClInclude Include="include\CityView\Archery.h">
       <Filter>include\Building</Filter>
     </ClInclude>
@@ -123,6 +93,45 @@
     </ClInclude>
     <ClInclude Include="include\Main\World.h">
       <Filter>include\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\Animator.h">
+      <Filter>include\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Main\Particle.h">
+      <Filter>include\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\AiBotTrainer.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\ArmyManager.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\Battle.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\EnemyAI.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\HookSquad.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\RainOfArrows.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\SpearSquad.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\Squad.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\squad_data.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\squad_manager.h">
+      <Filter>include\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Battle\HealthManager.h">
+      <Filter>include\Battle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -577,9 +586,6 @@
     <Filter Include="src\Building">
       <UniqueIdentifier>{d5c4b6d3-5a46-48c9-a2fb-10cf2668da32}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Battle">
-      <UniqueIdentifier>{6ef8ca51-db1d-48b6-9a2a-da5f439dd460}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include\Battle">
       <UniqueIdentifier>{bed9c5e3-960a-456e-9ace-68b5bfe8d815}</UniqueIdentifier>
     </Filter>
@@ -594,6 +600,9 @@
     </Filter>
     <Filter Include="src\Menu">
       <UniqueIdentifier>{ff6bfd5e-e880-4d03-999d-25632dfee3d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Battle">
+      <UniqueIdentifier>{d3d41025-7441-4c59-85fa-858684d3ffcf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -639,33 +648,6 @@
     <ClCompile Include="src\City View\WorldBuilding.cpp">
       <Filter>src\Building</Filter>
     </ClCompile>
-    <ClCompile Include="src\Battle\ArmyManager.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\Battle.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\EnemyAI.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\Healer.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\HealthManager.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\HookSquad.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\SpearSquad.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\Squad.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Battle\squad_manager.cpp">
-      <Filter>src\Battle</Filter>
-    </ClCompile>
     <ClCompile Include="src\Main\ConfigManager.cpp">
       <Filter>src\Main</Filter>
     </ClCompile>
@@ -701,6 +683,42 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\Animator.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main\Particle.cpp">
+      <Filter>src\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\AiBotTrainer.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\ArmyManager.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\Battle.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\EnemyAI.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\HookSquad.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\RainOfArrows.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\SpearSquad.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\Squad.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\squad_manager.cpp">
+      <Filter>src\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Battle\HealthManager.cpp">
+      <Filter>src\Building</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

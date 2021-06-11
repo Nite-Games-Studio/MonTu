@@ -41,8 +41,7 @@ void World::initSDL(string configFile)
     improveRenderer();
 
     m_squadManager.init();
-    m_healthManager.init("health_manager.txt", m_main_renderer);
-    m_configManager.init("config_manager.txt", m_main_renderer, &m_healthManager);
+    m_configManager.init("config_manager.txt", m_main_renderer);
     m_soundManager.init("SoundManager.txt");
     m_pickAndBan.init("pick_And_Ban.txt", m_main_renderer);
     m_playerStatsManager.init("mainStats.txt");

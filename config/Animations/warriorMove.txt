@@ -1,0 +1,4 @@
+duration: 3
+frames: 1
+srcRect: 100 100
+sprties: warrior.bmp

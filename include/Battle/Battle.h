@@ -20,6 +20,8 @@
 #include "SpearSquad.h"
 #include "HookSquad.h"
 
+#include "Particle.h"
+
 class Battle
 {
     public:
@@ -46,6 +48,9 @@ class Battle
         bool m_showFillBtn;
         bool m_showAttackTiles;
 
+        bool m_squadIsWalking;
+        Squad* m_currentMovingSquad;
+
         coordinates m_selected;
         Squad* m_selectedSquad;
         Tile* m_selectedTile;
@@ -53,28 +58,35 @@ class Battle
         // Those are the coordinates that we use for determining the neighbors of a tile
         coordinates directions[2][6];
 
-        vector<vector<Tile*> > m_tiles;
+        bool** m_unwalkableTiles;
+        vector<vector<Tile*>> m_tiles;
         vector<Squad*> m_squads;
+        vector<Particle*> m_particles;
 
         vector<Tile*> m_availableWalkTiles;
         vector<Tile*> m_availableShootTiles;
 
         bool canTravel(Squad* squad, coordinates desiredPosition);
+        bool canShoot(Squad* squad, coordinates targetPosition);
+        short angleToDirection(short angle);
+        short angleToDirectionReverse(short angle);
+        Tile* giveNeighbor(coordinates coor, int direction);
+        coordinates* giveNeighborCoor(coordinates coor, int direction);
+        Squad* giveNeighborSquad(coordinates coor, int directions);
+        Squad* findSquadByCoor (coordinates coor);
         vector<Tile*> showAvailableWalkTiles(Squad* squad);
         vector<Tile*> showAvailableShootTiles(Squad* squad);
-        bool canShoot(Squad* squad, coordinates targetPosition);
-        Tile* giveNeighbor(coordinates coor, int direction);
-        Squad* findSquadByCoor (coordinates coor);
 
         void update();
         void draw();
+        void cleaner();
 
         void initDirection(string configFile);
         void initBattle(string configFile);
         void initTiles(string configFile);
-        void initGameSession();
+        void initGameSession(unsigned short mapIndex, unsigned short playerArmyIndex, unsigned short enemyArmyIndex);
         void selectTile();
-        void initSquad(SQUAD type, coordinates mapCoor, OWNER owner);
+        void initSquad(SQUAD type, coordinates mapCoor, unsigned short numberOfUnits, OWNER owner);
         void initSquads(string configFile);
 
         void checkForTurnSwitch();

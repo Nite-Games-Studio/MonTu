@@ -15,7 +15,7 @@ class Squad
 {
     public:
         Squad();
-        Squad(const Squad& model, coordinates* cameraOffset, Tile* tile, OWNER owner);
+        Squad(const Squad& model, coordinates* cameraOffset, Tile* tile, OWNER owner, HealthManager hm);
         virtual ~Squad();
 
         SDL_Renderer* m_renderer;
@@ -28,15 +28,22 @@ class Squad
         SDL_Rect m_healthBarRect;
         coordinates m_mapCoor;
 
-        HealthManager* m_hm;
+        double m_speedMultiplier;
+
+        //{WALK
+        // parameters used ONLY in the walk function
+        fcoordinates m_walkCoor;
+        int m_directionAngle;
+        //}
+        HealthManager m_hm;
 
         coordinates* m_cameraOffset;
 
         SQUAD m_type;
 
         OWNER m_owner;
-        double m_startHealth;
-        double m_health;
+        short m_startNumberOfUnits;
+        short m_numberOfUnits;
         double m_startSpeed;
         double m_speed;
         double m_startAttackRange;
@@ -52,21 +59,27 @@ class Squad
 
         bool m_traveling;
         bool m_moved;
-        bool m_shooted;
+        bool m_attacked;
 
         Tile* m_tileTaken;
+        // A tile that is used in the walk function
+        // When we want to perform movement, goal tile is used to remember
+        // on which tile we want to step and perform a slow movement,
+        // instead of teleporting
+        Tile* m_goalTile;
 
         stack<Tile*> m_path;
 
         int m_maxFramesPerStep = 100;
         int m_framesPerStep = 0;
 
-        virtual void load(string configFile, SDL_Renderer* renderer, HealthManager* hm);
+        virtual void load(string configFile, SDL_Renderer* renderer);
         virtual void update();
         virtual void draw();
         virtual void attack(Squad* defender);
         void syncCoor();
         void idleAnimation();
+        void walk();
 
     protected:
 

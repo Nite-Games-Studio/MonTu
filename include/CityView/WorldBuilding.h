@@ -16,7 +16,6 @@
 #include <SDL.h>
 #include <winuser.h>
 
-#include "HealthManager.h"
 #include "ConfigManager.h"
 #include "SoundManager.h"
 #include "PopUpWriter.h"
