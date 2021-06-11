@@ -124,6 +124,9 @@
     <ClInclude Include="include\Main\World.h">
       <Filter>include\Main</Filter>
     </ClInclude>
+    <ClInclude Include="include\Map\City.h">
+      <Filter>include\Map</Filter>
+    </ClInclude>
     <ClInclude Include="include\CityView\Barracks.h" />
   </ItemGroup>
   <ItemGroup>
@@ -702,6 +705,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Map\City.cpp">
+      <Filter>src\Map</Filter>
     </ClCompile>
     <ClCompile Include="src\City View\Barracks.cpp" />
   </ItemGroup>
