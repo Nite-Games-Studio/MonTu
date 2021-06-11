@@ -245,6 +245,9 @@ struct mapObject
     SDL_Texture* objTexture;
 
     bool mooving = false;
+    bool borderActive = false;
+
+    int index;
 
     fcoordinates coor;
 };

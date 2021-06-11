@@ -1,9 +1,7 @@
 #include "WorldMap.h"
 #include "World.h"
-#include "EnemyAI.h"
 
 extern World world;
-extern EnemyAI enemy;
 
 WorldMap::WorldMap()
 {
@@ -35,7 +33,6 @@ void WorldMap::init(string configFile)
     stream >> tmp >> allImages;
     stream >> tmp >> imagesPerChunk;
     stream >> tmp >> armyTestImg;
-    stream >> tmp >> army.objRect.x >> army.objRect.y >> army.objRect.w >> army.objRect.h;
     stream >> tmp >> borderImg;
     stream >> tmp >> speed;
     stream >> tmp >> flagImg;
@@ -53,12 +50,7 @@ void WorldMap::init(string configFile)
 
     cameraPosBeforeDrag = world.m_mouse;
 
-    army.dstRect = army.objRect;
-    army.coor = army.objRect;
-
-    add_Army = SDL_SCANCODE_F;
-
-    armyVec.push_back(&army);
+    loadSquad("all_squads.txt");
 }
 
 void WorldMap::loadMap(string configFile)
@@ -122,13 +114,10 @@ void WorldMap::loadCity(string configFile)
     fstream stream;
 
     string tmp;
-    int cities;
 
     stream.open(configFile.c_str());
 
-    stream >> tmp >> cities;
-
-    for (int i = 0; i < cities; i++)
+    while(!stream.eof())
     {
         stream >> tmp;
         tmp = "\\city\\" + tmp;
@@ -162,9 +151,6 @@ void WorldMap::update()
     }
 
     openCity();
-    //openBattle();
-
-    addArmy();
 }
 
 void WorldMap::draw()
@@ -181,14 +167,14 @@ void WorldMap::draw()
 
     drawMap();
 
-    for(int i = 0; i < armyVec.size();i ++)
-    {
-        drawArmy(armyVec[i]);
-    }
-
     for (int i = 0; i < m_cities.size(); i++)
     {
         m_cities[i]->draw();
+    }
+
+    for (int i = 0; i < armyVec.size(); i++)
+    {
+        drawArmy(armyVec[i]);
     }
 
     SDL_RenderPresent(world.m_main_renderer);
@@ -306,26 +292,41 @@ void WorldMap::openCity()
     }
 }
 
-void WorldMap::openBattle()
+void WorldMap::loadSquad(string configFile)
 {
-    /*for (int i = 0; i < enemy.m_aiSquads.size(); i++)
-    {
-        for (int j = 0; j < armyVec.size(); j++)
-        {
-            SDL_Rect screen_space =
-            {
-                zoom_lvl * (enemy.m_aiSquads[i]->m_objectRect.x - cameraRect.x),
-                zoom_lvl * (enemy.m_aiSquads[i]->m_objectRect.y - cameraRect.y),
-                zoom_lvl * enemy.m_aiSquads[i]->m_objectRect.w,
-                zoom_lvl * enemy.m_aiSquads[i]->m_objectRect.h
-            };
+    configFile = "data\\" + configFile;
+    fstream stream;
 
-            if (checkForCollisionBetweenRects(armyVec[j]->objRect, enemy.m_aiSquads[i]->m_objectRect))
-            {
-                cout << "Clicked: " << world.m_mouse.x << " " << world.m_mouse.y << endl;
-            }     
+    string tmp;
+    int buffInt;
+    coordinates buffCoor;
+
+    stream.open(configFile.c_str());
+
+    while (!stream.eof())
+    {
+        stream >> tmp;
+        m_armyFiles.push_back(tmp);
+    }
+
+    stream.close();
+
+    for (int i = 0; i < m_armyFiles.size(); i++)
+    {
+        m_armyFiles[i] = "data\\squads\\" + m_armyFiles[i];
+        
+        stream.open(m_armyFiles[i]);
+
+        stream >> tmp >> buffInt;
+
+        if (buffInt == 1)
+        {
+            stream >> tmp >> buffInt;
+            stream >> tmp >> buffCoor.x >> buffCoor.y;
+            addArmy(buffCoor, buffInt);
         }
-    }*/
+        stream.close();
+    }
 }
 
 void WorldMap::drawArmy(mapObject* army)
@@ -345,8 +346,9 @@ void WorldMap::drawArmy(mapObject* army)
         m_selectedArmy.objRect.w = (screen_space.w + 10);
         m_selectedArmy.objRect.h = (screen_space.h + 10);
 
-        borderActive = true;
+        army->borderActive = true;
     }
+
     if (zoom_lvl < 0.65)
     {
         SDL_RenderCopy(world.m_main_renderer, FlagTexture, NULL, &(screen_space));
@@ -356,7 +358,7 @@ void WorldMap::drawArmy(mapObject* army)
         SDL_RenderCopy(world.m_main_renderer, army->objTexture, NULL, &(screen_space));
     }
 
-    if (borderActive == true)
+    if (army->borderActive == true)
     {
         m_selectedArmy.objRect.x = (screen_space.x - 5);
         m_selectedArmy.objRect.y = (screen_space.y - 5);
@@ -367,23 +369,21 @@ void WorldMap::drawArmy(mapObject* army)
     }
 }
 
-void WorldMap::addArmy()
+void WorldMap::addArmy(coordinates coor, int index)
 {
-    const Uint8* state = SDL_GetKeyboardState(NULL);
+    mapObject* newArmy = new mapObject();
 
-    if (state[add_Army] && world.m_mouseIsPressed)
-    {
-        mapObject* newArmy = new mapObject();
+    newArmy->index = index;
 
-        newArmy->objRect.x = world.m_mouse.x;
-        newArmy->objRect.y = world.m_mouse.y;
-        newArmy->objRect.w = 64;
-        newArmy->objRect.h = 64;
+    newArmy->objRect.x = coor.x;
+    newArmy->objRect.y = coor.y;
+    newArmy->objRect.w = 64;
+    newArmy->objRect.h = 64;
+    newArmy->objTexture = army.objTexture;
 
-        newArmy->objTexture = army.objTexture;
+    newArmy->dstRect = newArmy->objRect;
 
-        armyVec.push_back(newArmy);
-    }
+    armyVec.push_back(newArmy);
 }
 
 void WorldMap::updateArmy(mapObject* army)
@@ -397,14 +397,14 @@ void WorldMap::updateArmy(mapObject* army)
     armyScreenRect.x = (army->objRect.x - cameraRect.x);
     armyScreenRect.y = (army->objRect.y - cameraRect.y);
 
-    if (world.m_mouseIsPressed && borderActive)
+    if (world.m_mouseIsPressed && army->borderActive)
     {
         if (!checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, armyScreenRect))
         {
             army->dstRect.x = (world.m_mouse.x - army->objRect.w / 2) / zoom_lvl + cameraRect.x;
             army->dstRect.y = (world.m_mouse.y - army->objRect.h / 2) / zoom_lvl + cameraRect.y;
 
-            borderActive = false;
+            army->borderActive = false;
 
             army->mooving = true;
         }

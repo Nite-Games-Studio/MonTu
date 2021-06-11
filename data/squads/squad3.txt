@@ -1,3 +1,4 @@
 state: 0
+index: 3
 city: TSAREVO
 soldier_data_3.txt

@@ -10,8 +10,6 @@ Images_per_chunk: 4
 
 Army_Img: Army.bmp
 
-Amry_Rect: 700 500 64 64
-
 Border_Img: Border.bmp
 
 Speed: 1
