@@ -27,7 +27,10 @@ bool checkForMouseCollision(int mouseX, int mouseY, coordinates objectCoor, int 
 bool checkForPossibleMove(int distance, int &movement);
 bool checkIfInScreen(SDL_Rect rect, int SCREEN_WIDTH, int SCREEN_HEIGHT);
 bool checkForCollisionBetweenRects(SDL_Rect rect1, SDL_Rect rect2);
+bool equalCoordinates(SDL_Rect A, SDL_Rect B);
 unsigned short alignCenter(unsigned short fullSpace, unsigned short objWidth);
+double distance(SDL_Rect first, SDL_Rect second);
+SDL_Texture* stringToTexture(string input, int FONT_SIZE);
 
 void write(string text, coordinates coor, SDL_Renderer* renderer, int FONT_SIZE);
 void CoordinatesToRect(coordinates coor, SDL_Rect& rect);

@@ -1,8 +1,7 @@
 Img: archer.bmp archer.bmp
-Width_Height: 60 50
+Width_Height: 72 60
 
-Health: 100
 AttackDmg: 20
 Speed: 10
-Range: 300
+Range: 4
 Faith: 50

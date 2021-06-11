@@ -18,6 +18,8 @@ UISelectable::UISelectable(const UISelectable& model,short int position){
     m_imgShop = model.m_imgShop;
     m_imgStreet = model.m_imgStreet;
     m_imgArchery = model.m_imgArchery;
+    m_imgBarracks = model.m_imgBarracks;
+    m_imgStable = model.m_imgStable;
 
     button = model.button;
 
@@ -55,6 +57,8 @@ void UISelectable::load(string configFile, SDL_Renderer* renderer){
     stream >> tmp >> m_imgShop;
     stream >> tmp >> m_imgArchery;
     stream >> tmp >> m_imgCastle;
+    stream >> tmp >> m_imgBarracks;
+    stream >> tmp >> m_imgStable;
     stream >> tmp >> button.bonusW >> button.bonusH;
     //cout << tmp << m_imgStreet << m_imgShop << m_imgArchery << m_imgCastle << endl;;
     stream.close();
@@ -76,6 +80,7 @@ void UISelectable::draw(SDL_Renderer* renderer)
     m_presentRect = button.objectRect;
 
     SDL_RenderCopy(renderer, button.objTexture, NULL, &m_presentRect);
+
     if(m_typeTexture!=NULL){
         SDL_RenderCopy(renderer, m_typeTexture, NULL, &m_presentRect);
     }
@@ -94,6 +99,12 @@ void UISelectable::assignSelectable(SDL_Renderer* renderer, UI_ICON_TYPE type){
         break;
     case SHOP:
         m_typeTexture = LoadTexture(m_imgShop,renderer);
+        break;
+    case BARRACKS:
+        m_typeTexture = LoadTexture(m_imgBarracks, renderer);
+        break;
+    case STABLE:
+        m_typeTexture = LoadTexture(m_imgStable, renderer);
         break;
 
     }

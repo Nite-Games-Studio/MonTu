@@ -26,6 +26,7 @@ class Menu
         Button optionsButton;
         Button exitButton;
         Button backButton;
+        Button battleButton;
 
         SDL_Rect m_Map1Button;
         SDL_Rect m_Map2Button;

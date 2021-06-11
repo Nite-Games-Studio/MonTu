@@ -8,6 +8,8 @@ Street: Street_Selectable.bmp
 Shop: Shop_Selectable.bmp 
 Archery: Archery_Selectable.bmp 
 Castle: Castle_Selectable.bmp
+Barracks: Barracks_Selectable.bmp
+Stable: Stable_Selectable.bmp
 Sizing: 2 2
 
 456

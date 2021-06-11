@@ -1,4 +1,4 @@
-colls-rows: 26 16
+rows-colls: 26 16
 
 Selected_Img: selected.bmp
 

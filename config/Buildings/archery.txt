@@ -18,8 +18,6 @@ PositionAdjustment: 0
 
 Health: 420
 
-Capacity: 22
-
 States: 7
 
 MaxState: 3

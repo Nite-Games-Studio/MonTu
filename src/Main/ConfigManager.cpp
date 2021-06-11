@@ -11,7 +11,7 @@ ConfigManager::~ConfigManager()
     //dtor
 }
 
-void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManager* hm)
+void ConfigManager::init(string configFile, SDL_Renderer* renderer)
 {
     configFile = "config\\" + configFile;
 
@@ -52,29 +52,32 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
     modelTileLava->load(buff, renderer);
 
     stream >> tmp >> buff;
+    modelHealthManager = new HealthManager;
+    modelHealthManager->init(buff, renderer);
+
+    stream >> tmp >> buff;
     modelSquadWarrior = new HookSquad;
-    modelSquadWarrior->load(buff, renderer, hm);
+    modelSquadWarrior->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelSquadArcher = new Squad;
-    modelSquadArcher->load(buff, renderer, hm);
+    modelSquadArcher->load(buff, renderer);
 
     stream >> tmp >> buff;
-    modelSquadSpearmen = new Squad;
-    modelSquadSpearmen->load(buff, renderer, hm);
+    modelSquadSpearmen = new SpearSquad;
+    modelSquadSpearmen->load(buff, renderer);
 
     stream >> tmp >> buff;
-    modelSquadCrossbowmen = new Squad;
-    modelSquadCrossbowmen->load(buff, renderer, hm);
+    modelSquadCrossbowmen = new HookSquad;
+    modelSquadCrossbowmen->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelSquadKnights = new Squad;
-    modelSquadKnights->load(buff, renderer, hm);
+    modelSquadKnights->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelArchery = new Building;
     modelArchery->load(buff, renderer);
-    D(buff);
 
     stream >> tmp >> buff;
     modelShop = new Building;
@@ -87,30 +90,42 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer, HealthManage
     stream >> tmp >> buff;
     modelCastle = new Castle;
     modelCastle->load(buff, renderer);
+    
+    stream >> tmp >> buff;
+    modelBarracks = new Building;
+    modelBarracks->load(buff, renderer);
+    
+    stream >> tmp >> buff;
+    modelStable = new Building;
+    modelStable->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelArmyCamp = new ArmyCamp;
     modelArmyCamp->load(buff, renderer);
-
+    /*
     stream >> tmp >> buff;
     modelBridge = new Bridge;
     modelBridge->load(buff, renderer);
-
+    */
     stream >> tmp >> buff;
     modelUI = new UI;
     modelUI->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelUISelectable = new UISelectable();
-    modelUISelectable->load(buff, renderer);
-
-    stream >> tmp >> buff;
-    modelUISelectableSelected = new UISelectable();
-    modelUISelectableSelected->load(buff, renderer);
+    modelUISelectable->load(buff,renderer);
 
     stream >> tmp >> buff;
     modelButtons = new Buttons();
-    modelButtons->load(buff, renderer);
+    modelButtons->load(buff,renderer);
+
+    stream >> tmp >> buff;
+    modelMeleeHit = new Particle;
+    modelMeleeHit->initAnimation("warriorAttack.txt");
 
     stream.close();
+
+    cout << "****************\n";
+    cout << "LOADED ALL MODELS IN CONFIG MANAGER\n";
+    cout << "****************\n";
 }

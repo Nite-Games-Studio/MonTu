@@ -151,12 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\Battle\AiBotTrainer.h" />
     <ClInclude Include="include\Battle\ArmyManager.h" />
     <ClInclude Include="include\Battle\Battle.h" />
     <ClInclude Include="include\Battle\EnemyAI.h" />
-    <ClInclude Include="include\Battle\Healer.h" />
     <ClInclude Include="include\Battle\HealthManager.h" />
     <ClInclude Include="include\Battle\HookSquad.h" />
+    <ClInclude Include="include\Battle\RainOfArrows.h" />
     <ClInclude Include="include\Battle\SpearSquad.h" />
     <ClInclude Include="include\Battle\Squad.h" />
     <ClInclude Include="include\Battle\squad_data.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="include\City View\UISelectable.h" />
     <ClInclude Include="include\CityView\Archery.h" />
     <ClInclude Include="include\CityView\ArmyCamp.h" />
+    <ClInclude Include="include\CityView\Barracks.h" />
     <ClInclude Include="include\CityView\Bridge.h" />
     <ClInclude Include="include\CityView\Building.h" />
     <ClInclude Include="include\CityView\BuildingUI.h" />
@@ -180,10 +182,12 @@
     <ClInclude Include="include\CityView\Ui.h" />
     <ClInclude Include="include\CityView\UISelectable.h" />
     <ClInclude Include="include\CityView\WorldBuilding.h" />
+    <ClInclude Include="include\Main\Animator.h" />
     <ClInclude Include="include\Main\ConfigManager.h" />
     <ClInclude Include="include\Main\defines.h" />
     <ClInclude Include="include\Main\Engine.h" />
     <ClInclude Include="include\Main\FPSManager.h" />
+    <ClInclude Include="include\Main\Particle.h" />
     <ClInclude Include="include\Main\SoundManager.h" />
     <ClInclude Include="include\Main\World.h" />
     <ClInclude Include="include\Map\City.h" />
@@ -340,17 +344,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Battle\AiBotTrainer.cpp" />
     <ClCompile Include="src\Battle\ArmyManager.cpp" />
     <ClCompile Include="src\Battle\Battle.cpp" />
     <ClCompile Include="src\Battle\EnemyAI.cpp" />
-    <ClCompile Include="src\Battle\Healer.cpp" />
     <ClCompile Include="src\Battle\HealthManager.cpp" />
     <ClCompile Include="src\Battle\HookSquad.cpp" />
+    <ClCompile Include="src\Battle\RainOfArrows.cpp" />
     <ClCompile Include="src\Battle\SpearSquad.cpp" />
     <ClCompile Include="src\Battle\Squad.cpp" />
     <ClCompile Include="src\Battle\squad_manager.cpp" />
     <ClCompile Include="src\City View\Archery.cpp" />
     <ClCompile Include="src\City View\ArmyCamp.cpp" />
+    <ClCompile Include="src\City View\Barracks.cpp" />
     <ClCompile Include="src\City View\Bridge.cpp" />
     <ClCompile Include="src\City View\Building.cpp" />
     <ClCompile Include="src\City View\BuildingUI.cpp" />
@@ -363,9 +369,11 @@
     <ClCompile Include="src\City View\Ui.cpp" />
     <ClCompile Include="src\City View\UISelectable.cpp" />
     <ClCompile Include="src\City View\WorldBuilding.cpp" />
+    <ClCompile Include="src\Main\Animator.cpp" />
     <ClCompile Include="src\Main\ConfigManager.cpp" />
     <ClCompile Include="src\Main\Engine.cpp" />
     <ClCompile Include="src\Main\FPSManager.cpp" />
+    <ClCompile Include="src\Main\Particle.cpp" />
     <ClCompile Include="src\Main\SoundManager.cpp" />
     <ClCompile Include="src\Main\World.cpp" />
     <ClCompile Include="src\Map\City.cpp" />

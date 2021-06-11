@@ -23,6 +23,8 @@ class UISelectable
         string m_imgShop;
         string m_imgArchery;
         string m_imgCastle;
+        string m_imgBarracks;
+        string m_imgStable;
 
         short int m_margins;
         short int m_numberOfSelectables;

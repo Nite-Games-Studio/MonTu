@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     TITLESCREEN,
     EXIT*/
 
-    world.m_gameState = MENU;
+    world.m_gameState = MAP_CHOOSING;
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
 
@@ -85,10 +85,9 @@ int main(int argc, char* argv[])
         }
         if(world.m_gameState == GAME)
         {
-            world.m_battle.initGameSession();
+            world.m_battle.initGameSession(3, 0, 1);
             world.m_battle.m_enemyAI.takeBattlefield();
             world.m_battle.m_enemyAI.returnBattlefield();
-            world.m_castleUI.loadData("soldier_data_0.txt");
             while(!world.m_quitScene)
             {
                 world.input();

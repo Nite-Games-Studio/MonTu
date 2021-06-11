@@ -44,7 +44,9 @@ enum SQUAD
     SPEARMEN = 3,
     CROSSBOWMEN = 4,
     KNIGHTS = 5,
-    COUNT = 6
+    HOOK = 6,
+    RAINOFARROWS = 7,
+    COUNT = 8
 };
 
 enum ICON_STATE
@@ -66,9 +68,10 @@ enum UI_ICON_TYPE
 {
     NOBUILD = 0,
     STREET = 1,
-    SQUARE = 2,
-    SHOP = 3,
-    ARCHERY = 4
+    SHOP = 2,
+    ARCHERY = 3,
+    BARRACKS = 4,
+    STABLE = 5
 };
 
 struct Button

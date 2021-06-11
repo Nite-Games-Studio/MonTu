@@ -1,0 +1,4 @@
+duration: 1
+frames: 9
+frameW&H: 47 64
+img: meleeHitAnimation.bmp

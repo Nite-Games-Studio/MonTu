@@ -9,7 +9,7 @@ class HookSquad : public Squad
         HookSquad();
         virtual ~HookSquad();
 
-        HookSquad(const HookSquad& model, coordinates* cameraOffset, Tile* tile, OWNER owner);
+        HookSquad(const HookSquad& model, coordinates* cameraOffset, Tile* tile, OWNER owner, HealthManager hm);
 
         virtual void attack(Squad* defender);
     protected:
