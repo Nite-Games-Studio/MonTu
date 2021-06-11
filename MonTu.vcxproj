@@ -169,6 +169,7 @@
     <ClInclude Include="include\City View\UISelectable.h" />
     <ClInclude Include="include\CityView\Archery.h" />
     <ClInclude Include="include\CityView\ArmyCamp.h" />
+    <ClInclude Include="include\CityView\Barracks.h" />
     <ClInclude Include="include\CityView\Bridge.h" />
     <ClInclude Include="include\CityView\Building.h" />
     <ClInclude Include="include\CityView\BuildingUI.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="include\Main\Particle.h" />
     <ClInclude Include="include\Main\SoundManager.h" />
     <ClInclude Include="include\Main\World.h" />
+    <ClInclude Include="include\Map\City.h" />
     <ClInclude Include="include\Map\WorldMap.h" />
     <ClInclude Include="include\Menu\Menu.h" />
     <ClInclude Include="include\PickAndBan.h" />
@@ -354,6 +356,7 @@
     <ClCompile Include="src\Battle\squad_manager.cpp" />
     <ClCompile Include="src\City View\Archery.cpp" />
     <ClCompile Include="src\City View\ArmyCamp.cpp" />
+    <ClCompile Include="src\City View\Barracks.cpp" />
     <ClCompile Include="src\City View\Bridge.cpp" />
     <ClCompile Include="src\City View\Building.cpp" />
     <ClCompile Include="src\City View\BuildingUI.cpp" />
@@ -373,6 +376,7 @@
     <ClCompile Include="src\Main\Particle.cpp" />
     <ClCompile Include="src\Main\SoundManager.cpp" />
     <ClCompile Include="src\Main\World.cpp" />
+    <ClCompile Include="src\Map\City.cpp" />
     <ClCompile Include="src\Map\WorldMap.cpp" />
     <ClCompile Include="src\Menu\Menu.cpp" />
     <ClCompile Include="src\PickAndBan.cpp" />

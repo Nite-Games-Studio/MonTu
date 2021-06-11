@@ -42,16 +42,20 @@ public:
     HookSquad* modelSquadCrossbowmen = nullptr;
     Squad* modelSquadKnights = nullptr;
 
-    Castle* modelCastle = nullptr;
-    Building* modelArchery = nullptr;
-    Building* modelShop = nullptr;
-    Building* modelStreet = nullptr;
-    ArmyCamp* modelArmyCamp = nullptr;
-    Bridge* modelBridge = nullptr;
 
-    UI* modelUI = nullptr;
-    UISelectable* modelUISelectable = nullptr;
-    UISelectable* modelUISelectableSelected = nullptr;
+    Castle* modelCastle = NULL;
+    Building* modelArchery = NULL;
+    Building* modelShop = NULL;
+    Building* modelStreet = NULL;
+    Building* modelBarracks = NULL;
+    Building* modelStable = NULL;
+
+    ArmyCamp* modelArmyCamp = NULL;
+    Bridge* modelBridge = NULL;
+
+    UI* modelUI = NULL;
+    UISelectable* modelUISelectable = NULL;
+    UISelectable* modelUISelectableSelected = NULL;
 
     Buttons* modelButtons = nullptr;
 

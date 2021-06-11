@@ -29,6 +29,9 @@ void World::initSDL(string configFile)
 
     stream.open(configFile.c_str());
     stream >> tmp >> m_SCREEN_WIDTH >> m_SCREEN_HEIGHT;
+    stream >> tmp >> m_CP1.r >> m_CP1.g >> m_CP1.b;
+    stream >> tmp >> m_CP2.r >> m_CP2.g >> m_CP2.b;
+    stream >> tmp >> cursorImg;
 
     stream.close();
 
@@ -47,14 +50,14 @@ void World::initSDL(string configFile)
     m_playerStatsManager.init("mainStats.txt");
     m_battle.initBattle("battle_manager.txt");
     m_menu.init("menu.txt");
-    m_castleUI.init("castleUI.txt", "Tsarevo",  m_main_renderer);
+    m_castleUI.init("castleUI.txt", "Tsarevo", m_main_renderer);
 
     cursorImg = "img\\" + cursorImg;
     SDL_Surface* loadSurface = SDL_LoadBMP(cursorImg.c_str());
     m_cursor = SDL_CreateColorCursor(loadSurface, 10, 5);
     SDL_SetCursor(m_cursor);
 
-    /// m_soundManager.play_sound("General.mp3");
+    ///m_soundManager.play_sound("General.mp3");
 
 
     /// ShowWindow(GetConsoleWindow(), SW_HIDE);
@@ -88,23 +91,23 @@ void World::destroySDL()
 
 void startDrag(void* input)
 {
-    World* world = (World*) input;
-    world -> m_drag = true;
+    World* world = (World*)input;
+    world->m_drag = true;
 }
 
 void stopDrag(void* input)
 {
-    World* world = (World*) input;
-    world -> m_drag = false;
+    World* world = (World*)input;
+    world->m_drag = false;
 }
 
 int event_filter(void* input, SDL_Event* event)
 {
-    if(event -> type == SDL_MOUSEBUTTONDOWN)
+    if (event->type == SDL_MOUSEBUTTONDOWN)
     {
         startDrag(input);
     }
-    if(event -> type == SDL_MOUSEBUTTONUP)
+    if (event->type == SDL_MOUSEBUTTONUP)
     {
         stopDrag(input);
     }
@@ -118,7 +121,6 @@ void World::input()
     m_mouseIsPressed = false;
     m_mouseIsReleased = false;
     m_mouseIsDoubleClicked = false;
-    m_buttonDown = false;
 
     SDL_SetEventFilter(&event_filter, (void*)this);
 
@@ -126,11 +128,11 @@ void World::input()
 
     if (m_event.type == SDL_MOUSEBUTTONDOWN)
     {
-        if(m_event.button.clicks >= 1)
+        if (m_event.button.clicks >= 1)
         {
             m_mouseIsPressed = true;
         }
-        else if(m_event.button.clicks >= 2)
+        if (m_event.button.clicks >= 2)
         {
             m_mouseIsDoubleClicked = true;
         }
@@ -147,11 +149,7 @@ void World::input()
         m_mouse.y *= m_MOUSE_MULTIPLIER_Y;
     }
 
-    if(m_event.type == SDL_KEYDOWN)
-    {
-        m_buttonDown = true;
-    }
-    ///cout << m_mouse.x << " " << m_mouse.y << endl;
+    //cout << m_mouse.x << " " << m_mouse.y << endl;
 }
 
 void World::cameraShake()
@@ -173,7 +171,7 @@ void World::cameraShake()
 
 void World::initSession(GAME_STATE state)
 {
-    if(state == PICK_BAN)
+    if (state == PICK_BAN)
     {
         m_available.push_back(ARCHER);
         m_available.push_back(WARRIOR);
@@ -183,7 +181,7 @@ void World::initSession(GAME_STATE state)
 void World::pickAndBan()
 {
     //Check for mouse input and select squad to ban
-    if(false)
+    if (false)
     {
         ///m_banned.push_back();
     }
@@ -197,9 +195,9 @@ void World::initMap(string configFile)
 
     in_file.open(configFile.c_str());
 
-    for(int r = 0; r < m_battle.m_rows; r++)
+    for (int r = 0; r < m_battle.m_rows; r++)
     {
-        for(int c = 0; c < m_battle.m_colls; c++)
+        for (int c = 0; c < m_battle.m_colls; c++)
         {
             in_file >> field[c][r];
         }

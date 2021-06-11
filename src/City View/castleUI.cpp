@@ -394,8 +394,8 @@ void castleUI::updateCitySquad()
     }
     else
     {
-        m_draggedSlot.objRect.w = m_squads[0]->objectRect.w;
-        m_draggedSlot.objRect.h = m_squads[0]->objectRect.h;
+//        m_draggedSlot.objRect.w = m_squads[0]->objectRect.w;
+//        m_draggedSlot.objRect.h = m_squads[0]->objectRect.h;
     }
 
     m_draggedSlot.objRect.x = world.m_mouse.x - m_draggedSlot.objRect.w / 2;

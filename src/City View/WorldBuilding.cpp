@@ -9,6 +9,8 @@ WorldBuilding::WorldBuilding()
     m_uiBoard = NULL;
     m_entityCount[(int)COUNT] = {0};
     type = NOBUILD;
+    m_castleUIIsActive = false;
+    m_castleUI = new castleUI();
 }
 
 WorldBuilding::~WorldBuilding()
@@ -41,6 +43,8 @@ void WorldBuilding::initCity(string configFile)
 
     initMap("CityView.txt");
     initTiles("cityMap.txt");
+    m_castleUI->init("castleUI.txt", "Moira" , world.m_main_renderer);
+    m_castleUI->loadData("squad1.txt");
 
     if(castle == NULL){
 
@@ -311,20 +315,16 @@ void WorldBuilding::selectTile()
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     SDL_PollEvent(&(world.m_event));
 
+    m_isSelected = false;
     for(short int r = 0; r < m_tiles.size(); r++)
     {
         for(short int c = 0; c < m_tiles[r].size(); c++)
         {
             if(isInsideAHexagon(m_tiles[r][c]->m_collisionPoints, LoadPoint(world.m_mouse)))
             {
-
-                if(world.m_mouse.y <= 1080)
-                {
-
-                    m_selected.x = c;
-                    m_selected.y = r;
-
-                }
+                m_isSelected = true;
+                m_selected.x = c;
+                m_selected.y = r;
             }
         }
     }
@@ -337,7 +337,7 @@ void WorldBuilding::building()
 {
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     SDL_PollEvent(&(world.m_event));
-    if(/*state[SDL_SCANCODE_B] && world.m_buttonDown*/world.m_mouseIsPressed)
+    if(world.m_mouseIsPressed)
     {
         if(m_uiBoard == NULL)
         {
@@ -353,10 +353,16 @@ void WorldBuilding::building()
                     m_selectables[i]->assignSelectable(world.m_main_renderer,STREET);
                     break;
                 case 1:
-                    m_selectables[i]->assignSelectable(world.m_main_renderer,ARCHERY);
+                    m_selectables[i]->assignSelectable(world.m_main_renderer,SHOP);
                     break;
                 case 2:
-                    m_selectables[i]->assignSelectable(world.m_main_renderer,SHOP);
+                    m_selectables[i]->assignSelectable(world.m_main_renderer,ARCHERY);
+                    break;
+                case 3:
+                    m_selectables[i]->assignSelectable(world.m_main_renderer, BARRACKS);
+                    break;
+                case 4:
+                    m_selectables[i]->assignSelectable(world.m_main_renderer, STABLE);
                     break;
 
                 }
@@ -364,37 +370,19 @@ void WorldBuilding::building()
         }
         else
         {
-            if(type!= NOBUILDING)
+            if(type!= NOBUILD )
             {
-                if(alreadyBuilt(m_selected.x,m_selected.y) == false)
+                if(alreadyBuilt(m_selected.x,m_selected.y) == false && m_isSelected)
                 {
-                    /*while(true)
-                    {
-                        if(state[SDL_SCANCODE_TAB] & world.m_buttonDown)
-                        {
-                            cout << "HERE" << endl;
-                            switch(type){
-
-                                case STREET:
-                                    type = SQUARE;
-                                case SQUARE:
-                                    type = SHOP;
-                                    break;
-                                case SHOP:
-                                    type = ARCHERY;
-                                    break;
-                                case ARCHERY:
-                                    type = STREET;
-                                    break;
-
-                            }
-
-                        }
-                    }*/
                     build(m_selected.x,m_selected.y,type);
                 }
 
             }
+        }
+        if (isInsideAHexagon(m_tiles[castle->m_mapCoordinates.y][castle->m_mapCoordinates.x]->m_collisionPoints, LoadPoint(world.m_mouse)))
+        {
+            m_castleUIIsActive = true;
+
         }
     }
 }
@@ -437,26 +425,53 @@ void WorldBuilding::showUI()
     }
 }
 
+void WorldBuilding::enlargeSelectable()
+{
+    for (int i = 0; i < 11; i++) {
+
+        if (type == m_selectables[i]->m_type)
+        {
+            if (m_selectables[i]->button.objectRect.w <= m_selectables[i]->button.maxRect.w)
+            {
+                m_selectables[i]->button.currentBonusW += m_selectables[i]->button.bonusW;
+                m_selectables[i]->button.currentBonusH += m_selectables[i]->button.bonusH;
+
+                m_selectables[i]->button.objectRect.w = m_selectables[i]->button.minRect.w + m_selectables[i]->button.currentBonusW;
+                m_selectables[i]->button.objectRect.h = m_selectables[i]->button.minRect.h + m_selectables[i]->button.currentBonusH;
+                m_selectables[i]->button.objectRect.x = m_selectables[i]->button.minRect.x - m_selectables[i]->button.currentBonusW / 2;
+                m_selectables[i]->button.objectRect.y = m_selectables[i]->button.minRect.y - m_selectables[i]->button.currentBonusH / 2;
+
+            }
+        }
+        else
+        {
+            m_selectables[i]->button.currentBonusW = 0;
+            m_selectables[i]->button.currentBonusH = 0;
+
+            m_selectables[i]->button.objectRect = m_selectables[i]->button.minRect;
+        }
+    }
+}
+
 void WorldBuilding::build(int c,int r,UI_ICON_TYPE type)
 {
     Building* building = nullptr;
-    switch(type)
+    switch (type)
     {
     case STREET:
         building = new Building(*(world.m_configManager.modelStreet));
-        m_selectedTileUI.objTexture = LoadTexture("Street_selected.bmp",world.m_main_renderer);
-        break;
-    case SQUARE:
-        building = new Building(*(world.m_configManager.modelStreet));
-        m_selectedTileUI.objTexture = LoadTexture("Street_selected.bmp",world.m_main_renderer);
         break;
     case SHOP:
         building = new Building(*(world.m_configManager.modelShop));
-        m_selectedTileUI.objTexture = LoadTexture("Shop_selected.bmp",world.m_main_renderer);
         break;
     case ARCHERY:
         building = new Building(*(world.m_configManager.modelArchery));
-        m_selectedTileUI.objTexture = LoadTexture("Archery_selected.bmp",world.m_main_renderer);
+        break;
+    case BARRACKS:
+        building = new Building(*(world.m_configManager.modelBarracks));
+        break;
+    case STABLE:
+        building = new Building(*(world.m_configManager.modelStable));
         break;
 
     }
@@ -472,15 +487,13 @@ void WorldBuilding::build(int c,int r,UI_ICON_TYPE type)
 
     m_buildings.push_back(building);
 
-    //SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_INFORMATION,
-    //                     "Built",
-    //                     "You've just constructed a building",
-    //                     world.m_main_window);
 }
 
 void WorldBuilding::updateBuilding()
 {
     const Uint8 *state = SDL_GetKeyboardState(NULL);
+
+    UI_ICON_TYPE lastType = type;
 
     selectTile();
 
@@ -504,6 +517,55 @@ void WorldBuilding::updateBuilding()
         }
     }
 
+    if (state[SDL_SCANCODE_TAB] & world.m_buttonDown)
+    {
+        //cout << "HERE" << endl;
+        //type = (UI_ICON_TYPE)((int)type + 1);
+        switch (type) {
+
+        case STREET:
+            type = SHOP;
+            break;
+        case SHOP:
+            type = ARCHERY;
+            break;
+        case ARCHERY:
+            type = BARRACKS;
+            break;
+        case BARRACKS:
+            type = STABLE;
+            break;
+        case STABLE:
+            type = STREET;
+            break;
+
+        }
+        enlargeSelectable();
+    }
+
+    if (lastType != type)
+    {
+        switch (type)
+        {
+        case STREET:
+            m_selectedTileUI.objTexture = LoadTexture("Street_selected.bmp", world.m_main_renderer);
+            break;
+        case SHOP:
+            m_selectedTileUI.objTexture = LoadTexture("Shop_selected.bmp", world.m_main_renderer);
+            break;
+        case ARCHERY:
+            m_selectedTileUI.objTexture = LoadTexture("Archery_selected.bmp", world.m_main_renderer);
+            break;
+        case BARRACKS:
+            m_selectedTileUI.objTexture = LoadTexture("Barracks_selected.bmp", world.m_main_renderer);
+            break;
+        case STABLE:
+            m_selectedTileUI.objTexture = LoadTexture("Stable_selected.bmp", world.m_main_renderer);    
+            break;
+
+        }
+
+    }
 
     for(vector <Building*> :: iterator it = m_buildings.begin(); it != m_buildings.end(); it++)
     {
@@ -521,7 +583,11 @@ void WorldBuilding::updateBuilding()
 
      m_selectedTileUI.objRect = m_tiles[m_selected.y][m_selected.x]->m_objectRect;
 
+     if (m_castleUIIsActive)
+     {
+         m_castleUI->update();
 
+     }
 
     /*m_selectedTileUI.objRect.w *= 3;
     m_selectedTileUI.objRect.h *= 3;
@@ -567,8 +633,16 @@ void WorldBuilding::drawBuilding()
         (*it) -> draw(world.m_main_renderer);
     }
 
-    SDL_RenderCopy(world.m_main_renderer, m_selectedTileUI.objTexture, NULL, &(m_selectedTileUI.objRect));
+    if (m_isSelected)
+    {
+        SDL_RenderCopy(world.m_main_renderer, m_selectedTileUI.objTexture, NULL, &(m_selectedTileUI.objRect));
+    }
 
+    if (m_castleUIIsActive)
+    {
+        m_castleUI->draw();
+
+    }
 
     SDL_RenderPresent(world.m_main_renderer);
 }
@@ -600,83 +674,6 @@ bool WorldBuilding::alreadyBuilt(int x, int y)
     return false;
 }
 
-/*
-void WorldBuilding::initBuildings(string configFile)
-{
-    int cfgSize;
-    configFile = "config\\" + configFile;
-
-    fstream stream;
-    coordinates coord;
-    int inType;
-    int inOwner;
-    BUILDING type;
-    OWNER owner;
-
-    stream.open(configFile.c_str());
-    stream >> cfgSize;
-    while(cfgSize > 0)
-    {
-        stream >> coord.x >> coord.y >> inType >> inOwner;
-        type = (BUILDING) inType;
-        owner = (OWNER) inOwner;
-        initBuilding(type, coord, owner);
-        cfgSize--;
-    }
-}
-
-void WorldBuilding::initBuilding(BUILDING type, coordinates mapCoor, OWNER owner)
-{
-
-    Tile* tile = m_tiles[mapCoor.y][mapCoor.x];
-    if(alreadyBuilt(mapCoor.x,mapCoor.y)) {return;}
-    Building* building = new Building();
-
-
-    switch(type)
-    {
-        case CASTLE:
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            tile = giveNeighbor(mapCoor,0);
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            tile = giveNeighbor(mapCoor,1);
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            tile = giveNeighbor(mapCoor,2);
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            tile = giveNeighbor(mapCoor,3);
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            tile = giveNeighbor(mapCoor,4);
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            tile = giveNeighbor(mapCoor,5);
-            building = new Castle(*(world.m_configManager.modelCastle), tile, owner);
-            break;
-        case ARMYCAMP:
-            building = new ArmyCamp(*(world.m_configManager.modelArmyCamp), tile, owner);
-            break;
-        case BRIDGE:
-            building = new Bridge(*(world.m_configManager.modelBridge), tile, owner);
-            break;
-        case STREET:
-            building = new Building(*(world.m_configManager.modelStreet), tile, owner);
-            break;
-        case SHOP:
-            building = new Building(*(world.m_configManager.modelShop), tile, owner);
-            break;
-        case ARCHERY:
-            building = new Building(*(world.m_configManager.modelArchery), tile, owner);
-            break;
-        default:
-           building = new Bridge(*(world.m_configManager.modelBridge), tile, owner);;
-            break;
-    }
-
-
-    if(tile != NULL)
-    {
-        m_buildings.push_back(building);
-    }
-}
-*/
 
 Tile* WorldBuilding::giveNeighbor(coordinates coor, int direction)
 {

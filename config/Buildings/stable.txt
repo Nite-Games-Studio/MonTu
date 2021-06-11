@@ -1,0 +1,37 @@
+walkingDif: 5
+
+img: Stable.bmp
+
+OwnerIndicatorP1_WhenGettingStateRegular: a
+
+OwnerIndicatorP2_WhenGettingStateRegular: a
+
+BuildIndicator_WhenGettingStateRegular: a
+
+DamageIndicator_WhenGettingStateRegular: a
+
+Height: 512
+
+Width: 512
+
+PositionAdjustment: 0
+
+Health: 420
+
+States: 7
+
+MaxState: 3
+
+DurationPerState(in_ms): 6000
+
+StartingPositionStatus: 0
+
+StartingState: 0
+
+StartingHealth: 1
+
+StartingUsedCapacity: 0
+
+ConstructingStatus: 1
+Archer: 1 2000
+Warrior: 1 6000

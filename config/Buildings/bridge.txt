@@ -1,20 +1,36 @@
 walkingDif: 5
 
 img: Bridge.bmp
-Height: 47
-Width: 476
-imgRowsAndCols: 1 7
-RotationAngle: 0
-Health: 420
 
-States: 6
-MaxState: 4
+OwnerIndicatorP1: OwnerIndicatorP1_ArmyCamp.bmp
 
-DurationPerState(in_ms): 4000
+OwnerIndicatorP2: OwnerIndicatorP2_ArmyCamp.bmp
+
+BuildIndicator: BuildIndicator_Castle.bmp
+
+DamageIndicator: DamageIndicator_Castle.bmp
+
+Height: 512
+
+Width: 512
+
+PositionAdjustment: 0
+
+Health: 400
+
+States: 8
+
+MaxState: 3
+
+DurationPerState(in_ms): 6000
 
 StartingPositionStatus: 0
 StartingState: 0
 
 StartingHealth: 1
 
+StartingUsedCapacity: 0
+
 ConstructingStatus: 1
+Archer: 1 2000
+Warrior: 1 6000

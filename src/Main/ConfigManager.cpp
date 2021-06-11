@@ -90,15 +90,23 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer)
     stream >> tmp >> buff;
     modelCastle = new Castle;
     modelCastle->load(buff, renderer);
+    
+    stream >> tmp >> buff;
+    modelBarracks = new Building;
+    modelBarracks->load(buff, renderer);
+    
+    stream >> tmp >> buff;
+    modelStable = new Building;
+    modelStable->load(buff, renderer);
 
     stream >> tmp >> buff;
     modelArmyCamp = new ArmyCamp;
     modelArmyCamp->load(buff, renderer);
-
+    /*
     stream >> tmp >> buff;
     modelBridge = new Bridge;
     modelBridge->load(buff, renderer);
-
+    */
     stream >> tmp >> buff;
     modelUI = new UI;
     modelUI->load(buff, renderer);
@@ -106,10 +114,6 @@ void ConfigManager::init(string configFile, SDL_Renderer* renderer)
     stream >> tmp >> buff;
     modelUISelectable = new UISelectable();
     modelUISelectable->load(buff,renderer);
-
-    stream >> tmp >> buff;
-    modelUISelectableSelected = new UISelectable();
-    modelUISelectableSelected->load(buff,renderer);
 
     stream >> tmp >> buff;
     modelButtons = new Buttons();

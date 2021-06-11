@@ -11,76 +11,87 @@
 
 #include "Engine.h"
 #include "defines.h"
+#include "City.h"
 
 class WorldMap
 {
-    public:
-        WorldMap();
-        virtual ~WorldMap();
+public:
+    WorldMap();
+    virtual ~WorldMap();
 
-        GAME_STATE gameState;
+    GAME_STATE gameState;
 
-        SDL_Texture* WorldMapTexture;
-        SDL_Texture* NextButtonTexture;
+    SDL_Texture* WorldMapTexture;
+    SDL_Texture* FlagTexture;
 
-        mapObject army;
+    mapObject army;
 
-        SDL_Rect nextButtonRect;
-        SDL_Rect maxZoom;
-        SDL_Rect minZoom;
-        SDL_Rect cameraRect;
-        SDL_Rect chunkCameraRect;
+    SDL_Rect maxZoom;
+    SDL_Rect minZoom;
+    SDL_Rect cameraRect;
+    SDL_Rect chunkCameraRect;
 
-        SDL_Rect cameraDstRect1;
-        SDL_Rect cameraDstRect2;
-        SDL_Rect cameraDstRect3;
-        SDL_Rect cameraDstRect4;
+    SDL_Rect cameraDstRect1;
+    SDL_Rect cameraDstRect2;
+    SDL_Rect cameraDstRect3;
+    SDL_Rect cameraDstRect4;
 
-        SDL_Rect cameraSrcRect1;
-        SDL_Rect cameraSrcRect2;
-        SDL_Rect cameraSrcRect3;
-        SDL_Rect cameraSrcRect4;
+    SDL_Rect cameraSrcRect1;
+    SDL_Rect cameraSrcRect2;
+    SDL_Rect cameraSrcRect3;
+    SDL_Rect cameraSrcRect4;
 
-        coordinates cameraCenter;
-        coordinates direction;
-        coordinates currentPos;
-        coordinates mouseDragDistance;
-        coordinates cameraPosBeforeDrag;
-        coordinates armyDirection;
+    SDL_Scancode add_Army;
 
-        UI_object m_selectedArmy;
+    coordinates cameraCenter;
+    coordinates direction;
+    coordinates currentPos;
+    coordinates mouseDragDistance;
+    coordinates cameraPosBeforeDrag;
+    coordinates armyDirection;
 
-        vector <SDL_Texture*> mapPieces;
+    UI_object m_selectedArmy;
 
-        int zoomMulti;
-        int mapWidth;
-        int mapHeight;
-        int oldX, oldY;
-        int currentChunk;
-        int allImages;
-        int imagesPerChunk;
+    vector <SDL_Texture*> mapPieces;
+    vector <mapObject*> armyVec;
+    vector <City*> m_cities;
 
-        bool borderActive;
+    int zoomMulti;
+    int mapWidth;
+    int mapHeight;
+    int oldX, oldY;
+    int currentChunk;
+    int allImages;
+    int imagesPerChunk;
 
-        float zoom_lvl = 1;
-        double moveRatio;
-        double speed;
+    bool borderActive;
 
-        void drawMap();
-        void init(string configFile);
-        void update();
-        void draw();
-        void framer();
-        void zoom();
-        void moveWithMouse();
-        void loadMap(string configFile);
-        void openCity(SDL_Rect cityRect);
-        void drawArmy(mapObject* army);
-        void updateArmy(mapObject* army);
+    float zoom_lvl = 1;
+    double moveRatio;
+    double speed;
 
-    protected:
+    void drawMap();
+    void init(string configFile);
+    void update();
+    void draw();
+    void framer();
+    void zoom();
+    void moveWithMouse();
+    void loadMap(string configFile);
+    void openCity();
+    void drawArmy(mapObject* army);
+    void updateArmy(mapObject* army);
+    void saveArmy(string configFile);
+    void save(mapObject* army, int pos);
+    void loadArmy(string configFile);
+    void load(ifstream& stream);
+    void loadCity(string configFile);
+    void addArmy();
+    void openBattle();
 
-    private:
+protected:
+
+private:
 };
 
 #endif // WORLDMAP_H
