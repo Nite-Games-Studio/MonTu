@@ -197,6 +197,7 @@
     <ClInclude Include="include\PlayerStatsManager.h" />
     <ClInclude Include="include\PopUpWriter.h" />
     <ClInclude Include="include\TitleScreen.h" />
+    <ClInclude Include="include\WinScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\archer.bmp" />
@@ -383,6 +384,7 @@
     <ClCompile Include="src\PlayerStatsManager.cpp" />
     <ClCompile Include="src\PopUpWriter.cpp" />
     <ClCompile Include="src\TitleScreen.cpp" />
+    <ClCompile Include="src\WinScreen.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

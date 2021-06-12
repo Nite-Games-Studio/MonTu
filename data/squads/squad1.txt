@@ -1,4 +1,4 @@
-state: 0
+state: 1
 index: 1
-city: TSAREVO
-soldier_data_1.txt
+coor: 1000 500
+squad_data_1.txt
