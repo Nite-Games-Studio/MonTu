@@ -1,4 +1,4 @@
 City_Rect: 2730 1800 150 150
 Img: City.bmp
-varna_save.txt
+varna
 soldier_data_5.txt

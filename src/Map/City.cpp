@@ -29,7 +29,8 @@ void City::load(string configFile)
 
 	stream >> tmp >> m_objRect.x >> m_objRect.y >> m_objRect.w >> m_objRect.h;
 	stream >> tmp >> img;
-	stream >> tmp;
+	stream >> m_cityName;
+	tmp = m_cityName;
 	tmp = "\\saves\\" + tmp;
 
 	stream.close();

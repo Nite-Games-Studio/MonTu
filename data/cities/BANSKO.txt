@@ -1,4 +1,4 @@
 City_Rect: 3030 910 150 150
 Img: City.bmp
-basnko_save.txt
+bansko
 soldier_data_2.txt

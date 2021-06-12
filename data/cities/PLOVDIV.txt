@@ -1,4 +1,4 @@
 City_Rect: 566 1826 150 150
 Img: City.bmp
-plovdiv_save.txt
+plovdiv
 soldier_data_4.txt

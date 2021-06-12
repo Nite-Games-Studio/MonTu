@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 
         if(world.m_gameState == CITYBUILDING)
         {
-            cityView.initCity("varna");
+            cityView.initCity(world.currentCity);
             while(!world.m_quitScene)
             {
                 world.input();

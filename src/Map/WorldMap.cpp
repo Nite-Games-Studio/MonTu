@@ -266,6 +266,9 @@ void WorldMap::openCity()
 
             if (checkForCollisionBetweenRects(armyVec[j]->objRect, m_cities[i]->m_objRect))
             {
+                armyVec[j]->objRect.x += 500;
+                armyVec[j]->objRect.y += 500;
+                world.currentCity = m_cities[i]->m_cityName;
                 world.m_quitScene = true;
                 world.m_gameState = CITYBUILDING;
             }                      
@@ -305,6 +308,7 @@ void WorldMap::loadSquad(string configFile)
             stream >> tmp >> buffInt;
             stream >> tmp >> buffCoor.x >> buffCoor.y;
             addArmy(buffCoor, buffInt);
+            cout << "HERE";
         }
         stream.close();
     }

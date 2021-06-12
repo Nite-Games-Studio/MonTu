@@ -40,6 +40,8 @@ class World
 
         TTF_Font* m_font;
 
+        string currentCity;
+
         ConfigManager m_configManager;
         SoundManager m_soundManager;
         PickAndBan m_pickAndBan;

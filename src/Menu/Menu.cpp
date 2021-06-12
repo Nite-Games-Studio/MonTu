@@ -121,8 +121,6 @@ void Menu::draw()
 
     SDL_RenderCopy(renderer, optionsButton.objTexture, NULL, &(optionsButton.objectRect));
 
-    SDL_RenderCopy(renderer, battleButton.objTexture, NULL, &(battleButton.objectRect));
-
     SDL_RenderCopy(renderer, exitButton.objTexture, NULL, &(exitButton.objectRect));
 
     SDL_RenderPresent(renderer);
@@ -171,18 +169,11 @@ void Menu::update()
             world.m_quitScene = true;
             world.m_gameState = EXIT;
         }
-
-        if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, battleButton.objectRect))
-        {
-            world.m_quitScene = true;
-            world.m_gameState = GAME;
-        }
     }
 
     buttonHover(&playButton);
     buttonHover(&optionsButton);
     buttonHover(&exitButton);
-    buttonHover(&battleButton);
 }
 
 void Menu::Choose_Map()

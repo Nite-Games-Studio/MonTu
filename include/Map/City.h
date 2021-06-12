@@ -16,6 +16,7 @@ public:
 
     SDL_Rect m_objRect;
     SDL_Texture* m_cityTexture;
+    string m_cityName;
 
     void draw();
     void load(string configFile);

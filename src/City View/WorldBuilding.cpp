@@ -619,7 +619,7 @@ void WorldBuilding::drawBuilding()
     {
         for(vector<Tile*> :: iterator it = (*vit).begin(); it != (*vit).end(); it++)
         {
-            (*it) -> draw(world.m_main_renderer);
+           // (*it) -> draw(world.m_main_renderer);
         }
     }
     for(vector <Building*> :: iterator it = m_buildings.begin(); it != m_buildings.end(); it++)

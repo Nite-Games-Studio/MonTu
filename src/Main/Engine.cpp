@@ -19,7 +19,7 @@ SDL_Texture* LoadTexture(string file, SDL_Renderer* renderer)
         }
     }catch (int i)
     {
-        cout << "NO TEXTURE LOADED " << file << "\n";
+        //cout << "NO TEXTURE LOADED " << file << "\n";
         return NULL;
     }
     return objectTexture;
