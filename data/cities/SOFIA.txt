@@ -1,4 +1,4 @@
-City_Rect: 2500 3200 100 100
+City_Rect: 2500 3200 150 150
 Img: City.bmp
 sofia_save.txt
 soldier_data_1.txt

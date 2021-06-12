@@ -1,5 +1,8 @@
 #include "Building.h"
 #include "WorldBuilding.h"
+#include "World.h"
+
+extern World world;
 extern WorldBuilding cityView;
 
 Building::Building()
@@ -296,6 +299,12 @@ void Building::update()
         //getState();
     }
    // cout<<__LINE__<<endl;
+
+    if (checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, world.m_menu.backButton.objectRect) && world.m_mouseIsPressed)
+    {
+        world.m_quitScene = true;
+        world.m_gameState = WORLD_MAP;
+    }
 }
 
 void Building::draw(SDL_Renderer* renderer)
@@ -314,6 +323,7 @@ void Building::draw(SDL_Renderer* renderer)
         setTextureDetails(renderer);
     }
 
+    SDL_RenderCopy(renderer, world.m_menu.backButton.objTexture, NULL, &(world.m_menu.backButton.objectRect));
 
     //cout<<"objRect"<<m_objectRect.x<<" "<<m_objectRect.y<<" "<<m_objectRect.w<<" "<<m_objectRect.h<<endl;
 }

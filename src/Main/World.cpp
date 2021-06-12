@@ -51,12 +51,13 @@ void World::initSDL(string configFile)
     m_battle.initBattle("battle_manager.txt");
     m_menu.init("menu.txt");
     m_castleUI.init("castleUI.txt", "Tsarevo", m_main_renderer);
+
     cursorImg = "img\\" + cursorImg;
     SDL_Surface* loadSurface = SDL_LoadBMP(cursorImg.c_str());
     m_cursor = SDL_CreateColorCursor(loadSurface, 10, 5);
     SDL_SetCursor(m_cursor);
 
-    ///m_soundManager.play_sound("General.mp3");
+    // m_soundManager.play_sound("General.mp3");
 
     // ShowWindow(GetConsoleWindow(), SW_HIDE);
 }

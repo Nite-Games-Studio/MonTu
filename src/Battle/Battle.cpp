@@ -48,7 +48,6 @@ void Battle::initBattle(string configFile)
 
     m_popUpWriter.init("PopUpWriter.txt", m_renderer);
 
-
     m_unwalkableTiles = new bool*[m_rows];
 
     for(short i = 0; i < m_rows; i ++)
@@ -199,80 +198,93 @@ void Battle::initTiles(string configFile)
 //{ MAIN
 void Battle::update()
 {
-    world.cameraShake();
-
-    selectTile();
-
-    m_selectedTileUI.objRect = m_tiles[m_selected.y][m_selected.x]->m_objectRect;
-    squadActionsCheck();
-    if(world.m_mouseIsPressed)
+    if (!m_gameOver)
     {
-        if(m_showFillBtn && checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, m_skipTurnFillBtn.objRect))
+        world.cameraShake();
+
+        selectTile();
+
+        m_selectedTileUI.objRect = m_tiles[m_selected.y][m_selected.x]->m_objectRect;
+        squadActionsCheck();
+        if (world.m_mouseIsPressed)
         {
-            switchTurn();
+            if (m_showFillBtn && checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, m_skipTurnFillBtn.objRect))
+            {
+                switchTurn();
+            }
         }
-    }
-    checkForTurnSwitch();
+        checkForTurnSwitch();
 
-    m_winner = checkForWinState();
-   
-    if (m_winner != NOOWNER)
+        m_winner = checkForWinState();
+
+        if (m_winner != NOOWNER)
+        {
+            m_gameOver = true;
+            world.m_winScreen.init("winScreen.txt", m_winner);
+            cout << "GAME OVER \n";
+        }
+
+        for (int i = 0; i < m_particles.size(); i++)
+        {
+            m_particles[i]->update();
+        }
+
+        cleaner();
+    }
+    else
     {
-        m_gameOver = true;
-        cout << "GAME OVER \n";
+        world.m_winScreen.update();
     }
-
-    for(int i = 0; i < m_particles.size(); i ++)
-    {
-        m_particles[i]->update();
-    }
-
-    cleaner();
 }
 
 void Battle::draw()
 {
     SDL_RenderClear(m_renderer);
-
-    for(vector<vector <Tile*> > :: iterator vit = m_tiles.begin(); vit != m_tiles.end(); vit++)
+    
+    if (!m_gameOver)
     {
-        for(vector<Tile*> :: iterator it = (*vit).begin(); it != (*vit).end(); it++)
+        for (vector<vector <Tile*> > ::iterator vit = m_tiles.begin(); vit != m_tiles.end(); vit++)
         {
-            (*it) -> draw(m_renderer);
+            for (vector<Tile*> ::iterator it = (*vit).begin(); it != (*vit).end(); it++)
+            {
+                (*it)->draw(m_renderer);
+            }
         }
-    }
-    SDL_RenderCopy(m_renderer, m_selectedTileUI.objTexture, NULL, &(m_selectedTileUI.objRect));
+        SDL_RenderCopy(m_renderer, m_selectedTileUI.objTexture, NULL, &(m_selectedTileUI.objRect));
 
-    for(vector <Tile*> :: iterator it = m_availableWalkTiles.begin(); it != m_availableWalkTiles.end(); it++)
+        for (vector <Tile*> ::iterator it = m_availableWalkTiles.begin(); it != m_availableWalkTiles.end(); it++)
+        {
+            SDL_RenderCopy(m_renderer, m_selectedTileUI.objTexture, NULL, &((*it)->m_objectRect));
+        }
+
+        for (vector <Tile*> ::iterator it = m_availableShootTiles.begin(); it != m_availableShootTiles.end(); it++)
+        {
+            SDL_RenderCopy(m_renderer, m_attackTileUI.objTexture, NULL, &((*it)->m_objectRect));
+        }
+
+        for (vector <Squad*> ::iterator it = m_squads.begin(); it != m_squads.end(); it++)
+        {
+            (*it)->draw();
+        }
+
+        for (int i = 0; i < m_particles.size(); i++)
+        {
+            m_particles[i]->draw();
+        }
+
+        m_popUpWriter.draw(m_tiles[m_selected.y][m_selected.x]->m_objectRect, m_popUpWriter.m_buildingListRect, m_popUpWriter.m_buildingListTexture);
+
+        if (m_showFillBtn)
+        {
+            SDL_RenderCopy(m_renderer, m_skipTurnFillBtn.objTexture, NULL, &(m_skipTurnFillBtn.objRect));
+        }
+        SDL_RenderPresent(m_renderer);
+    }
+    else
     {
-        SDL_RenderCopy(m_renderer, m_selectedTileUI.objTexture, NULL, &((*it) -> m_objectRect));
+        world.m_winScreen.draw(m_renderer);
+        SDL_RenderPresent(m_renderer);
     }
-
-    for(vector <Tile*> :: iterator it = m_availableShootTiles.begin(); it != m_availableShootTiles.end(); it++)
-    {
-        SDL_RenderCopy(m_renderer, m_attackTileUI.objTexture, NULL, &((*it) -> m_objectRect));
-    }
-
-    for(vector <Squad*> :: iterator it = m_squads.begin(); it != m_squads.end(); it++)
-    {
-        (*it) -> draw();
-    }
-
-    for(int i = 0; i < m_particles.size(); i ++)
-    {
-        m_particles[i]->draw();
-    }
-
-
-    m_popUpWriter.draw(m_tiles[m_selected.y][m_selected.x]->m_objectRect, m_popUpWriter.m_buildingListRect, m_popUpWriter.m_buildingListTexture);
-
-    if (m_showFillBtn)
-    {
-        SDL_RenderCopy(m_renderer, m_skipTurnFillBtn.objTexture, NULL, &(m_skipTurnFillBtn.objRect));
-    }
-
-    SDL_RenderPresent(m_renderer);
-
 }
 
 void Battle::cleaner()
