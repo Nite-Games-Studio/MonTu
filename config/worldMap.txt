@@ -1,8 +1,8 @@
 zoom: 5
 
-Max_Zoom: 3840 2160
+Max_Zoom: 2880 1620
 
-Min_Zoom: 1024 768
+Min_Zoom: 960 540
 
 all_Image_Count: 16
 

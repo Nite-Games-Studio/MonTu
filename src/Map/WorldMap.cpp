@@ -125,11 +125,6 @@ void WorldMap::loadCity(string configFile)
         city->load(tmp);
         m_cities.push_back(city);
     }
-    /*if (state[SDL_SCANCODE_ESCAPE] && world.m_buttonDown)
-    {
-        world.m_quitScene = true;
-        world.m_gameState = MENU;
-    }*/
 
     stream.close();
 }
@@ -337,7 +332,7 @@ void WorldMap::drawArmy()
             armyVec[i]->borderActive = true;
         }
 
-        if (zoom_lvl < 0.65)
+        if (zoom_lvl < 0.9)
         {
             SDL_RenderCopy(world.m_main_renderer, FlagTexture, NULL, &(screen_space));
         }

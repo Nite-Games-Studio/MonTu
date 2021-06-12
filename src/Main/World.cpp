@@ -57,7 +57,7 @@ void World::initSDL(string configFile)
     m_cursor = SDL_CreateColorCursor(loadSurface, 10, 5);
     SDL_SetCursor(m_cursor);
 
-    ///m_soundManager.play_sound("General.mp3");
+    // m_soundManager.play_sound("General.mp3");
 
     // ShowWindow(GetConsoleWindow(), SW_HIDE);
 }
