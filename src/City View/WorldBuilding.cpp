@@ -336,7 +336,7 @@ void WorldBuilding::selectTile()
 void WorldBuilding::building()
 {
     const Uint8 *state = SDL_GetKeyboardState(NULL);
-    SDL_PollEvent(&(world.m_event));
+
     if(world.m_mouseIsPressed)
     {
         if(m_uiBoard == NULL)
@@ -492,7 +492,7 @@ void WorldBuilding::build(int c,int r,UI_ICON_TYPE type)
 void WorldBuilding::updateBuilding()
 {
     const Uint8 *state = SDL_GetKeyboardState(NULL);
-
+    
     UI_ICON_TYPE lastType = type;
 
     selectTile();
@@ -517,7 +517,7 @@ void WorldBuilding::updateBuilding()
         }
     }
 
-    if (state[SDL_SCANCODE_TAB] & world.m_buttonDown)
+    if (state[SDL_SCANCODE_TAB] && world.m_buttonDown)
     {
         //cout << "HERE" << endl;
         //type = (UI_ICON_TYPE)((int)type + 1);

@@ -118,6 +118,7 @@ void WorldMap::loadMap(string configFile)
 
 void WorldMap::loadCity(string configFile)
 {
+
     configFile = "config\\" + configFile;
     fstream stream;
 
@@ -135,11 +136,6 @@ void WorldMap::loadCity(string configFile)
         City* city = new City;
         city->load(tmp);
         m_cities.push_back(city);
-    }
-    if (state[SDL_SCANCODE_ESCAPE] && world.m_buttonDown)
-    {
-        world.m_quitScene = true;
-        world.m_gameState = MENU;
     }
 
     stream.close();

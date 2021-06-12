@@ -122,6 +122,7 @@ void World::input()
     m_mouseIsPressed = false;
     m_mouseIsReleased = false;
     m_mouseIsDoubleClicked = false;
+    m_buttonDown = false;
 
     SDL_SetEventFilter(&event_filter, (void*)this);
 
@@ -150,6 +151,10 @@ void World::input()
         m_mouse.y *= m_MOUSE_MULTIPLIER_Y;
     }
 
+    if (m_event.type == SDL_KEYDOWN)
+    {
+        m_buttonDown = true;
+    }
     //cout << m_mouse.x << " " << m_mouse.y << endl;
 }
 
