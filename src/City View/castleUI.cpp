@@ -177,8 +177,6 @@ void castleUI::loadData(string configFile)
         squadBuff->startRect = m_colliders[squadBuff->data->coord.y][squadBuff->data->coord.x];
         squadBuff->objectRect = m_colliders[squadBuff->data->coord.y][squadBuff->data->coord.x];
         squadBuff->objTexture = loadSquadTexture(squadBuff->data->type);
-        D(squadBuff->data->coord.y);
-        D(squadBuff->data->coord.x);
         m_squads.push_back(squadBuff);
         m_data.push_back(dataBuff);
         m_createSquadEl[type - 1]->m_numberOfSoldiers += dataBuff->numberOfSoldiers;
@@ -192,8 +190,6 @@ void castleUI::loadData(string configFile)
 SDL_Texture* castleUI::loadSquadTexture(SQUAD type)
 {
     SDL_Texture* returnData = nullptr;
-
-    D(type);
 
     switch(type)
     {
@@ -458,7 +454,6 @@ void castleUI::removeUnits()
                 }
                 if(m_data[j]->numberOfSoldiers >= m_newSquadData[i]->m_numberOfSoldiers)
                 {
-                    D(m_data[j]->numberOfSoldiers);
                     world.m_squadManager.changeUnits(0, m_data[j]->type, m_data[j]->coord.x, m_data[j]->coord.y, m_data[j]->numberOfSoldiers, -(m_newSquadData[i]->m_numberOfSoldiers));
                     m_data[j]->numberOfSoldiers -= m_newSquadData[i]->m_numberOfSoldiers;
                     m_newSquadData[i]->m_numberOfSoldiers = 0;
