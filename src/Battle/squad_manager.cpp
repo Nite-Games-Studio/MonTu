@@ -45,7 +45,7 @@ int squad_manager::addSquad(string city){
     oostream << squadCount;
     oostream.close();
 
-    return squadCount;
+    return squadCount - 1;
 }
 
 void squad_manager::changeState(int squad, string newCity){
@@ -111,10 +111,12 @@ void squad_manager::addSoldier(int squad, int numberOfSoldiers, SQUAD type, int 
     newSoldier.coord.x = coordX;
     newSoldier.coord.y = coordY;*/
 
+    D(filename);
+
     streamf.open("data//squads//soldier data//" + filename);
     //soldiers.push_back();
     streamf.seekg(streamf.tellg(), ios::end);
-    streamf << (int)type << ", HEALTH: 100, COORDINATES: " << to_string(coordX) << " " << to_string(coordY) << "\n";
+    streamf << (int)type << " UNITS: " << to_string(numberOfSoldiers) << " COORDINATES: " << to_string(coordX) << " " << to_string(coordY) << "\n";
     streamf.close();
 }
 
@@ -128,9 +130,6 @@ void squad_manager::changeUnits(int squadIndex, SQUAD unitType, int coordX, int 
 
     int newUnits = currUnits + value;
     int indF = file_contents.find(str_search);
-    D(filename);
-    D(str_search);
-    D(indF);
     file_contents.replace(indF, string(str_search).length(), to_string((int)unitType) + " UNITS: " + to_string(newUnits) + " COORDINATES: " + to_string(coordX) + " " + to_string(coordY));
 
     stream.open("data//squads//soldier data//" + filename);
@@ -154,10 +153,10 @@ void squad_manager::changeSoldierCoords(int squad, int currCoordX, int currCoord
     stream.close();
 }
 
-void squad_manager::killSoldier(int squad, string type, int coordX, int coordY){
+void squad_manager::killSoldier(int squad, int type, int coordX, int coordY){
     ofstream stream;
     string filename = "soldier_data_" + to_string(squad) + ".txt";
-    string str_search = type + ", HEALTH: 0, COORDINATES: " + to_string(coordX) + " " + to_string(coordY);
+    string str_search = to_string(type) + " UNITS: 0 COORDINATES: " + to_string(coordX) + " " + to_string(coordY) + "\n";
 
     ifstream infile { "data//squads//soldier data//" + filename };
     string file_contents { istreambuf_iterator<char>(infile), istreambuf_iterator<char>() };

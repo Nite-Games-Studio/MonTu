@@ -1,8 +1,7 @@
 Img: crossbowmen.bmp crossbowmen.bmp
-Width_Height: 50 50
+Width_Height: 72 60
 
-Health: 100
 AttackDmg: 5
 Speed: 10
-Range: 60
+Range: 8
 Faith: 50

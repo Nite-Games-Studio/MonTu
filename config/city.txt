@@ -1,4 +1,3 @@
-Cities: 5
 City1.txt
 City2.txt
 City3.txt

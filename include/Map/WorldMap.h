@@ -19,8 +19,6 @@ public:
     WorldMap();
     virtual ~WorldMap();
 
-    GAME_STATE gameState;
-
     SDL_Texture* WorldMapTexture;
     SDL_Texture* FlagTexture;
 
@@ -30,18 +28,6 @@ public:
     SDL_Rect minZoom;
     SDL_Rect cameraRect;
     SDL_Rect chunkCameraRect;
-
-    SDL_Rect cameraDstRect1;
-    SDL_Rect cameraDstRect2;
-    SDL_Rect cameraDstRect3;
-    SDL_Rect cameraDstRect4;
-
-    SDL_Rect cameraSrcRect1;
-    SDL_Rect cameraSrcRect2;
-    SDL_Rect cameraSrcRect3;
-    SDL_Rect cameraSrcRect4;
-
-    SDL_Scancode add_Army;
 
     coordinates cameraCenter;
     coordinates direction;
@@ -55,6 +41,7 @@ public:
     vector <SDL_Texture*> mapPieces;
     vector <mapObject*> armyVec;
     vector <City*> m_cities;
+    vector <string> m_armyFiles;
 
     int zoomMulti;
     int mapWidth;
@@ -63,8 +50,6 @@ public:
     int currentChunk;
     int allImages;
     int imagesPerChunk;
-
-    bool borderActive;
 
     float zoom_lvl = 1;
     double moveRatio;
@@ -86,8 +71,8 @@ public:
     void loadArmy(string configFile);
     void load(ifstream& stream);
     void loadCity(string configFile);
-    void addArmy();
-    void openBattle();
+    void addArmy(coordinates coor, int index);
+    void loadSquad(string configFile);
 
 protected:
 

@@ -44,7 +44,9 @@ enum SQUAD
     SPEARMEN = 3,
     CROSSBOWMEN = 4,
     KNIGHTS = 5,
-    COUNT = 6
+    HOOK = 6,
+    RAINOFARROWS = 7,
+    COUNT = 8
 };
 
 enum ICON_STATE
@@ -243,6 +245,9 @@ struct mapObject
     SDL_Texture* objTexture;
 
     bool mooving = false;
+    bool borderActive = false;
+
+    int index;
 
     fcoordinates coor;
 };

@@ -1,8 +1,7 @@
 Img: spearmen.bmp spearmen.bmp
-Width_Height: 50 50
+Width_Height: 72 60
 
-Health: 100
 AttackDmg: 5
 Speed: 10
-Range: 60
+Range: 1
 Faith: 50

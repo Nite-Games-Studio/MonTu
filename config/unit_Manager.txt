@@ -1,0 +1,5 @@
+img: unitsDisplay.bmp
+
+w_h: 40 40
+
+damageDevider: 10

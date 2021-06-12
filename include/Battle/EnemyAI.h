@@ -15,6 +15,7 @@ class EnemyAI
         vector<vector<Tile*>> m_battlefield;
         vector<Squad*> m_aiSquads;
         vector<Squad*> m_playerSquads;
+        int* m_unitMap;
 
         Tile* startPosition;
         vector<Tile*> availableToWalkTiles;
@@ -23,7 +24,24 @@ class EnemyAI
         Tile* bestPosition;
         Squad* bestVictim;
 
-        map<SQUAD, unsigned short> valueSquadMap{
+        ///Decision Parameters
+
+        /// Earned from getting closer to enemies
+        /// Used only before first attack
+        unsigned short m_distance;
+        /// Close to allies
+        unsigned short m_teamwork;
+        /// Damage done
+        unsigned short m_aggression;
+
+        int teamworkScore;
+        int distanceScore;
+        int aggressionScore;
+
+        int bestTeamworkScore;
+        int bestDistanceScore;
+
+        map<SQUAD, double> valueSquadMap{
             {ARCHER, 4},
             {WARRIOR, 1},
             {SPEARMEN, 2},
@@ -31,6 +49,7 @@ class EnemyAI
             {KNIGHTS, 7}
         };
 
+        void init(string confgiFile);
         void takeBattlefield();
         void makeTurn();
         void returnBattlefield();
@@ -39,7 +58,7 @@ class EnemyAI
     protected:
 
     private:
-        void chooseBestActionForUnit(Squad* squad);
+        void chooseBestActionForUnit(Squad* squad, unsigned short unitIndex);
 
 };
 

@@ -13,21 +13,17 @@ ArmyManager::~ArmyManager()
     //dtor
 }
 
-void ArmyManager::init(string configFile)
+void ArmyManager::deployArmy(unsigned short index, OWNER owner)
 {
-    configFile = "data\\" + configFile;
-    fstream stream;
+    if(owner == PLAYER1)
+    {
+        armyFormationPath = "data\\squads\\soldier data\\soldier_data_" + to_string(index) + ".txt";
+    }
+    else
+    {
+        armyFormationPath = "data\\enemies\\enemy_army_" + to_string(index) + ".txt";
+    }
 
-    string tmp;
-
-    stream.open(configFile.c_str());
-    stream >> tmp >> armyFormationPath;
-    stream.close();
-    armyFormationPath = "data\\" + armyFormationPath;
-}
-
-void ArmyManager::deployArmy(OWNER owner)
-{
     fstream stream;
 
     char** formation = new char* [world.m_battle.m_rows];
@@ -38,41 +34,28 @@ void ArmyManager::deployArmy(OWNER owner)
 
     }
 
-    stream.open(armyFormationPath.c_str());
-    cout << "THE FORMATION IS: \n-------------------- \n";
-    for (int r = 0; r < world.m_battle.m_rows; r ++)
-    {
-        for (int c = 0; c < 3; c++)
-        {
-            stream >> formation[r][c];
-            cout << formation[r][c];
-        }
-        cout << endl;
-    }
-    cout << "-------------------- \n";
-    stream.close();
+    string tmp;
+    coordinates coorBuff;
+    int intBuff;
+    SQUAD enumBuff;
 
-    coordinates buff;
-    for (int r = 0; r < world.m_battle.m_rows; r ++)
+    stream.open(armyFormationPath.c_str());
+    
+    if (stream.is_open())
     {
-        for (int c = 0; c < 3; c++)
+        while (!stream.eof())
         {
-            switch (formation[r][c])
-            {
-            case 'W':
-                buff.x = c;
-                buff.y = r;
-                world.m_battle.initSquad(WARRIOR, buff, owner);
-                break;
-            case 'A':
-                buff.x = c;
-                buff.y = r;
-                world.m_battle.initSquad(ARCHER, buff, owner);
-                break;
-            default :
-                break;
-            }
+            stream >> intBuff;
+            enumBuff = (SQUAD)intBuff;
+            cout << intBuff << " ";
+            stream >> tmp >> intBuff >> tmp >> coorBuff.y >> coorBuff.x;
+            cout << tmp << " " << intBuff << " " << tmp << " " << coorBuff.y << " " << coorBuff.x << endl;
+            world.m_battle.initSquad(enumBuff, coorBuff, intBuff, owner);
         }
+        stream.close();
+    }
+    else
+    {
+        cout << "FATAL ERROR: File not found in: " << armyFormationPath << endl;
     }
 }
-

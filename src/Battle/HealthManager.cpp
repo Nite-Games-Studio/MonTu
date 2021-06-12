@@ -1,8 +1,13 @@
 #include "HealthManager.h"
+#include "World.h"
+#include "string"
+using namespace std;
+
+extern World world;
 
 HealthManager::HealthManager()
 {
-    //ctor
+    m_numberOfUnits = nullptr;
 }
 
 HealthManager::~HealthManager()
@@ -16,29 +21,51 @@ void HealthManager::init(string configFile, SDL_Renderer* renderer)
 
     fstream stream;
     string tmp, buff;
+
     stream.open(configFile.c_str());
 
     stream >> tmp >> buff;
-    m_healthBarFullTxtr = LoadTexture(buff, renderer);
-    stream >> tmp >> buff;
-    m_healthBarEmptyTxtr = LoadTexture(buff, renderer);
-    stream >> tmp >> m_healthBarWidth >> m_imgRect.h;
-    stream >> tmp >> m_drawBorderRect.w >> m_drawBorderRect.h;
-    m_imgRect.x = 0;
-    m_imgRect.y = 0;
+    m_objectTexture = LoadTexture(buff, renderer);
+    stream >> tmp >> m_objectRect.w >> m_objectRect.h;
+    stream >> tmp >> m_damageDevider;
+    m_objectRect.x = 0;
+    m_objectRect.y = 0;
 
     stream.close();
 }
 
-void HealthManager::drawHealthbar(SDL_Renderer* renderer, SDL_Rect objRect, float health, float maxHealth)
+void HealthManager::drawHealthbar(SDL_Renderer* renderer, SDL_Rect objRect)
 {
-    m_drawBorderRect.x = objRect.x - m_drawBorderRect.w / 2 + objRect.w / 2;
-    m_drawBorderRect.y = objRect.y + (objRect.h / 5 * 4);
-    SDL_RenderCopy(renderer, m_healthBarEmptyTxtr, NULL, &m_drawBorderRect);
+    m_objectRect.x = objRect.x + objRect.w / 2;
+    m_objectRect.y = objRect.y + objRect.w - 25;
 
-    m_imgRect.w =(int)(m_healthBarWidth * (health/maxHealth));
-    m_drawFillRect = m_drawBorderRect;
-    m_drawFillRect.w = (int)(m_drawBorderRect.w * (health/maxHealth));
+    m_numbersRect.x = m_objectRect.x + m_objectRect.w / 2;
+    m_numbersRect.y = m_objectRect.y + m_objectRect.h / 2;
 
-    SDL_RenderCopy(renderer, m_healthBarFullTxtr, &m_imgRect, &m_drawFillRect);
+    m_numbersRect.x -= m_numbersRect.w/2;
+    m_numbersRect.y -= m_numbersRect.h/2;
+    SDL_RenderCopy(world.m_main_renderer, m_objectTexture, NULL, &m_objectRect);
+    SDL_RenderCopy(renderer, m_numbersTexture, NULL, &m_numbersRect);
+}
+
+void HealthManager::takeDamage(double damage)
+{
+    damage /= m_damageDevider;
+
+    D(*m_numberOfUnits);
+
+    *m_numberOfUnits -= damage;
+
+    D(*m_numberOfUnits);
+    D(damage);
+
+    updateUnitsNumber();
+}
+
+void HealthManager::updateUnitsNumber()
+{
+    string buffStr = to_string(*m_numberOfUnits);
+    m_numbersTexture = stringToTexture(buffStr, 25);
+
+    SDL_QueryTexture(m_numbersTexture, NULL, NULL, &m_numbersRect.w, &m_numbersRect.h);
 }
