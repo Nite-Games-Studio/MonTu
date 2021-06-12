@@ -21,8 +21,7 @@ public:
 
     SDL_Texture* WorldMapTexture;
     SDL_Texture* FlagTexture;
-
-    mapObject army;
+    SDL_Texture* armyTexture;
 
     SDL_Rect maxZoom;
     SDL_Rect minZoom;
@@ -64,8 +63,8 @@ public:
     void moveWithMouse();
     void loadMap(string configFile);
     void openCity();
-    void drawArmy(mapObject* army);
-    void updateArmy(mapObject* army);
+    void drawArmy();
+    void updateArmy();
     void saveArmy(string configFile);
     void save(mapObject* army, int pos);
     void loadArmy(string configFile);

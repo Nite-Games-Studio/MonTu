@@ -39,7 +39,7 @@ void WorldMap::init(string configFile)
 
     stream.close();
 
-    army.objTexture = LoadTexture(armyTestImg, world.m_main_renderer);
+    armyTexture = LoadTexture(armyTestImg, world.m_main_renderer);
     m_selectedArmy.objTexture = LoadTexture(borderImg, world.m_main_renderer);
     FlagTexture = LoadTexture(flagImg, world.m_main_renderer);
 
@@ -145,10 +145,7 @@ void WorldMap::update()
 
     moveWithMouse();
   
-    for (int i = 0; i < armyVec.size(); i++)
-    {
-        updateArmy(armyVec[i]);
-    }
+    updateArmy();
 
     openCity();
 }
@@ -157,14 +154,6 @@ void WorldMap::draw()
 {
     SDL_RenderClear(world.m_main_renderer);
 
-    SDL_Rect screen_space =
-    {
-        zoom_lvl * (army.objRect.x - cameraRect.x),
-        zoom_lvl * (army.objRect.y - cameraRect.y),
-        zoom_lvl * army.objRect.w,
-        zoom_lvl * army.objRect.h
-    };
-
     drawMap();
 
     for (int i = 0; i < m_cities.size(); i++)
@@ -172,10 +161,7 @@ void WorldMap::draw()
         m_cities[i]->draw();
     }
 
-    for (int i = 0; i < armyVec.size(); i++)
-    {
-        drawArmy(armyVec[i]);
-    }
+    drawArmy();
 
     SDL_RenderPresent(world.m_main_renderer);
 }
@@ -329,44 +315,47 @@ void WorldMap::loadSquad(string configFile)
     }
 }
 
-void WorldMap::drawArmy(mapObject* army)
+void WorldMap::drawArmy()
 {
-    SDL_Rect screen_space =
+    for (int i = 0; i < armyVec.size(); i++)
     {
-        zoom_lvl * (army->objRect.x - cameraRect.x),
-        zoom_lvl * (army->objRect.y - cameraRect.y),
-        zoom_lvl * army->objRect.w,
-        zoom_lvl * army->objRect.h
-    };
+        SDL_Rect screen_space =
+        {
+            zoom_lvl * (armyVec[i]->objRect.x - cameraRect.x),
+            zoom_lvl * (armyVec[i]->objRect.y - cameraRect.y),
+            zoom_lvl * armyVec[i]->objRect.w,
+            zoom_lvl * armyVec[i]->objRect.h
+        };
 
-    if (world.m_mouseIsDoubleClicked && checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, screen_space))
-    {
-        m_selectedArmy.objRect.x = (screen_space.x - 5);
-        m_selectedArmy.objRect.y = (screen_space.y - 5);
-        m_selectedArmy.objRect.w = (screen_space.w + 10);
-        m_selectedArmy.objRect.h = (screen_space.h + 10);
+        if (world.m_mouseIsDoubleClicked && checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, screen_space))
+        {
+            m_selectedArmy.objRect.x = (screen_space.x - 5);
+            m_selectedArmy.objRect.y = (screen_space.y - 5);
+            m_selectedArmy.objRect.w = (screen_space.w + 10);
+            m_selectedArmy.objRect.h = (screen_space.h + 10);
 
-        army->borderActive = true;
-    }
+            armyVec[i]->borderActive = true;
+        }
 
-    if (zoom_lvl < 0.65)
-    {
-        SDL_RenderCopy(world.m_main_renderer, FlagTexture, NULL, &(screen_space));
-    }
-    else
-    {
-        SDL_RenderCopy(world.m_main_renderer, army->objTexture, NULL, &(screen_space));
-    }
+        if (zoom_lvl < 0.65)
+        {
+            SDL_RenderCopy(world.m_main_renderer, FlagTexture, NULL, &(screen_space));
+        }
+        else
+        {
+            SDL_RenderCopy(world.m_main_renderer, armyTexture, NULL, &(screen_space));
+        }
 
-    if (army->borderActive == true)
-    {
-        m_selectedArmy.objRect.x = (screen_space.x - 5);
-        m_selectedArmy.objRect.y = (screen_space.y - 5);
-        m_selectedArmy.objRect.w = (screen_space.w + 10);
-        m_selectedArmy.objRect.h = (screen_space.h + 10);
+        if (armyVec[i]->borderActive == true)
+        {
+            m_selectedArmy.objRect.x = (screen_space.x - 5);
+            m_selectedArmy.objRect.y = (screen_space.y - 5);
+            m_selectedArmy.objRect.w = (screen_space.w + 10);
+            m_selectedArmy.objRect.h = (screen_space.h + 10);
 
-        SDL_RenderCopy(world.m_main_renderer, m_selectedArmy.objTexture, NULL, &(m_selectedArmy.objRect));
-    }
+            SDL_RenderCopy(world.m_main_renderer, m_selectedArmy.objTexture, NULL, &(m_selectedArmy.objRect));
+        }
+    }  
 }
 
 void WorldMap::addArmy(coordinates coor, int index)
@@ -379,68 +368,73 @@ void WorldMap::addArmy(coordinates coor, int index)
     newArmy->objRect.y = coor.y;
     newArmy->objRect.w = 64;
     newArmy->objRect.h = 64;
-    newArmy->objTexture = army.objTexture;
+    newArmy->objTexture = armyTexture;
+    newArmy->coor.x = coor.x;
+    newArmy->coor.y = coor.y;
 
     newArmy->dstRect = newArmy->objRect;
 
     armyVec.push_back(newArmy);
 }
 
-void WorldMap::updateArmy(mapObject* army)
+void WorldMap::updateArmy()
 {
     zoom_lvl = world.m_SCREEN_WIDTH / (0.0 + cameraRect.w);
 
-    SDL_Rect armyScreenRect;
-
-    armyScreenRect = army->objRect;
-
-    armyScreenRect.x = (army->objRect.x - cameraRect.x);
-    armyScreenRect.y = (army->objRect.y - cameraRect.y);
-
-    if (world.m_mouseIsPressed && army->borderActive)
+    for (int i = 0; i < armyVec.size(); i++)
     {
-        if (!checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, armyScreenRect))
+        SDL_Rect armyScreenRect;
+
+        armyScreenRect = armyVec[i]->objRect;
+
+        armyScreenRect.x = (armyVec[i]->objRect.x - cameraRect.x);
+        armyScreenRect.y = (armyVec[i]->objRect.y - cameraRect.y);
+
+        if (world.m_mouseIsPressed && armyVec[i]->borderActive)
         {
-            army->dstRect.x = (world.m_mouse.x - army->objRect.w / 2) / zoom_lvl + cameraRect.x;
-            army->dstRect.y = (world.m_mouse.y - army->objRect.h / 2) / zoom_lvl + cameraRect.y;
+            if (!checkForMouseCollision(world.m_mouse.x, world.m_mouse.y, armyScreenRect))
+            {
+                armyVec[i]->dstRect.x = (world.m_mouse.x - armyVec[i]->objRect.w / 2) / zoom_lvl + cameraRect.x;
+                armyVec[i]->dstRect.y = (world.m_mouse.y - armyVec[i]->objRect.h / 2) / zoom_lvl + cameraRect.y;
 
-            army->borderActive = false;
+                armyVec[i]->borderActive = false;
 
-            army->mooving = true;
-        }
-    }
-
-    if (army->mooving)
-    {
-        armyDirection.x = army->dstRect.x - army->objRect.x;
-        armyDirection.y = army->dstRect.y - army->objRect.y;
-
-        moveRatio = (double)armyDirection.x / (double)armyDirection.y;
-
-        if (armyDirection.x < 0)
-        {
-            army->coor.x += speed * fabs(moveRatio) * -1.0;
-        }
-        else
-        {
-            army->coor.x += speed * fabs(moveRatio);
+                armyVec[i]->mooving = true;
+            }
         }
 
-        if (armyDirection.y < 0)
+        if (armyVec[i]->mooving)
         {
-            army->coor.y += speed * -1.0 / fabs(moveRatio);
-        }
-        else
-        {
-            army->coor.y += speed / fabs(moveRatio);
-        }
+            armyDirection.x = armyVec[i]->dstRect.x - armyVec[i]->objRect.x;
+            armyDirection.y = armyVec[i]->dstRect.y - armyVec[i]->objRect.y;
 
-        army->objRect.x = army->coor.x;
-        army->objRect.y = army->coor.y;
+            moveRatio = (double)armyDirection.x / (double)armyDirection.y;
 
-        if (abs(army->dstRect.x - army->objRect.x) < 5)
-        {
-            army->mooving = false;
+            if (armyDirection.x < 0)
+            {
+                armyVec[i]->coor.x += speed * fabs(moveRatio) * -1.0;
+            }
+            else
+            {
+                armyVec[i]->coor.x += speed * fabs(moveRatio);
+            }
+
+            if (armyDirection.y < 0)
+            {
+                armyVec[i]->coor.y += speed * -1.0 / fabs(moveRatio);
+            }
+            else
+            {
+                armyVec[i]->coor.y += speed / fabs(moveRatio);
+            }
+
+            armyVec[i]->objRect.x = armyVec[i]->coor.x;
+            armyVec[i]->objRect.y = armyVec[i]->coor.y;
+
+            if (abs(armyVec[i]->dstRect.x - armyVec[i]->objRect.x) < 5)
+            {
+                armyVec[i]->mooving = false;
+            }
         }
     }
 
