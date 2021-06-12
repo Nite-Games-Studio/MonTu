@@ -66,6 +66,8 @@ class Battle
         vector<Tile*> m_availableWalkTiles;
         vector<Tile*> m_availableShootTiles;
 
+        bool m_gameOver;
+        OWNER m_winner;
         bool canTravel(Squad* squad, coordinates desiredPosition);
         bool canShoot(Squad* squad, coordinates targetPosition);
         short angleToDirection(short angle);
@@ -76,6 +78,7 @@ class Battle
         Squad* findSquadByCoor (coordinates coor);
         vector<Tile*> showAvailableWalkTiles(Squad* squad);
         vector<Tile*> showAvailableShootTiles(Squad* squad);
+        OWNER checkForWinState();
 
         void update();
         void draw();

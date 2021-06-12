@@ -87,6 +87,8 @@ void Battle::initDirection(string configFile)
 void Battle::initGameSession(unsigned short mapIndex, unsigned short playerArmyIndex, unsigned short enemyArmyIndex)
 {
     cout << "---------INIT SESSION--------- \n";
+    m_winner = NOOWNER;
+    m_gameOver = false;
     m_enemyAI.init("enemyAI.txt");
     m_armyManager.deployArmy(playerArmyIndex, PLAYER1);
     m_armyManager.deployArmy(enemyArmyIndex, PLAYER2);
@@ -211,6 +213,14 @@ void Battle::update()
         }
     }
     checkForTurnSwitch();
+
+    m_winner = checkForWinState();
+   
+    if (m_winner != NOOWNER)
+    {
+        m_gameOver = true;
+        cout << "GAME OVER \n";
+    }
 
     for(int i = 0; i < m_particles.size(); i ++)
     {
@@ -1127,6 +1137,39 @@ void Battle::checkForTurnSwitch()
     if (checkForSwitch)
     {
         switchTurn();
+    }
+}
+
+OWNER Battle::checkForWinState()
+{
+    bool playerWon = true;
+    bool enemyWon = true;
+    for(int i = 0; i < m_squads.size(); i ++)
+    {
+        if (m_squads[i]->m_owner == PLAYER1)
+        {
+            enemyWon = false;
+        }
+        else
+        {
+            playerWon = false;
+        }
+        if (!playerWon && !enemyWon)
+        {
+            break;
+        }
+    }
+    if (playerWon)
+    {
+        return PLAYER1;
+    }
+    else if (enemyWon)
+    {
+        return PLAYER2;
+    }
+    else
+    {
+        return NOOWNER;
     }
 }
 

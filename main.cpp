@@ -36,8 +36,8 @@ int main(int argc, char* argv[])
     CITYBUILDING,
     TITLESCREEN,
     EXIT*/
-        
-    world.m_gameState = MENU;
+
+    world.m_gameState = MAP_CHOOSING;
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
     coordinates coor;

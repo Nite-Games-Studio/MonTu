@@ -158,7 +158,6 @@ void Squad::attack(Squad* defender)
     m_moved = true;
     Particle* particle = new Particle(*world.m_configManager.modelMeleeHit, defender->m_objectRect);
     particle->start();
-    cout << __LINE__ << endl;
     world.m_battle.m_particles.push_back(particle);
 }
 
