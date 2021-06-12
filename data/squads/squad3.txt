@@ -1,4 +1,4 @@
 state: 0
 index: 3
-city: TSAREVO
+city: BURGAS
 soldier_data_3.txt

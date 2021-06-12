@@ -1,3 +1,3 @@
 state: 0
-city: TSAREVO
+city: PLOVDIV
 soldier_data_4.txt

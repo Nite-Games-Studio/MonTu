@@ -1,4 +1,4 @@
 state: 0
 index: 0
-city: TSAREVO
+city: SOFIAs
 soldier_data_0.txt

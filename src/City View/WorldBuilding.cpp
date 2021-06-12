@@ -18,21 +18,32 @@ WorldBuilding::~WorldBuilding()
     //dtor
 }
 
-void WorldBuilding::initCity(string configFile)
+void WorldBuilding::initCity(string name)
 {
+    m_cityName = name;
 
-    configFile = "config\\" + configFile;
+    string configFile = "data\\cities\\" + name + ".txt";
+
+    string selectTileTex = "selected.bmp";
+    m_colls = 19;
+    m_rows = 10;
+
+    m_CP1.r = 255;
+    m_CP1.g = 255;
+    m_CP1.b = 255;
+
+    m_CP2.r = 255;
+    m_CP2.g = 255;
+    m_CP2.b = 255;
 
     fstream stream;
     stream.open(configFile.c_str());
     string tmp;
-    string selectTileTex;
-
-    stream >> tmp >> m_colls >> m_rows;
-    stream >> tmp >> selectTileTex;
-
-    stream >> tmp >> m_CP1.r >> m_CP1.g >> m_CP1.b;
-    stream >> tmp >> m_CP2.r >> m_CP2.g >> m_CP2.b;
+    
+    stream >> tmp >> tmp >> tmp >> tmp >> tmp;
+    stream >> tmp >> tmp;
+    stream >> tmp;
+    stream >> tmp;
 
     stream.close();
 
@@ -44,7 +55,7 @@ void WorldBuilding::initCity(string configFile)
     initMap("CityView.txt");
     initTiles("cityMap.txt");
     m_castleUI->init("castleUI.txt", "Moira" , world.m_main_renderer);
-    m_castleUI->loadData("squad1.txt");
+    m_castleUI->loadData(tmp);
 
     if(castle == NULL){
 
@@ -60,8 +71,7 @@ void WorldBuilding::initCity(string configFile)
 
     }
 
-    loadBuildings("buildingsSave.txt");
-
+    loadBuildings(name);
 }
 
 void WorldBuilding::initMap(string configFile)
@@ -103,7 +113,7 @@ void WorldBuilding::initBackground(string configFile)
 void WorldBuilding::saveBuildings(string configFile)
 {
 
-    configFile = "data\\" + configFile;
+    configFile = "data\\cities\\saves\\" + m_cityName + "_save.txt";
 
     ofstream out_file;
 
@@ -131,7 +141,7 @@ void WorldBuilding::loadBuildings(string configFile)
 {
 
     //cout << "#==========#" << endl;
-    configFile = "data\\" + configFile;
+    configFile = "data\\cities\\saves\\" + configFile + "_save.txt";
     Building* building = NULL;
 
     ifstream in_file;
@@ -146,9 +156,9 @@ void WorldBuilding::loadBuildings(string configFile)
 
 
         in_file >> tmp2 ;
-        tmp2 = "data\\city\\" + tmp2;
+        tmp2 = "data\\cities\\saves\\" + m_cityName + "\\" + tmp2;
 
-        if(tmp2 != "data\\city\\")
+        if(tmp2 != "data\\cities\\saves\\" + m_cityName + "\\")
         {
 
             if(tmp2 == " "){
@@ -157,17 +167,16 @@ void WorldBuilding::loadBuildings(string configFile)
                 break;
 
             }
-            if(tmp2 != "data\\city\\0-castle.txt"){
+            if(tmp2 != "data\\cities\\saves\\" + m_cityName + "\\0-castle.txt"){
 
                 //cout << tmp2 << endl;
                 building = new Building();
+
                 building->load(tmp2 , world.m_main_renderer);
 
                 m_buildings.push_back(building);
 
             }
-
-
         }
 
         /*cout << "#==========#" << endl;
@@ -586,7 +595,6 @@ void WorldBuilding::updateBuilding()
      if (m_castleUIIsActive)
      {
          m_castleUI->update();
-
      }
 
     /*m_selectedTileUI.objRect.w *= 3;

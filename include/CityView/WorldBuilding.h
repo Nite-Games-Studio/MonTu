@@ -66,6 +66,7 @@ class WorldBuilding
         bool m_isSelected;
         bool m_castleUIIsActive;
         bool m_buildingTypeChange;
+        string m_cityName;
 
         string backgroundImg;
         SDL_Texture* backgroundTexture;

@@ -110,7 +110,6 @@ void Building::load(string configFile, SDL_Renderer* renderer)
     ///Checks if identifier = "data" and if true - loads the bonus variables in the "data\city" save files
     if(identifier == "data" )
     {
-
         stream >> tmp >> m_objectRect.x;
         stream >> tmp >> m_objectRect.y;
 
@@ -119,8 +118,6 @@ void Building::load(string configFile, SDL_Renderer* renderer)
 
         m_objectRect.h = cityView.m_hexagonHeight;
         m_objectRect.w = cityView.m_hexagonWidth;
-
-
     }
     load(stream);
 
@@ -163,7 +160,7 @@ void Building::save(Building* building , short int position)
     //{
     configFile = to_string(position) + "-" + configFile;
     m_tempConfigFile = configFile + ".txt";
-    configFile = "data\\city\\" + configFile + ".txt";
+    configFile = "data\\cities\\saves\\" + cityView.m_cityName + "\\" + configFile + ".txt";
     //}
 
     ofstream out_file;

@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     TITLESCREEN,
     EXIT*/
 
-    world.m_gameState = MAP_CHOOSING;
+    world.m_gameState = MENU;
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
     coordinates coor;
@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
 
         if(world.m_gameState == CITYBUILDING)
         {
-            cityView.initCity("cityView.txt");
+            cityView.initCity("varna");
             while(!world.m_quitScene)
             {
                 world.input();
