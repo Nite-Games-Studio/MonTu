@@ -3,7 +3,8 @@
 #include <fstream>
 #include <SDL.h>
 
-#include "defines.h"
+#include "defines.h"#
+#include "Engine.h"
 
 class WinScreen
 {
@@ -11,12 +12,16 @@ public:
 	WinScreen();
 	virtual ~WinScreen();
 
-	SDL_Rect m_ButtonRect;
+	Button m_button;
 	SDL_Texture* m_winTexture;
 	SDL_Texture* m_loseTexture;
+
+	string m_ownerStr;
+
+	int widthChange, heightChange;
 	
 	void init(string configFile, OWNER owner);
-	void draw();
+	void draw(SDL_Renderer* renderer);
 	void update();
 
 };

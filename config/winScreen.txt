@@ -1,0 +1,5 @@
+winImg: Victory.bmp
+loseImg: Defeat.bmp
+buttonImg: ExitButton.bmp
+buttonRect: 672 733 576 168
+Change: 32 18

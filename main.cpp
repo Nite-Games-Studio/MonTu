@@ -40,10 +40,6 @@ int main(int argc, char* argv[])
     world.m_gameState = MAP_CHOOSING;
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
-    coordinates coor;
-    coor.x = 1000;
-    coor.y = 500;
-    world.m_squadManager.changeState(1, coor);
 
     while(true)
     {
@@ -61,7 +57,7 @@ int main(int argc, char* argv[])
         if(world.m_gameState == MENU)
         {
             while(!world.m_quitScene)
-            {
+            {                
                 world.input();
                 world.m_menu.update();
                 world.m_menu.draw();

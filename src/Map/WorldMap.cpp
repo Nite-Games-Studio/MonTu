@@ -366,8 +366,8 @@ void WorldMap::addArmy(coordinates coor, int index)
 
     newArmy->objRect.x = coor.x;
     newArmy->objRect.y = coor.y;
-    newArmy->objRect.w = 64;
-    newArmy->objRect.h = 64;
+    newArmy->objRect.w = 100;
+    newArmy->objRect.h = 100;
     newArmy->objTexture = armyTexture;
     newArmy->coor.x = coor.x;
     newArmy->coor.y = coor.y;

@@ -26,6 +26,7 @@
 #include "squad_manager.h"
 #include "castleUI.h"
 #include "WorldMap.h"
+#include "WinScreen.h"
 
 class World
 {
@@ -48,6 +49,7 @@ class World
         squad_manager m_squadManager;
         castleUI m_castleUI;
         WorldMap m_worldMap;
+        WinScreen m_winScreen;
 
         int m_SCREEN_WIDTH;
         int m_SCREEN_HEIGHT;

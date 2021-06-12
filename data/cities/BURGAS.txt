@@ -1,3 +1,3 @@
-City_Rect: 1870 1160 100 100
+City_Rect: 1870 1160 150 150
 Img: City.bmp
 burgas_save.txt

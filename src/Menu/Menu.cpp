@@ -104,7 +104,6 @@ void Menu::init(string configFile)
 
     battleButton.bonusW = 1.6;
     battleButton.bonusH = 0.9;
-
 }
 
 void Menu::menu()
