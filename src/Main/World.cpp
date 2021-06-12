@@ -59,9 +59,7 @@ void World::initSDL(string configFile)
 
     ///m_soundManager.play_sound("General.mp3");
 
-
-    /// ShowWindow(GetConsoleWindow(), SW_HIDE);
-
+    // ShowWindow(GetConsoleWindow(), SW_HIDE);
 }
 
 void World::improveRenderer()

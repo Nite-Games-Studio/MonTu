@@ -21,7 +21,7 @@ City::~City()
 
 void City::load(string configFile)
 {
-	configFile = "config\\" + configFile;
+	configFile = "data\\" + configFile;
 	fstream stream;
 	string tmp, img;
 
@@ -29,6 +29,8 @@ void City::load(string configFile)
 
 	stream >> tmp >> m_objRect.x >> m_objRect.y >> m_objRect.w >> m_objRect.h;
 	stream >> tmp >> img;
+	stream >> tmp;
+	tmp = "\\saves\\" + tmp;
 
 	stream.close();
 

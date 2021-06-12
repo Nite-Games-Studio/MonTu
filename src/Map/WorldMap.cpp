@@ -110,7 +110,7 @@ void WorldMap::loadMap(string configFile)
 
 void WorldMap::loadCity(string configFile)
 {
-    configFile = "config\\" + configFile;
+    configFile = "data\\" + configFile;
     fstream stream;
 
     string tmp;
@@ -120,7 +120,7 @@ void WorldMap::loadCity(string configFile)
     while(!stream.eof())
     {
         stream >> tmp;
-        tmp = "\\city\\" + tmp;
+        tmp = "\\cities\\" + tmp;
         City* city = new City;
         city->load(tmp);
         m_cities.push_back(city);

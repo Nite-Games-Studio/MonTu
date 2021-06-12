@@ -48,26 +48,37 @@ int squad_manager::addSquad(string city){
     return squadCount - 1;
 }
 
-void squad_manager::changeState(int squad, string newCity){
+void squad_manager::changeState(int squad, string newCity)
+{
     string fileName = "squad" + to_string(squad) + ".txt";
-    ifstream iistream;
     fstream stream;
     string tmp;
     int currentState;
 
-    iistream.open("data//squads//" + fileName);
-    iistream >> tmp >> currentState;
-    iistream.close();
+    stream.open("data//squads//" + fileName);
 
-    switch(currentState){
-        case 0: currentState = 1; break;
-        case 1: currentState = 0; break;
-        default: cout << "Current state of squad " << squad << " is not valid. , 1 is for 'in a city', 0 is for 'on the map'.";
-    }
+    stream << "state: 0\n";
+    stream << "index: " << squad << "\n";
+    stream << "city: " << newCity << "\n";
+    stream << "squad_data_" + to_string(squad) + ".txt";
+
+    stream.close();
+}
+
+void squad_manager::changeState(int squad, coordinates coor)
+{
+    string fileName = "squad" + to_string(squad) + ".txt";
+    fstream stream;
+    string tmp;
+    int currentState;
 
     stream.open("data//squads//" + fileName);
-    stream << "state: " << currentState << "\n";
-    if(currentState == 0){ stream << "city: " << newCity; }else{ stream << "city: " << "                "; }
+
+    stream << "state: 1\n";
+    stream << "index: " << squad << "\n";
+    stream << "coor: " << coor.x << " " << coor.y << "\n";
+    stream << "squad_data_" + to_string(squad) + ".txt";
+
     stream.close();
 }
 

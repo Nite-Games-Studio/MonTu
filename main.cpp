@@ -36,10 +36,14 @@ int main(int argc, char* argv[])
     CITYBUILDING,
     TITLESCREEN,
     EXIT*/
-
+        
     world.m_gameState = MENU;
 
     screen.load("TitleScreens\\NiTe_logo.txt", world.m_main_renderer);
+    coordinates coor;
+    coor.x = 1000;
+    coor.y = 500;
+    world.m_squadManager.changeState(1, coor);
 
     while(true)
     {
@@ -88,6 +92,8 @@ int main(int argc, char* argv[])
             world.m_battle.initGameSession(3, 0, 1);
             world.m_battle.m_enemyAI.takeBattlefield();
             world.m_battle.m_enemyAI.returnBattlefield();
+
+
             while(!world.m_quitScene)
             {
                 world.input();
@@ -100,7 +106,7 @@ int main(int argc, char* argv[])
         {
             world.m_worldMap.init("worldMap.txt");
             world.m_worldMap.loadMap("worldMapPieces.txt");
-            world.m_worldMap.loadCity("city.txt");
+            world.m_worldMap.loadCity("all_cities.txt");
 
             while(!world.m_quitScene)
             {

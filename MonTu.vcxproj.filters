@@ -133,6 +133,11 @@
     <ClInclude Include="include\Battle\HealthManager.h">
       <Filter>include\Battle</Filter>
     </ClInclude>
+    <ClInclude Include="include\CityView\Barracks.h" />
+    <ClInclude Include="include\Map\City.h" />
+    <ClInclude Include="include\WinScreen.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="img\arrow.bmp">
@@ -719,6 +724,13 @@
     </ClCompile>
     <ClCompile Include="src\Battle\HealthManager.cpp">
       <Filter>src\Building</Filter>
+    </ClCompile>
+    <ClCompile Include="src\City View\Barracks.cpp" />
+    <ClCompile Include="src\Map\City.cpp">
+      <Filter>src\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WinScreen.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

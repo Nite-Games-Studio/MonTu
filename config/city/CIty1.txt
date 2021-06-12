@@ -1,2 +1,0 @@
-City_Rect: 100 100 100 100
-Img: City.bmp
